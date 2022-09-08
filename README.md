@@ -4,10 +4,10 @@
 
 ## ⚠ _Notice_
 
-As of the moment, the [https://github.com/Vherniel/cmu-kiosk-device](CMU Kiosk Device) is the first one being developed.
+As of the moment, the [CMU Kiosk Device](https://github.com/Vherniel/cmu-kiosk-device) is the first one being developed.
 
 ### 🏗 _*This page is still under construction*_ 🏗
 
 ## 📝 License
-Copyright © 2022, [https://vherniellebis.tech](Vherniel Lebis)
-This project is [https://github.com/Vherniel/cmu-kiosk-app/LICENSE](MIT) licensed.
+
+Copyright © 2022, [Vherniel Lebis](https://vherniellebis.tech). <br>This project is [MIT](https://github.com/Vherniel/cmu-kiosk-app/LICENSE) licensed.
