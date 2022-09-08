@@ -1,4 +1,4 @@
-### 🏗 _*This page is still under construction*_ 🏗
+### <p align="center">🏗 _*This page is still under construction*_ 🏗</p>
 
 <!-- TODO: Large logo -->
 
