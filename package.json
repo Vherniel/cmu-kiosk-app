@@ -16,7 +16,7 @@
         "@fontsource/iosevka": "^4.5.4",
         "@fontsource/manrope": "^4.5.13",
         "@neoconfetti/svelte": "^1.0.0",
-        "@playwright/test": "^1.31.0",
+        "@playwright/test": "^1.31.1",
         "@sveltejs/adapter-auto": "^2.0.0",
         "@sveltejs/kit": "^1.8.3",
         "@types/cookie": "^0.5.1",
@@ -28,7 +28,7 @@
         "reseter.css": "^2.0.0",
         "sass": "^1.58.3",
         "svelte": "^3.55.1",
-        "svelte-check": "^3.0.3",
+        "svelte-check": "^3.0.4",
         "typescript": "^4.9.5",
         "vite": "^4.1.4",
         "vitest": "^0.28.5"
