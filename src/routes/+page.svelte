@@ -1,4 +1,5 @@
 <script>
+    import "$lib/styles/styles.scss";
 </script>
 
 <svelte:head>
