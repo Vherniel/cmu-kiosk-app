@@ -12,18 +12,15 @@ specifiers:
   eslint-config-prettier: ^8.7.0
   eslint-plugin-svelte3: ^4.0.0
   gardevoir: ^1.0.0
+  lucide-svelte: ^0.124.0
   prettier: ^2.8.4
   prettier-plugin-svelte: ^2.9.0
   sass: ^1.58.3
   svelte: ^3.55.1
   svelte-check: ^3.0.4
-  svelte-icons: ^2.1.0
   typescript: ^4.9.5
   vite: ^4.1.4
   vitest: ^0.29.2
-
-dependencies:
-  svelte-icons: 2.1.0
 
 devDependencies:
   '@fontsource/iosevka': 4.5.4
@@ -37,6 +34,7 @@ devDependencies:
   eslint-config-prettier: 8.7.0_eslint@8.35.0
   eslint-plugin-svelte3: 4.0.0_n4ieifq2d7jq3sqoe474cgqlim
   gardevoir: 1.0.0
+  lucide-svelte: 0.124.0_svelte@3.55.1
   prettier: 2.8.4
   prettier-plugin-svelte: 2.9.0_jrsxveqmsx2uadbqiuq74wlc4u
   sass: 1.58.3
@@ -1176,6 +1174,14 @@ packages:
       get-func-name: 2.0.0
     dev: true
 
+  /lucide-svelte/0.124.0_svelte@3.55.1:
+    resolution: {integrity: sha512-QTh47N68iiavoh0MpmWh/Ksy/iaoSirpun7ReHbi4L2Lx2cO5fCvTEtMVvOuEqIM7gne8FoVVQz50qsrWgb0Mg==}
+    peerDependencies:
+      svelte: ^3.49.0
+    dependencies:
+      svelte: 3.55.1
+    dev: true
+
   /magic-string/0.27.0:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
     engines: {node: '>=12'}
@@ -1667,10 +1673,6 @@ packages:
     dependencies:
       svelte: 3.55.1
     dev: true
-
-  /svelte-icons/2.1.0:
-    resolution: {integrity: sha512-rHPQjweEc9fGSnvM0/4gA3pDHwyZyYsC5KhttCZRhSMJfLttJST5Uq0B16Czhw+HQ+HbSOk8kLigMlPs7gZtfg==}
-    dev: false
 
   /svelte-preprocess/5.0.1_fsk2356kdqta2rdbnwwjn3abbe:
     resolution: {integrity: sha512-0HXyhCoc9rsW4zGOgtInylC6qj259E1hpFnJMJWTf+aIfeqh4O/QHT31KT2hvPEqQfdjmqBR/kO2JDkkciBLrQ==}
