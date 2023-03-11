@@ -1,19 +1,16 @@
 <script lang="ts">
-    import type { SvelteComponent } from "svelte";
+    import type { ComponentType } from "svelte/types/runtime/internal/dev";
+    import { type Icon, BoxSelect } from "lucide-svelte";
+    export let icon: ComponentType<Icon> = BoxSelect;
+    export let disabled: boolean = false;
     // export let prefix: any;
     // export let suffix: any;
-    export let icon: any;
 </script>
 
 <!-- TODO: Tooltip -->
-<button class="button">
+<button class="button" {disabled}>
     <div class="button-layout">
-        {#if typeof icon == "string"}
-            icon
-        {:else}
-            <svelte:component this={icon} />
-        {/if}
-
+        <svelte:component this={icon} />
         <span class="label"><slot /></span>
     </div>
 </button>
