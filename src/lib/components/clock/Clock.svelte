@@ -83,8 +83,8 @@
             margin-left: 1rem;
             margin-right: 1rem;
         }
-        .right {
-        }
+        /* .right {
+        } */
         .top {
             font-size: 1.25rem;
             font-weight: bold;
