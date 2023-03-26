@@ -1,5 +1,7 @@
-<script lang="ts">
+<script>
     // Framework specific
+    import { onMount } from "svelte";
+    import { invalidate } from "$app/navigation";
     import { page } from "$app/stores";
     // Components
     import Header from "$lib/layouts/header/Header.svelte";
@@ -14,9 +16,20 @@
     // Styles
     import "$lib/styles/styles.scss";
 
-    // TODO: type any
     /** @type {import('./$types').LayoutData} */
     export let data;
+
+    $: ({ supabase } = data);
+
+    onMount(() => {
+        const {
+            data: { subscription },
+        } = supabase.auth.onAuthStateChange(() => {
+            invalidate("supabase:auth");
+        });
+
+        return () => subscription.unsubscribe();
+    });
 </script>
 
 <div class="app">
@@ -65,8 +78,8 @@
             </div>
             <div class="weather">
                 <Clock
-                    weatherCondition={data.data.condition.text}
-                    temperature={data.data.heatindex_c}
+                    temperature={data.weather.condition.text}
+                    weatherCondition={data.weather.heatindex_c}
                 />
             </div>
         </Header>

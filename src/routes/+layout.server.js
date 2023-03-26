@@ -1,30 +1,23 @@
 /** @type {import('./$types').LayoutServerLoad} */
-export async function load() {
+export async function load({ fetch, locals: { getSession } }) {
     return {
-        data: (await getWeatherData()).forecast.forecastday[0].hour[0],
+        weather: (await getWeatherData()).forecast.forecastday[0].hour[0],
+        session: getSession(),
     };
-}
 
-async function getWeatherData() {
-    /**
-     * Note: update every 2hrs
-     *
-     * http://api.weatherapi.com/v1/forecast.json?
-     * key=fb9dc671848c4e9b81d120617230903
-     * q=14.6536,120.9602
-     * days=1
-     * aqi=no
-     * alerts=no
-     * hour=(dateNow.getHours() + 2) > 23 ? hour - 24 + 2
-     * hour=23
-     *
-     */
+    async function getWeatherData() {
+        const requestUrl = new URL("http://api.weatherapi.com/v1/forecast.json");
+        const params = requestUrl.searchParams;
+        params.append("key", "fb9dc671848c4e9b81d120617230903");
+        params.append("q", "14.6536,120.9602");
+        params.append("days", "1");
+        params.append("hour", new Date().getHours().toString());
+        params.append("aqi", "no");
+        params.append("alert", "no");
 
-    // getWeatherData().then((data) => console.log(data));
-    const data = await fetch(
-        "http://api.weatherapi.com/v1/forecast.json?key=fb9dc671848c4e9b81d120617230903&q=14.6536,120.9602&days=1&hour=23&aqi=no&alerts=no"
-    );
-    const response = (await data).json();
+        const data = await fetch(requestUrl);
+        const response = (await data).json();
 
-    return response;
+        return response;
+    }
 }
