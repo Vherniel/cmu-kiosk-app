@@ -5,7 +5,7 @@
 
     export let href: null | string = null;
     export let icon: ComponentType<Icon> = BoxSelect;
-    export let disabled: boolean;
+    export let disabled: boolean = false;
     export let label: string = "Lorem ipsum dolor sit amet";
 </script>
 
