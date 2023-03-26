@@ -8,12 +8,12 @@
 </script>
 
 <!-- TODO: Tooltip -->
-<button class="button" {disabled}>
+<svelte:element this={""} class="button" {disabled}>
     <div class="button-layout">
         <svelte:component this={icon} />
         <span class="label"><slot /></span>
     </div>
-</button>
+</svelte:element>
 
 <style lang="scss">
     .button-layout {
