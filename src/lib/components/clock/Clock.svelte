@@ -4,8 +4,9 @@
     // Icons
     import { Cloudy } from "lucide-svelte";
 
-    // TODO: type any
+    /** @type {string} */
     export let weatherCondition;
+    /** @type {string} */
     export let temperature;
 
     const SECONDS_10 = 10000;
@@ -44,7 +45,6 @@
     }
 
     onMount(() => {
-        console.log(weatherConditions());
         const interval = setInterval(() => {
             dateNow = new Date();
         }, SECONDS_10);
@@ -67,7 +67,7 @@
         <div>
             <span class="top time">{hours}:{minutes} {meridiem}</span>
         </div>
-        <div class="bottom weather-condition__text">{weatherCondition}, {temperature}°C</div>
+        <div class="bottom weather-condition__text">{temperature}, {weatherCondition}°C</div>
     </div>
 </div>
 
