@@ -15,11 +15,11 @@
     import { Newspaper, ClipboardList, MapPin, GraduationCap, ListPlus } from "lucide-svelte";
     // Styles
     import "$lib/styles/styles.scss";
+    import Account from "$lib/components/account/Account.svelte";
 
     /** @type {import('./$types').LayoutData} */
     export let data;
-
-    $: ({ supabase } = data);
+    $: ({ supabase, session } = data);
 
     onMount(() => {
         const {
@@ -34,42 +34,42 @@
 
 <div class="app">
     <Sidebar>
-        <div class="sidebar-logo">
+        <div class="sidebar__logo">
             <a class="logo" href="/"> <Logo /></a>
         </div>
-        <!-- <SidebarUserAccount /> -->
-        <SidebarNavigation>
-            <SidebarItem
-                name={"Latest News"}
-                href="/latest-news"
-                icon={Newspaper}
-                selected={$page.route.id == "/latest-news"}
-            />
-            <SidebarItem
-                name={"Registrar’s Office"}
-                href="/registrars-office"
-                icon={ClipboardList}
-                selected={$page.route.id == "/registrars-office"}
-            />
-            <SidebarItem
-                name={"Wayfinder"}
-                href="/wayfinder"
-                icon={MapPin}
-                selected={$page.route.id == "/wayfinder"}
-            />
-            <SidebarItem
-                name={"Student Portal"}
-                href="/student-portal"
-                icon={GraduationCap}
-                selected={$page.route.id == "/student-portal"}
-            />
-            <SidebarItem
-                name={"Additional Services"}
-                href="/additional-services"
-                icon={ListPlus}
-                selected={$page.route.id == "/additional-services"}
-            />
-        </SidebarNavigation>
+        <div class="sidebar__account">
+            <!-- TODO: avoid prop drilling -->
+            <Account {data} />
+        </div>
+        <div class="sidebar__navigation">
+            <SidebarNavigation>
+                <SidebarItem
+                    name={"Latest News"}
+                    href="/latest-news"
+                    icon={Newspaper}
+                    selected={$page.route.id == "/latest-news"} />
+                <SidebarItem
+                    name={"Registrar’s Office"}
+                    href="/registrars-office"
+                    icon={ClipboardList}
+                    selected={$page.route.id == "/registrars-office"} />
+                <SidebarItem
+                    name={"Wayfinder"}
+                    href="/wayfinder"
+                    icon={MapPin}
+                    selected={$page.route.id == "/wayfinder"} />
+                <SidebarItem
+                    name={"Student Portal"}
+                    href="/student-portal"
+                    icon={GraduationCap}
+                    selected={$page.route.id == "/student-portal"} />
+                <SidebarItem
+                    name={"Additional Services"}
+                    href="/additional-services"
+                    icon={ListPlus}
+                    selected={$page.route.id == "/additional-services"} />
+            </SidebarNavigation>
+        </div>
     </Sidebar>
     <div class="main-content">
         <Header>
@@ -79,8 +79,7 @@
             <div class="weather">
                 <Clock
                     temperature={data.weather.condition.text}
-                    weatherCondition={data.weather.heatindex_c}
-                />
+                    weatherCondition={data.weather.heatindex_c} />
             </div>
         </Header>
         <main>
@@ -92,8 +91,13 @@
 <style lang="scss">
     .app {
         display: flex;
+        height: 100%;
     }
-    .sidebar-logo {
+    .sidebar__account {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .sidebar__logo {
         height: 4rem;
         display: flex;
         align-items: center;
@@ -103,10 +107,16 @@
             text-decoration: none;
         }
     }
+    .sidebar__navigation {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
     .main-content {
         flex: 1;
-        padding-left: 5.125rem;
-        padding-right: 5.125rem;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        height: 100%;
     }
     .search {
         margin-right: auto;
@@ -114,5 +124,7 @@
     main {
         padding-top: 3rem;
         padding-bottom: 3rem;
+        padding-left: 5.125rem;
+        padding-right: 5.125rem;
     }
 </style>
