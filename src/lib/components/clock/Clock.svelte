@@ -87,7 +87,7 @@
         } */
         .top {
             font-size: 1.25rem;
-            font-weight: bold;
+            font-weight: var(--font-bold);
         }
     }
 </style>
