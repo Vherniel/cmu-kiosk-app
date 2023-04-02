@@ -1,11 +1,11 @@
 <script></script>
 
-<aside class="sidebar">
+<aside>
     <slot />
 </aside>
 
 <style lang="scss">
-    .sidebar {
+    aside {
         background-color: #fafafa;
         flex-shrink: 0;
         flex-basis: 20rem;
@@ -13,6 +13,8 @@
         padding-bottom: 3rem;
         padding-left: 1.5rem;
         padding-right: 1.5rem;
-        height: 100dvh;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
     }
 </style>
