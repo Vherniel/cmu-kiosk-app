@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { ComponentType } from "svelte/types/runtime/internal/dev";
+    import type { ComponentType } from "svelte/internal";
     import { type Icon, BoxSelect } from "lucide-svelte";
     export let icon: ComponentType<Icon> = BoxSelect;
     export let disabled: boolean = false;
@@ -27,7 +27,7 @@
         padding-bottom: 1em;
         padding-left: 1.5em;
         padding-right: 1.5em;
-        font-weight: bold;
+        font-weight: var(--font-bold);
         font-size: 0.875rem;
         cursor: pointer;
     }
