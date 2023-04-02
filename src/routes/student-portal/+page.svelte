@@ -1,12 +1,9 @@
 <script lang="ts">
 </script>
 
-<svelte:head>
-    <meta name="csrf-token" content="57XB6za7Vlmz3DPnsWZYegNdaIIV3J6fXWDNlLXD" />
-</svelte:head>
-
 <section>
     <h1>Student Portal</h1>
+    <!-- TODO: call-out component || blockquote component -->
     <figure>
         <blockquote cite="">
             <p><span style="color: #FFCD2E;">⚠️</span> Under legal issues</p>
@@ -18,8 +15,7 @@
     <iframe
         src="https://portal.cityofmalabonuniversity.edu.ph"
         title="City of Malabon University Student Portal"
-        frameborder="0"
-    />
+        frameborder="0" />
 </section>
 
 <style lang="scss">
