@@ -1,14 +1,16 @@
-<script>
+<script lang="ts">
     import { getContext } from "svelte";
     import { TABS } from "./Tabs.svelte";
 
     const tab = {};
-    const { registerTab, selectTab, selectedTab } = getContext(TABS);
+    const { registerTab, selectTab, selectedTab } = getContext<any>(TABS);
 
     registerTab(tab);
+
+    export let disabled: boolean | null = null;
 </script>
 
-<button class:selected={$selectedTab === tab} on:click={() => selectTab(tab)}>
+<button class:selected={$selectedTab === tab} {disabled} on:click={() => selectTab(tab)}>
     <slot />
 </button>
 
