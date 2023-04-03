@@ -22,6 +22,7 @@ body {
     overflow: hidden;
     height: 100dvh;
     color: var(--font-body-color);
+    font-size: var(--font-size);
 }
 
 body,
@@ -32,13 +33,14 @@ input {
 body,
 p,
 button,
+input,
 input[type="button"] {
     line-height: 1.5;
     font-size: 1rem;
 }
 
-input {
-    font-size: 1rem;
+div {
+    line-height: 1;
 }
 
 h1,
