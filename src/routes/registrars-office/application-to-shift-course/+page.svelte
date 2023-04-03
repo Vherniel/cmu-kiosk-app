@@ -62,12 +62,77 @@
     export const snapshot = { capture, restore };
 
     import SuperDebug from "sveltekit-superforms/client/SuperDebug.svelte";
+    import { Info } from "lucide-svelte";
 
     let hidden = true;
 </script>
 
 <section>
-    <h1>Application to Shift Course</h1>
+    <div class="heading">
+        <h1>Application to Shift Course</h1>
+        <p>Lorem ipsum dolor sit amet consectetur</p>
+    </div>
+    <div class="flex">
+        <div class="page-steps">
+            <h4>Steps</h4>
+            <p>Step 1</p>
+            <p>Step 2</p>
+            <p>Step 3</p>
+            <p>Step 4</p>
+        </div>
+        <div class="page-content">
+            <div class="page-container">
+                <h2>Lorem ipsum dolor sit amet</h2>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam odit,
+                    quibusdam reiciendis expedita possimus, ab debitis iure impedit illum
+                    ducimus sapiente ipsam qui, adipisci facere numquam modi explicabo
+                    dignissimos quis. Fugit nisi temporibus distinctio aspernatur culpa
+                    voluptatum, ratione dolores repellendus ullam odit saepe fuga totam beatae
+                    unde nihil expedita magnam eum ipsum. Aspernatur vitae alias et impedit
+                    dolor sit possimus rem in ratione, odit earum repudiandae, placeat eaque
+                    unde veritatis qui illum cupiditate id.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, enim,
+                    quos architecto adipisci amet maiores expedita eius deserunt inventore quia,
+                    dolor harum beatae modi accusantium. Modi facilis quos dolor dicta! Lorem
+                    ipsum dolor sit amet consectetur adipisicing elit. Quod architecto
+                    consequatur deserunt, repudiandae vero quibusdam. Perferendis reiciendis
+                    dolorum ea! Ducimus officiis libero corrupti numquam ut illum, veritatis
+                    architecto nulla fuga! Lorem ipsum dolor sit amet consectetur, adipisicing
+                    elit. At minima neque voluptatibus mollitia eum ut, facilis ab unde? Illo,
+                    nemo assumenda voluptatem ad accusamus eum enim iusto et ut quos? Lorem
+                    ipsum dolor sit amet consectetur adipisicing elit. Sunt, voluptatibus
+                    repellendus possimus vero temporibus consectetur nulla blanditiis, sequi
+                    delectus aperiam odio dolores debitis voluptate id molestiae perspiciatis.
+                    Laudantium, officia recusandae. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Dignissimos optio animi dolore minima voluptatem corrupti
+                    corporis asperiores natus eveniet. Quis obcaecati atque dolor optio maiores.
+                    Natus distinctio quia ullam error.
+                </p>
+            </div>
+        </div>
+        <div class="information">
+            <div class="info">
+                <div class="info-heading">
+                    <div class="info-icon">
+                        <Info size={24} />
+                    </div>
+                    <div>
+                        <h4 class="info-name">Information</h4>
+                    </div>
+                </div>
+                <p class="info-description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+                    dignissimos totam commodi, fugiat, molestiae voluptas nobis quo ducimus iure
+                    omnis repellat harum. Reiciendis aperiam magni atque excepturi debitis
+                    ducimus adipisci?
+                </p>
+            </div>
+        </div>
+    </div>
+
     <div>
         <!-- PageSteps -->
     </div>
@@ -359,5 +424,48 @@
     </div> -->
 </section>
 
-<style>
+<style lang="scss">
+    .heading {
+        p {
+            margin-top: 1rem;
+        }
+        margin-bottom: 4rem;
+    }
+    .flex {
+        display: flex;
+    }
+    .page-steps {
+        h4 {
+            margin-bottom: 1rem;
+        }
+        flex-basis: 16rem;
+    }
+    .page-content {
+        flex: 1;
+        .page-container {
+            max-width: 48rem;
+            margin-left: 1rem;
+        }
+        h2 {
+            margin-bottom: 1rem;
+        }
+    }
+    .information {
+        .info {
+            background-color: hsla(0, 0%, 96%, 100);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            .info-heading {
+                display: flex;
+                align-items: center;
+                .info-name {
+                    margin-left: 0.75em;
+                }
+            }
+            .info-description {
+                margin-top: 1rem;
+            }
+        }
+        flex-basis: 16rem;
+    }
 </style>
