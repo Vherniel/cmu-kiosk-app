@@ -47,27 +47,27 @@
                     name={"Latest News"}
                     href="/latest-news"
                     icon={Newspaper}
-                    selected={$page.route.id == "/latest-news"} />
+                    selected={$page.route.id?.includes("/latest-news")} />
                 <SidebarItem
                     name={"Registrar’s Office"}
                     href="/registrars-office"
                     icon={ClipboardList}
-                    selected={$page.route.id == "/registrars-office"} />
+                    selected={$page.route.id?.includes("/registrars-office")} />
                 <SidebarItem
                     name={"Wayfinder"}
                     href="/wayfinder"
                     icon={MapPin}
-                    selected={$page.route.id == "/wayfinder"} />
+                    selected={$page.route.id?.includes("/wayfinder")} />
                 <SidebarItem
                     name={"Student Portal"}
                     href="/student-portal"
                     icon={GraduationCap}
-                    selected={$page.route.id == "/student-portal"} />
+                    selected={$page.route.id?.includes("/student-portal")} />
                 <SidebarItem
                     name={"Additional Services"}
                     href="/additional-services"
                     icon={ListPlus}
-                    selected={$page.route.id == "/additional-services"} />
+                    selected={$page.route.id?.includes("/additional-services")} />
             </SidebarNavigation>
         </div>
     </Sidebar>
