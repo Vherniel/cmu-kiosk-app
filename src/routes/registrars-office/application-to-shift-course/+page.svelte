@@ -59,7 +59,7 @@
     // formData.update(data.form)
 
     // Client API:
-    const { form, enhance, capture, restore, errors, constraints } = superForm(data.form, {
+    const superform = superForm(data.form, {
         multipleSubmits: "prevent",
         onSubmit({ data }) {
             // submit values from $form instead of the default form action
@@ -69,6 +69,8 @@
         },
     });
 
+    const { form, enhance, capture, restore, errors, constraints } = superform;
+
     export const snapshot = { capture, restore };
 
     import SuperDebug from "sveltekit-superforms/client/SuperDebug.svelte";
@@ -76,6 +78,8 @@
     import Callout from "$lib/components/callout/Callout.svelte";
     import Portal from "$lib/components/portal/Portal.svelte";
     import Account from "$lib/components/account/Account.svelte";
+    import TabNavigation from "./TabNavigation.svelte";
+    import InputText from "$lib/components/input/InputText.svelte";
 
     let hidden = true;
 
@@ -92,11 +96,13 @@
             <div class="page-steps">
                 <h4>Steps</h4>
                 <TabList>
-                    <div><Tab>Step 1</Tab></div>
-                    <div><Tab>Step 2</Tab></div>
-                    <div><Tab disabled>Step 3</Tab></div>
-                    <div><Tab>Step 4</Tab></div>
-                    <div><Tab>Step 5</Tab></div>
+                    <!-- Terms and condition included in introduction -->
+                    <div><Tab>Introduction</Tab></div>
+                    <div><Tab>Fill-out Form</Tab></div>
+                    <div><Tab>Signature Signing</Tab></div>
+                    <!-- Complete transactiion is included -->
+                    <div><Tab>Choose Payment Method</Tab></div>
+                    <div><Tab>Summary</Tab></div>
                 </TabList>
             </div>
             <div class="page-content">
@@ -190,82 +196,65 @@
                     <!-- <SuperDebug data={$form} /> -->
                     <form method="POST" on:submit={(event) => (hidden = !hidden)} use:enhance>
                         <TabPanel>
-                            <h2>First panel</h2>
-                            <p class="form-control">
-                                <span style:display="block">
-                                    <label for="name">Name</label>
-                                </span>
-                                <input
-                                    type="text"
-                                    name="Name"
-                                    id="name"
-                                    data-invalid={$errors["Name"]}
-                                    bind:value={$form["Name"]}
-                                    on:focus={(event) => {
-                                        // const info = document.querySelector('.info');
-                                        const name = document.querySelector(".info-name");
-                                        const description =
-                                            document.querySelector(".info-description");
-
-                                        // @ts-ignore
-                                        description.innerHTML = "Your full name";
-                                        // @ts-ignore
-                                        name.innerHTML = "Name";
-                                    }}
-                                    {...$constraints["Name"]} />
-                                {#if $errors["Name"]}
-                                    <span class="invalid">{$errors["Name"]}</span>
-                                {/if}
-                            </p>
-                        </TabPanel>
-
-                        <TabPanel>
-                            <h2>First panel</h2>
-                            <p class="form-control">
-                                <span style:display="block">
-                                    <label for="age">Age</label>
-                                </span>
-                                <input
-                                    type="number"
-                                    name="Age"
-                                    id="age"
-                                    data-invalid={$errors["Age"]}
-                                    bind:value={$form["Age"]}
-                                    {...$constraints["Age"]} />
-                                {#if $errors["Age"]}
-                                    <span class="invalid">{$errors["Age"]}</span>
-                                {/if}
-                            </p>
-                        </TabPanel>
-
-                        <TabPanel>
-                            <p class="form-control">
-                                <span style:display="block">
-                                    <label for="email">E-mail</label>
-                                </span>
-                                <input
-                                    type="email"
-                                    name="E-mail"
-                                    id="email"
-                                    data-invalid={$errors["E-mail"]}
-                                    bind:value={$form["E-mail"]}
-                                    {...$constraints["E-mail"]} />
-                                {#if $errors["E-mail"]}
-                                    <span class="invalid">{$errors["E-mail"]}</span>
-                                {/if}
-                            </p>
-                            <div><button disabled={!hidden}>Submit</button></div>
+                            <h2>Fill-out Form</h2>
+                            <InputText
+                                label="First name"
+                                name="First name"
+                                id="first-name"
+                                required
+                                on:focus={(event) => {
+                                    // const info = document.querySelector('.info');
+                                    // const name = document.querySelector(".info-name");
+                                    // // const description = document.querySelector(".info-description");
+                                    // @ts-ignore
+                                    // description.innerHTML = "Your full name";
+                                    // @ts-ignore
+                                    // name.innerHTML = "Name";
+                                }}
+                                {superform} />
+                            <InputText
+                                label="Middle name"
+                                name="Middle name"
+                                id="middle-name"
+                                required
+                                {superform} />
+                            <InputText
+                                label="Last name"
+                                name="Last name"
+                                id="last-name"
+                                required
+                                {superform} />
+                            <!-- TODO: InputText -->
+                            <InputText
+                                label="Student ID"
+                                name="Student ID"
+                                id="student-id"
+                                required
+                                {superform} />
+                            <input type="submit" value="Submit" />
                         </TabPanel>
                     </form>
                     <TabPanel>
+                        <h2>Signature Signing</h2>
+                    </TabPanel>
+                    <TabPanel>
+                        <h2>Choose Payment Method</h2>
+                    </TabPanel>
+                    <TabPanel>
                         <h2>Summary</h2>
                         <h4>
-                            Submitted test data to the server (no database interactions yet):
-                        </h4>
-                        {#if !hidden}
                             {JSON.stringify($form)}
-                        {/if}
+                            <!-- Submitted test data to the server (no database interactions yet): -->
+                        </h4>
+                        <!-- {#if !hidden}
+                            {#each Object.entries(JSON.stringify($form)) as [key, value]}
+                                <div><span>{key}: </span></div>
+                                <div><span>{value}</span></div>
+                            {/each}
+                        {/if} -->
                     </TabPanel>
+                    <em>not yet working</em>
+                    <TabNavigation />
                 </div>
             </div>
 
