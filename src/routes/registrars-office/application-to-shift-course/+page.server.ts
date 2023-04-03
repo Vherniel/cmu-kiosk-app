@@ -1,18 +1,14 @@
-// export const actions = {
-//     default: async (event) => {
-//         console.log(await event.request.formData());
-//     },
-// } satisfies Actions;
-
 import { z } from "zod";
 import { fail } from "@sveltejs/kit";
 import { superValidate } from "sveltekit-superforms/server";
 import type { Actions, PageServerLoad } from "./$types";
 
 const schema = z.object({
-    Name: z.string(),
-    Age: z.number(),
-    "E-mail": z.string().email(),
+    "First name": z.string(),
+    "Middle name": z.string(),
+    "Last name": z.string(),
+    "Student ID": z.number(),
+    // "E-mail": z.string().email(),
 });
 
 export const load = (async (event) => {
