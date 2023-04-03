@@ -78,6 +78,8 @@
     import Account from "$lib/components/account/Account.svelte";
 
     let hidden = true;
+
+    // export let steps = [];
 </script>
 
 <section>
@@ -85,101 +87,105 @@
         <h1>Application to Shift Course</h1>
         <p>Lorem ipsum dolor sit amet consectetur</p>
     </div>
-    <div class="flex">
-        <div class="page-steps">
-            <h4>Steps</h4>
-            <p>Step 1</p>
-            <p>Step 2</p>
-            <p>Step 3</p>
-            <p>Step 4</p>
-        </div>
-        <div class="page-content">
-            <div class="page-container">
-                <h2>What is Course Shifting?</h2>
-                <Callout>
-                    <h3 slot="title">Important Notice</h3>
-                    <p slot="content">
-                        The growing number of irregular students’ population in the University
-                        was a consequence of the absence of policy on the Shifting, Withdrawal
-                        and Leave of Absence of Students. This policy is being implemented to
-                        reduce the number of irregular students and to also assist the students
-                        in completing their course of study at the soonest possible time. By
-                        reducing the number of irregular students, we also enhance their
-                        academic experience.
-                    </p>
-                </Callout>
-                <p>
-                    Course shifting refers to a transfer from one program to another of the same
-                    level. A level may be undergraduate, masters or doctoral. A student may
-                    shift from one course to another only once; provided that the student
-                    completes the course within the maximum residency period allotted for each
-                    student (5 years for a 4-year course and 6 years for a 5-year course).
-                </p>
-                <h4>Shifting Procedures</h4>
-                <ul>
-                    <li>
-                        All courses taken at the City of Malabon University are reflected in the
-                        transcript of records, these grades shall be included in the calculation
-                        of GPA.
-                    </li>
-                    <li>
-                        College Deans may impose conditions and requirements for approval of
-                        shifting.
-                    </li>
-                    <li>
-                        Honors and awards will be based on the entire academic performance of
-                        the student at City of Malabon University, regardless of shifting.
-                    </li>
-                    <li>
-                        Shifting is only allowed until SECOND (2nd) Year level to avoid delay to
-                        the “shiftee”.
-                    </li>
-                    <li>
-                        The School Calendar shall reflect the shifting period, the Vice
-                        President for Academic Affairs, may choose to deferred this if the
-                        number of IRREGULAR STUDENTS exceed 250.
-                    </li>
-                    <li>
-                        If a student has intention to shift, he/she must submit the following at
-                        the office of Academic Affairs with the prescribed period of shifting
-                        indicated in the school calendar.
-                    </li>
-                    <li>
-                        Latest transcript of records (maybe printed out from University
-                        Management System)
-                    </li>
-                    <li>
-                        Filled Out Shifting Form and signed by student and co-signed by
-                        guardian/parent if below 21 years old.
-                    </li>
-                    <li>
-                        The College Dean or program Coordinator will evaluate the students if
-                        they are ideal to transfer. (College they intend to go will evaluate)
-                    </li>
-                    <li>Secure the signature of College Dean and Program Coordinator</li>
-                    <li>
-                        Place all the above documents in a brown with name of student clearly
-                        indicated at the UPPER RIGHT corner and submit to the office of the
-                        UNIVERSITY REGISTRAR HEAD.
-                    </li>
-                    <li>
-                        After 2-4 days, the student will get results if the shifting appeal is
-                        approved or disapproved.
-                    </li>
-                    <li>
-                        As we are limiting the number of irregular students, there will be
-                        limited slots of “shifters” per academic year, the VP for Academic
-                        Affairs shall determine this number.
-                    </li>
-                    <li>A student may only shift ONE (1) time.</li>
-                </ul>
-                <Tabs>
-                    <TabList>
-                        <Tab>one</Tab>
-                        <Tab>two</Tab>
-                        <Tab>three</Tab>
-                        <Tab>four</Tab>
-                    </TabList>
+    <Tabs>
+        <div class="flex">
+            <div class="page-steps">
+                <h4>Steps</h4>
+                <TabList>
+                    <div><Tab>Step 1</Tab></div>
+                    <div><Tab>Step 2</Tab></div>
+                    <div><Tab>Step 3</Tab></div>
+                    <div><Tab>Step 4</Tab></div>
+                </TabList>
+            </div>
+            <div class="page-content">
+                <div class="page-container">
+                    <TabPanel>
+                        <h2>What is Course Shifting?</h2>
+                        <Callout>
+                            <h3 slot="title">Important Notice</h3>
+                            <p slot="content">
+                                The growing number of irregular students’ population in the
+                                University was a consequence of the absence of policy on the
+                                Shifting, Withdrawal and Leave of Absence of Students. This
+                                policy is being implemented to reduce the number of irregular
+                                students and to also assist the students in completing their
+                                course of study at the soonest possible time. By reducing the
+                                number of irregular students, we also enhance their academic
+                                experience.
+                            </p>
+                        </Callout>
+                        <p>
+                            Course shifting refers to a transfer from one program to another of
+                            the same level. A level may be undergraduate, masters or doctoral. A
+                            student may shift from one course to another only once; provided
+                            that the student completes the course within the maximum residency
+                            period allotted for each student (5 years for a 4-year course and 6
+                            years for a 5-year course).
+                        </p>
+                        <h4>Shifting Procedures</h4>
+                        <ul>
+                            <li>
+                                All courses taken at the City of Malabon University are
+                                reflected in the transcript of records, these grades shall be
+                                included in the calculation of GPA.
+                            </li>
+                            <li>
+                                College Deans may impose conditions and requirements for
+                                approval of shifting.
+                            </li>
+                            <li>
+                                Honors and awards will be based on the entire academic
+                                performance of the student at City of Malabon University,
+                                regardless of shifting.
+                            </li>
+                            <li>
+                                Shifting is only allowed until SECOND (2nd) Year level to avoid
+                                delay to the “shiftee”.
+                            </li>
+                            <li>
+                                The School Calendar shall reflect the shifting period, the Vice
+                                President for Academic Affairs, may choose to deferred this if
+                                the number of IRREGULAR STUDENTS exceed 250.
+                            </li>
+                            <li>
+                                If a student has intention to shift, he/she must submit the
+                                following at the office of Academic Affairs with the prescribed
+                                period of shifting indicated in the school calendar.
+                            </li>
+                            <li>
+                                Latest transcript of records (maybe printed out from University
+                                Management System)
+                            </li>
+                            <li>
+                                Filled Out Shifting Form and signed by student and co-signed by
+                                guardian/parent if below 21 years old.
+                            </li>
+                            <li>
+                                The College Dean or program Coordinator will evaluate the
+                                students if they are ideal to transfer. (College they intend to
+                                go will evaluate)
+                            </li>
+                            <li>
+                                Secure the signature of College Dean and Program Coordinator
+                            </li>
+                            <li>
+                                Place all the above documents in a brown with name of student
+                                clearly indicated at the UPPER RIGHT corner and submit to the
+                                office of the UNIVERSITY REGISTRAR HEAD.
+                            </li>
+                            <li>
+                                After 2-4 days, the student will get results if the shifting
+                                appeal is approved or disapproved.
+                            </li>
+                            <li>
+                                As we are limiting the number of irregular students, there will
+                                be limited slots of “shifters” per academic year, the VP for
+                                Academic Affairs shall determine this number.
+                            </li>
+                            <li>A student may only shift ONE (1) time.</li>
+                        </ul>
+                    </TabPanel>
                     <!-- <SuperDebug data={$form} /> -->
                     <form method="POST" on:submit={(event) => (hidden = !hidden)} use:enhance>
                         <TabPanel>
@@ -251,30 +257,31 @@
                         </TabPanel>
                     </form>
                     <TabPanel>Four</TabPanel>
-                </Tabs>
 
-                <h4>Submitted test data to the server (no database interactions yet):</h4>
-                {#if !hidden}
-                    {JSON.stringify($form)}
-                {/if}
-            </div>
-        </div>
-        <div class="information">
-            <div class="info">
-                <div class="info-heading">
-                    <div class="info-icon">
-                        <Info size={24} />
-                    </div>
-                    <div>
-                        <h4 class="info-name">Information</h4>
-                    </div>
+                    <h4>Submitted test data to the server (no database interactions yet):</h4>
+                    {#if !hidden}
+                        {JSON.stringify($form)}
+                    {/if}
                 </div>
-                <p class="info-description">
-                    A helpful description when focusing an input will appear in here.
-                </p>
+            </div>
+
+            <div class="information">
+                <div class="info">
+                    <div class="info-heading">
+                        <div class="info-icon">
+                            <Info size={24} />
+                        </div>
+                        <div>
+                            <h4 class="info-name">Information</h4>
+                        </div>
+                    </div>
+                    <p class="info-description">
+                        A helpful description when focusing an input will appear in here.
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
+    </Tabs>
 
     <div>
         <!-- PageSteps -->
@@ -370,9 +377,7 @@
             </div> -->
         <!-- </MultiStepComponent> -->
     </div>
-    <div>
-        <!-- InputInfo -->
-    </div>
+
     <!-- <div class="container-sm">
         <form method="POST">
             <label for="name">name</label>
@@ -442,8 +447,12 @@
     }
     .flex {
         display: flex;
+        position: relative;
     }
     .page-steps {
+        align-self: flex-start;
+        position: sticky;
+        top: 12rem;
         h4 {
             margin-bottom: 1rem;
         }
@@ -452,8 +461,8 @@
     .page-content {
         flex: 1;
         .page-container {
-            max-width: 48rem;
-            margin-left: 1rem;
+            max-width: 40rem;
+            margin-left: 2rem;
         }
         h2 {
             margin-bottom: 1em;
@@ -464,6 +473,9 @@
         }
     }
     .information {
+        align-self: flex-start;
+        position: sticky;
+        top: 12rem;
         .info {
             background-color: hsla(0, 0%, 96%, 100);
             border-radius: 0.75rem;
@@ -479,6 +491,6 @@
                 margin-top: 1rem;
             }
         }
-        flex-basis: 16rem;
+        flex-basis: 24rem;
     }
 </style>
