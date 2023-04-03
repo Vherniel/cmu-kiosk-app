@@ -10,7 +10,7 @@
     export let selected = false;
 </script>
 
-<li class:selected>
+<li class="item" class:selected>
     <a {href} class="link">
         <div class="icon">
             <svelte:component this={icon} />
@@ -20,6 +20,9 @@
 </li>
 
 <style lang="scss">
+    .item {
+        margin: 0;
+    }
     .link {
         display: flex;
         align-items: center;
