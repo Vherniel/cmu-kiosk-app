@@ -3,6 +3,16 @@
 <!-- TODO: PoC: step-1.svelte, step-2.svelte, etc. -->
 <script lang="ts">
     /**
+     * Page steps options:
+     *      1. Page routing -- can't because we can't easily persist data. doable but may require context and stores
+     *      2. Query routing -- not ideal
+     *      3. Hash routing -- not ideal specially I might need hash data
+     *      4. <svelte:component /> routing (show and remove) -- could be great but how do I persist data? through bindings?
+     *      5. Show and hide -- easy but not performant
+     *      6. Plain markup -- easy but messy
+     */
+
+    /**
      * Information
      *      Description -- what is {the form that the use is taking} and how much is it {hasPricing}
      *      Requirements/Dependencies -- what are the {requirements before taking this}
@@ -63,6 +73,9 @@
 
     import SuperDebug from "sveltekit-superforms/client/SuperDebug.svelte";
     import { Info } from "lucide-svelte";
+    import Callout from "$lib/components/callout/Callout.svelte";
+    import Portal from "$lib/components/portal/Portal.svelte";
+    import Account from "$lib/components/account/Account.svelte";
 
     let hidden = true;
 </script>
@@ -82,35 +95,168 @@
         </div>
         <div class="page-content">
             <div class="page-container">
-                <h2>Lorem ipsum dolor sit amet</h2>
+                <h2>What is Course Shifting?</h2>
+                <Callout>
+                    <h3 slot="title">Important Notice</h3>
+                    <p slot="content">
+                        The growing number of irregular students’ population in the University
+                        was a consequence of the absence of policy on the Shifting, Withdrawal
+                        and Leave of Absence of Students. This policy is being implemented to
+                        reduce the number of irregular students and to also assist the students
+                        in completing their course of study at the soonest possible time. By
+                        reducing the number of irregular students, we also enhance their
+                        academic experience.
+                    </p>
+                </Callout>
                 <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam odit,
-                    quibusdam reiciendis expedita possimus, ab debitis iure impedit illum
-                    ducimus sapiente ipsam qui, adipisci facere numquam modi explicabo
-                    dignissimos quis. Fugit nisi temporibus distinctio aspernatur culpa
-                    voluptatum, ratione dolores repellendus ullam odit saepe fuga totam beatae
-                    unde nihil expedita magnam eum ipsum. Aspernatur vitae alias et impedit
-                    dolor sit possimus rem in ratione, odit earum repudiandae, placeat eaque
-                    unde veritatis qui illum cupiditate id.
+                    Course shifting refers to a transfer from one program to another of the same
+                    level. A level may be undergraduate, masters or doctoral. A student may
+                    shift from one course to another only once; provided that the student
+                    completes the course within the maximum residency period allotted for each
+                    student (5 years for a 4-year course and 6 years for a 5-year course).
                 </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, enim,
-                    quos architecto adipisci amet maiores expedita eius deserunt inventore quia,
-                    dolor harum beatae modi accusantium. Modi facilis quos dolor dicta! Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Quod architecto
-                    consequatur deserunt, repudiandae vero quibusdam. Perferendis reiciendis
-                    dolorum ea! Ducimus officiis libero corrupti numquam ut illum, veritatis
-                    architecto nulla fuga! Lorem ipsum dolor sit amet consectetur, adipisicing
-                    elit. At minima neque voluptatibus mollitia eum ut, facilis ab unde? Illo,
-                    nemo assumenda voluptatem ad accusamus eum enim iusto et ut quos? Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Sunt, voluptatibus
-                    repellendus possimus vero temporibus consectetur nulla blanditiis, sequi
-                    delectus aperiam odio dolores debitis voluptate id molestiae perspiciatis.
-                    Laudantium, officia recusandae. Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Dignissimos optio animi dolore minima voluptatem corrupti
-                    corporis asperiores natus eveniet. Quis obcaecati atque dolor optio maiores.
-                    Natus distinctio quia ullam error.
-                </p>
+                <h4>Shifting Procedures</h4>
+                <ul>
+                    <li>
+                        All courses taken at the City of Malabon University are reflected in the
+                        transcript of records, these grades shall be included in the calculation
+                        of GPA.
+                    </li>
+                    <li>
+                        College Deans may impose conditions and requirements for approval of
+                        shifting.
+                    </li>
+                    <li>
+                        Honors and awards will be based on the entire academic performance of
+                        the student at City of Malabon University, regardless of shifting.
+                    </li>
+                    <li>
+                        Shifting is only allowed until SECOND (2nd) Year level to avoid delay to
+                        the “shiftee”.
+                    </li>
+                    <li>
+                        The School Calendar shall reflect the shifting period, the Vice
+                        President for Academic Affairs, may choose to deferred this if the
+                        number of IRREGULAR STUDENTS exceed 250.
+                    </li>
+                    <li>
+                        If a student has intention to shift, he/she must submit the following at
+                        the office of Academic Affairs with the prescribed period of shifting
+                        indicated in the school calendar.
+                    </li>
+                    <li>
+                        Latest transcript of records (maybe printed out from University
+                        Management System)
+                    </li>
+                    <li>
+                        Filled Out Shifting Form and signed by student and co-signed by
+                        guardian/parent if below 21 years old.
+                    </li>
+                    <li>
+                        The College Dean or program Coordinator will evaluate the students if
+                        they are ideal to transfer. (College they intend to go will evaluate)
+                    </li>
+                    <li>Secure the signature of College Dean and Program Coordinator</li>
+                    <li>
+                        Place all the above documents in a brown with name of student clearly
+                        indicated at the UPPER RIGHT corner and submit to the office of the
+                        UNIVERSITY REGISTRAR HEAD.
+                    </li>
+                    <li>
+                        After 2-4 days, the student will get results if the shifting appeal is
+                        approved or disapproved.
+                    </li>
+                    <li>
+                        As we are limiting the number of irregular students, there will be
+                        limited slots of “shifters” per academic year, the VP for Academic
+                        Affairs shall determine this number.
+                    </li>
+                    <li>A student may only shift ONE (1) time.</li>
+                </ul>
+                <Tabs>
+                    <TabList>
+                        <Tab>one</Tab>
+                        <Tab>two</Tab>
+                        <Tab>three</Tab>
+                        <Tab>four</Tab>
+                    </TabList>
+                    <!-- <SuperDebug data={$form} /> -->
+                    <form method="POST" on:submit={(event) => (hidden = !hidden)} use:enhance>
+                        <TabPanel>
+                            <h2>First panel</h2>
+                            <p class="form-control">
+                                <span style:display="block">
+                                    <label for="name">Name</label>
+                                </span>
+                                <input
+                                    type="text"
+                                    name="Name"
+                                    id="name"
+                                    data-invalid={$errors["Name"]}
+                                    bind:value={$form["Name"]}
+                                    on:focus={(event) => {
+                                        // const info = document.querySelector('.info');
+                                        const name = document.querySelector(".info-name");
+                                        const description =
+                                            document.querySelector(".info-description");
+
+                                        // @ts-ignore
+                                        description.innerHTML = "Your full name";
+                                        // @ts-ignore
+                                        name.innerHTML = "Name";
+                                    }}
+                                    {...$constraints["Name"]} />
+                                {#if $errors["Name"]}
+                                    <span class="invalid">{$errors["Name"]}</span>
+                                {/if}
+                            </p>
+                        </TabPanel>
+
+                        <TabPanel>
+                            <h2>First panel</h2>
+                            <p class="form-control">
+                                <span style:display="block">
+                                    <label for="age">Age</label>
+                                </span>
+                                <input
+                                    type="number"
+                                    name="Age"
+                                    id="age"
+                                    data-invalid={$errors["Age"]}
+                                    bind:value={$form["Age"]}
+                                    {...$constraints["Age"]} />
+                                {#if $errors["Age"]}
+                                    <span class="invalid">{$errors["Age"]}</span>
+                                {/if}
+                            </p>
+                        </TabPanel>
+
+                        <TabPanel>
+                            <p class="form-control">
+                                <span style:display="block">
+                                    <label for="email">E-mail</label>
+                                </span>
+                                <input
+                                    type="email"
+                                    name="E-mail"
+                                    id="email"
+                                    data-invalid={$errors["E-mail"]}
+                                    bind:value={$form["E-mail"]}
+                                    {...$constraints["E-mail"]} />
+                                {#if $errors["E-mail"]}
+                                    <span class="invalid">{$errors["E-mail"]}</span>
+                                {/if}
+                            </p>
+                            <div><button disabled={!hidden}>Submit</button></div>
+                        </TabPanel>
+                    </form>
+                    <TabPanel>Four</TabPanel>
+                </Tabs>
+
+                <h4>Submitted test data to the server (no database interactions yet):</h4>
+                {#if !hidden}
+                    {JSON.stringify($form)}
+                {/if}
             </div>
         </div>
         <div class="information">
@@ -124,10 +270,7 @@
                     </div>
                 </div>
                 <p class="info-description">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-                    dignissimos totam commodi, fugiat, molestiae voluptas nobis quo ducimus iure
-                    omnis repellat harum. Reiciendis aperiam magni atque excepturi debitis
-                    ducimus adipisci?
+                    A helpful description when focusing an input will appear in here.
                 </p>
             </div>
         </div>
@@ -136,79 +279,8 @@
     <div>
         <!-- PageSteps -->
     </div>
+
     <div>
-        <Tabs>
-            <TabList>
-                <Tab>one</Tab>
-                <Tab>two</Tab>
-                <Tab>three</Tab>
-            </TabList>
-            <SuperDebug data={$form} />
-            <form
-                method="POST"
-                on:submit={(event) => {
-                    hidden = !hidden;
-                }}
-                use:enhance>
-                <TabPanel>
-                    <h2>First panel</h2>
-                    <p class="form-control">
-                        <span style:display="block">
-                            <label for="name">Name</label>
-                        </span>
-                        <input
-                            type="text"
-                            name="Name"
-                            id="name"
-                            data-invalid={$errors["Name"]}
-                            bind:value={$form["Name"]}
-                            {...$constraints["Name"]} />
-                        {#if $errors["Name"]}<span class="invalid">{$errors["Name"]}</span>{/if}
-                    </p>
-                </TabPanel>
-
-                <TabPanel>
-                    <h2>First panel</h2>
-                    <p class="form-control">
-                        <span style:display="block">
-                            <label for="age">Age</label>
-                        </span>
-                        <input
-                            type="number"
-                            name="Age"
-                            id="age"
-                            data-invalid={$errors["Age"]}
-                            bind:value={$form["Age"]}
-                            {...$constraints["Age"]} />
-                        {#if $errors["Age"]}<span class="invalid">{$errors["Age"]}</span>{/if}
-                    </p>
-                </TabPanel>
-
-                <TabPanel>
-                    <p class="form-control">
-                        <span style:display="block">
-                            <label for="email">E-mail</label>
-                        </span>
-                        <input
-                            type="email"
-                            name="E-mail"
-                            id="email"
-                            data-invalid={$errors["E-mail"]}
-                            bind:value={$form["E-mail"]}
-                            {...$constraints["E-mail"]} />
-                        {#if $errors["E-mail"]}<span class="invalid">{$errors["E-mail"]}</span
-                            >{/if}
-                    </p>
-                    <div><button disabled={!hidden}>Submit</button></div>
-                </TabPanel>
-            </form>
-        </Tabs>
-
-        <h4>Submitted test data to the server (no database interactions yet):</h4>
-        {#if !hidden}
-            {JSON.stringify($form)}
-        {/if}
-
         <!-- <form method="POST" use:enhance /> -->
         <!-- <MultiStepComponent element="form" method="POST" {activeStep}>
             <Step name="Step 1">
@@ -308,70 +380,7 @@
             <input type="submit" value="Submit" />
         </form>
         <h2>What is course shifting?</h2>
-        <p>
-            Course shifting refers to a transfer from one program to another of the same level.
-            A level may be undergraduate, masters or doctoral. A student may shift from one
-            course to another only once; provided that the student completes the course within
-            the maximum residency period allotted for each student (<strong>5 years</strong> for
-            a <strong>4-year course</strong> and <strong>6 years</strong> for a
-            <strong>5-year course</strong>).
-        </p>
-        <p>Shifting Procedures</p>
-        <ul>
-            <li>
-                All courses taken at the City of Malabon University are reflected in the
-                transcript of records, these grades shall be included in the calculation of GPA.
-            </li>
-            <li>
-                College Deans may impose conditions and requirements for approval of shifting.
-            </li>
-            <li>
-                Honors and awards will be based on the entire academic performance of the
-                student at City of Malabon University, regardless of shifting.
-            </li>
-            <li>
-                Shifting is only allowed until SECOND (2nd) Year level to avoid delay to the
-                “shiftee”.
-            </li>
-            <li>
-                The School Calendar shall reflect the shifting period, the Vice President for
-                Academic Affairs, may choose to deferred this if the number of IRREGULAR
-                STUDENTS exceed 250.
-            </li>
-            <li>
-                If a student has intention to shift, he/she must submit the following at the
-                office of Academic Affairs with the prescribed period of shifting indicated in
-                the school calendar.
-            </li>
-            <li>
-                Latest transcript of records (maybe printed out from University Management
-                System)
-            </li>
-            <li>
-                Filled Out Shifting Form and signed by student and co-signed by guardian/parent
-                if below 21 years old.
-            </li>
-            <li>
-                The College Dean or program Coordinator will evaluate the students if they are
-                ideal to transfer. (College they intend to go will evaluate)
-            </li>
-            <li>Secure the signature of College Dean and Program Coordinator</li>
-            <li>
-                Place all the above documents in a brown with name of student clearly indicated
-                at the UPPER RIGHT corner and submit to the office of the UNIVERSITY REGISTRAR
-                HEAD.
-            </li>
-            <li>
-                After 2-4 days, the student will get results if the shifting appeal is approved
-                or disapproved.
-            </li>
-            <li>
-                As we are limiting the number of irregular students, there will be limited slots
-                of “shifters” per academic year, the VP for Academic Affairs shall determine
-                this number.
-            </li>
-            <li>A student may only shift ONE (1) time.</li>
-        </ul>
+        
 
         <hr />
         <h2>Form fields</h2>
@@ -447,7 +456,11 @@
             margin-left: 1rem;
         }
         h2 {
-            margin-bottom: 1rem;
+            margin-bottom: 1em;
+        }
+        h4 {
+            margin-top: 1em;
+            margin-bottom: 1em;
         }
     }
     .information {
