@@ -94,8 +94,9 @@
                 <TabList>
                     <div><Tab>Step 1</Tab></div>
                     <div><Tab>Step 2</Tab></div>
-                    <div><Tab>Step 3</Tab></div>
+                    <div><Tab disabled>Step 3</Tab></div>
                     <div><Tab>Step 4</Tab></div>
+                    <div><Tab>Step 5</Tab></div>
                 </TabList>
             </div>
             <div class="page-content">
@@ -256,12 +257,15 @@
                             <div><button disabled={!hidden}>Submit</button></div>
                         </TabPanel>
                     </form>
-                    <TabPanel>Four</TabPanel>
-
-                    <h4>Submitted test data to the server (no database interactions yet):</h4>
-                    {#if !hidden}
-                        {JSON.stringify($form)}
-                    {/if}
+                    <TabPanel>
+                        <h2>Summary</h2>
+                        <h4>
+                            Submitted test data to the server (no database interactions yet):
+                        </h4>
+                        {#if !hidden}
+                            {JSON.stringify($form)}
+                        {/if}
+                    </TabPanel>
                 </div>
             </div>
 
@@ -272,11 +276,12 @@
                             <Info size={24} />
                         </div>
                         <div>
-                            <h4 class="info-name">Information</h4>
+                            <h4 class="info-name">Information & Status</h4>
                         </div>
                     </div>
                     <p class="info-description">
-                        A helpful description when focusing an input will appear in here.
+                        A helpful description when focusing an input will appear in here and a
+                        current status to the whole process.
                     </p>
                 </div>
             </div>
