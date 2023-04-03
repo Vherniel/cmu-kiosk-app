@@ -19,7 +19,11 @@
 
 <svelte:element></svelte:element> -->
 
-<svelte:element this={href ? "a" : "button"} class={"card"} {href} {disabled}>
+<svelte:element
+    this={href ? "a" : "button"}
+    class={"card"}
+    href={disabled ? "javascript:void(0)" : href}
+    {disabled}>
     <div class="header">
         <div>
             <svelte:component this={icon} size="32" />
