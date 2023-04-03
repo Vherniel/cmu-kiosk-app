@@ -13,14 +13,14 @@
 </button>
 
 <style>
-    button {
+    /* button {
         background: none;
         border: none;
         border-bottom: 2px solid white;
         border-radius: 0;
         margin: 0;
         color: #ccc;
-    }
+    } */
 
     .selected {
         border-bottom: 2px solid teal;
