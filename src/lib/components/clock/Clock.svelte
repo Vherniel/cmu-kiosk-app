@@ -57,17 +57,25 @@
 
 <div class="clock">
     <div class="left">
-        <div class="top day-of-week">{day}</div>
-        <div class="bottom date">{month} {date}, {year}</div>
+        <div class="top day-of-week">
+            <p>{day}</p>
+        </div>
+        <div class="bottom date">
+            <p>{month} {date}, {year}</p>
+        </div>
     </div>
     <div class="center weather-condition__icon">
         <Cloudy size="2.5rem" />
     </div>
     <div class="right">
         <div>
-            <span class="top time">{hours}:{minutes} {meridiem}</span>
+            <span class="top time">
+                <p>{hours}:{minutes} {meridiem}</p>
+            </span>
         </div>
-        <div class="bottom weather-condition__text">{temperature}, {weatherCondition}°C</div>
+        <div class="bottom weather-condition__text">
+            <p>{temperature}, {weatherCondition}°C</p>
+        </div>
     </div>
 </div>
 
@@ -85,7 +93,7 @@
         }
         /* .right {
         } */
-        .top {
+        .top p {
             font-size: 1.25rem;
             font-weight: var(--font-bold);
         }
