@@ -122,8 +122,8 @@
         margin-right: auto;
     }
     main {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
         padding-left: 5.125rem;
         padding-right: 5.125rem;
     }
