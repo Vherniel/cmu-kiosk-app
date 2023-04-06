@@ -50,7 +50,14 @@
 
     import type { PageData } from "./$types";
     import { superForm } from "sveltekit-superforms/client";
-    import { Tabs, TabList, TabPanel, Tab } from "./tabs.js";
+    import {
+        MultiStep,
+        StepTabList,
+        StepPanelList,
+        StepTab,
+        StepPanel,
+        StepNavigation,
+    } from "$lib/components/multi-step";
 
     export let data: PageData;
 
@@ -78,7 +85,6 @@
     import Callout from "$lib/components/callout/Callout.svelte";
     import Portal from "$lib/components/portal/Portal.svelte";
     import Account from "$lib/components/account/Account.svelte";
-    import TabNavigation from "./TabNavigation.svelte";
     import InputText from "$lib/components/input/InputText.svelte";
 
     let hidden = true;
@@ -86,28 +92,67 @@
     // export let steps = [];
 </script>
 
+<MultiStep>
+    <div class="step-tab-list">
+        <h4>Steps</h4>
+        <StepTab>Step 1</StepTab>
+        <StepTab>Step 2</StepTab>
+        <StepTab>Step 3</StepTab>
+    </div>
+
+    <div class="step-panel-list">
+        <h4>Info</h4>
+        <StepPanel>
+            <h2>Panel 1</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa, sit. Quibusdam
+                nobis beatae mollitia magnam aliquam rem, neque eius maiores consequuntur dolor
+                assumenda soluta eligendi porro, eos distinctio. Modi, dolorum.
+            </p>
+        </StepPanel>
+        <StepPanel>
+            <h2>Panel 2</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa, sit. Quibusdam
+                nobis beatae mollitia magnam aliquam rem, neque eius maiores consequuntur dolor
+                assumenda soluta eligendi porro, eos distinctio. Modi, dolorum.
+            </p>
+        </StepPanel>
+        <StepPanel>
+            <h2>Panel 3</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa, sit. Quibusdam
+                nobis beatae mollitia magnam aliquam rem, neque eius maiores consequuntur dolor
+                assumenda soluta eligendi porro, eos distinctio. Modi, dolorum.
+            </p>
+        </StepPanel>
+    </div>
+
+    <StepNavigation />
+</MultiStep>
+
 <section>
     <div class="heading">
         <h1>Application to Shift Course</h1>
         <p>Lorem ipsum dolor sit amet consectetur</p>
     </div>
-    <Tabs>
+    <MultiStep>
         <div class="flex">
             <div class="page-steps">
                 <h4>Steps</h4>
-                <TabList>
+                <StepTabList>
                     <!-- Terms and condition included in introduction -->
-                    <div><Tab>Introduction</Tab></div>
-                    <div><Tab>Fill-out Form</Tab></div>
-                    <div><Tab>Signature Signing</Tab></div>
+                    <div><StepTab>Introduction</StepTab></div>
+                    <div><StepTab>Fill-out Form</StepTab></div>
+                    <div><StepTab>Signature Signing</StepTab></div>
                     <!-- Complete transactiion is included -->
-                    <div><Tab>Choose Payment Method</Tab></div>
-                    <div><Tab>Summary</Tab></div>
-                </TabList>
+                    <div><StepTab>Choose Payment Method</StepTab></div>
+                    <div><StepTab>Summary</StepTab></div>
+                </StepTabList>
             </div>
             <div class="page-content">
-                <div class="page-container">
-                    <TabPanel>
+                <StepPanelList class="page-container">
+                    <StepPanel>
                         <h2>What is Course Shifting?</h2>
                         <Callout>
                             <h3 slot="title">Important Notice</h3>
@@ -192,10 +237,10 @@
                             </li>
                             <li>A student may only shift ONE (1) time.</li>
                         </ul>
-                    </TabPanel>
+                    </StepPanel>
                     <!-- <SuperDebug data={$form} /> -->
                     <form method="POST" on:submit={(event) => (hidden = !hidden)} use:enhance>
-                        <TabPanel>
+                        <StepPanel>
                             <h2>Fill-out Form</h2>
                             <InputText
                                 label="First name"
@@ -232,15 +277,15 @@
                                 required
                                 {superform} />
                             <input type="submit" value="Submit" />
-                        </TabPanel>
+                        </StepPanel>
                     </form>
-                    <TabPanel>
+                    <StepPanel>
                         <h2>Signature Signing</h2>
-                    </TabPanel>
-                    <TabPanel>
+                    </StepPanel>
+                    <StepPanel>
                         <h2>Choose Payment Method</h2>
-                    </TabPanel>
-                    <TabPanel>
+                    </StepPanel>
+                    <StepPanel>
                         <h2>Summary</h2>
                         <h4>
                             {JSON.stringify($form)}
@@ -252,10 +297,9 @@
                                 <div><span>{value}</span></div>
                             {/each}
                         {/if} -->
-                    </TabPanel>
-                    <em>not yet working</em>
-                    <TabNavigation />
-                </div>
+                    </StepPanel>
+                </StepPanelList>
+                <StepNavigation />
             </div>
 
             <div class="information">
@@ -275,7 +319,7 @@
                 </div>
             </div>
         </div>
-    </Tabs>
+    </MultiStep>
 
     <div>
         <!-- PageSteps -->
