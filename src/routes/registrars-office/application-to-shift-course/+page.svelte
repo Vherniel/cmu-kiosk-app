@@ -151,7 +151,7 @@
                 </StepTabList>
             </div>
             <div class="page-content">
-                <StepPanelList class="page-container">
+                <div class="page-container">
                     <StepPanel>
                         <h2>What is Course Shifting?</h2>
                         <Callout>
@@ -298,7 +298,7 @@
                             {/each}
                         {/if} -->
                     </StepPanel>
-                </StepPanelList>
+                </div>
                 <StepNavigation />
             </div>
 
