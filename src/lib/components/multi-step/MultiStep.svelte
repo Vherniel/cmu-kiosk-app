@@ -69,6 +69,8 @@
 
         selectedStep,
         selectedPanel,
+        steps,
+        panels,
     });
 </script>
 
