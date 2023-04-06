@@ -14,14 +14,17 @@
 <button
     class={"step-tab"}
     class:selected={$selectedStep == step}
-    {disabled}
+    disabled={!($selectedStep == step)}
     on:click={() => selectStep(step)}>
     <slot />
 </button>
 
 <style lang="scss">
     .selected {
-        border-bottom: 2px solid teal;
+        background-color: teal;
         color: #333;
+    }
+    button:not([disabled]) {
+        cursor: pointer;
     }
 </style>

@@ -8,7 +8,7 @@
     import { key } from "./MultiStep.svelte";
     import type { HTMLAttributes } from "svelte/elements";
 
-    const { nextStep, previousStep } = getContext(key);
+    const { steps, selectedStep, nextStep, previousStep } = getContext(key);
 
     export let previous: boolean = true;
     export let next: boolean = true;
@@ -16,10 +16,16 @@
 
 <div class={"step-navigation"}>
     {#if previous}
-        <button class="previous" on:click={() => previousStep()}>Previous</button>
+        <button
+            class="previous"
+            disabled={$selectedStep == steps[0]}
+            on:click={() => previousStep()}>Previous</button>
     {/if}
     {#if next}
-        <button class="next" on:click={() => nextStep()}>Next</button>
+        <button
+            class="next"
+            disabled={$selectedStep == steps[steps.length - 1]}
+            on:click={() => nextStep()}>Next</button>
     {/if}
 </div>
 
