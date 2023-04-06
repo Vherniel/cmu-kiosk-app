@@ -1,7 +1,6 @@
 <script lang="ts">
     import { getContext } from "svelte";
     import { key } from "./MultiStep.svelte";
-    import clsx from "clsx";
 
     const panel = {};
     const { registerPanel, selectedPanel } = getContext(key);
@@ -10,7 +9,7 @@
 </script>
 
 {#if $selectedPanel == panel}
-    <div class={clsx("step-panel", $$props.class)}>
+    <div class={"step-panel"}>
         <slot />
     </div>
 {/if}

@@ -1,8 +1,7 @@
 <script lang="ts">
-    import clsx from "clsx";
 </script>
 
-<div class={clsx("step-navigation", $$props.class)}>
+<div class={"step-navigation"}>
     <slot />
 </div>
 

@@ -6,7 +6,6 @@
 
     import { getContext, onMount } from "svelte";
     import { key } from "./MultiStep.svelte";
-    import clsx from "clsx";
     import type { HTMLAttributes } from "svelte/elements";
 
     const { nextStep, previousStep } = getContext(key);
@@ -15,7 +14,7 @@
     export let next: boolean = true;
 </script>
 
-<div class={clsx("step-navigation", $$props.class)}>
+<div class={"step-navigation"}>
     {#if previous}
         <button class="previous" on:click={() => previousStep()}>Previous</button>
     {/if}

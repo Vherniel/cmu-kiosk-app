@@ -1,7 +1,6 @@
 <script lang="ts">
     import { getContext } from "svelte";
     import { key } from "./MultiStep.svelte";
-    import clsx from "clsx";
 
     const step = {};
 
@@ -13,7 +12,7 @@
 </script>
 
 <button
-    class={clsx("step-tab", $$props.class)}
+    class={"step-tab"}
     class:selected={$selectedStep == step}
     {disabled}
     on:click={() => selectStep(step)}>

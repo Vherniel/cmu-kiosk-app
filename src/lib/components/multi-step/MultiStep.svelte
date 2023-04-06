@@ -8,7 +8,6 @@
 <script lang="ts">
     import { setContext, onDestroy } from "svelte";
     import { get, writable } from "svelte/store";
-    import clsx from "clsx";
 
     const steps: {}[] = [];
     const panels: {}[] = [];
@@ -73,7 +72,7 @@
     });
 </script>
 
-<div class={clsx("multi-step", $$props.class)}>
+<div class={"multi-step"}>
     <slot />
 </div>
 
