@@ -44,18 +44,37 @@
         return response;
     }
 
+    let remount = false;
+
     onMount(() => {
+        console.log("remount");
+
         const interval = setInterval(() => {
             dateNow = new Date();
         }, SECONDS_10);
 
+        // TODO: FOR REMOUNTING
+        // /** @type {null | NodeJS.Timeout} */
+        // let watchClock;
+
+        // if (weatherCondition || temperature) {
+        //     watchClock = setTimeout(() => (remount = !remount), 60000);
+        // }
+
         return () => {
+            // if (watchClock) clearTimeout(watchClock);
             clearInterval(interval);
         };
     });
 </script>
 
-<div class="clock">
+<div
+    class="clock"
+    on:mouseup={() => {
+        // FOR REMOUNTING
+        // (remount = !remount)
+        window.location.reload();
+    }}>
     <div class="left">
         <div class="top day-of-week">
             <p>{day}</p>
@@ -73,9 +92,17 @@
                 <p>{hours}:{minutes} {meridiem}</p>
             </span>
         </div>
-        <div class="bottom weather-condition__text">
-            <p>{temperature}, {weatherCondition}°C</p>
-        </div>
+        {#if temperature || weatherCondition}
+            <div class="bottom weather-condition__text">
+                <p>
+                    {#if temperature}
+                        {temperature}
+                    {/if}, {#if weatherCondition}
+                        {weatherCondition || "Loading"}°C
+                    {/if}
+                </p>
+            </div>
+        {/if}
     </div>
 </div>
 
