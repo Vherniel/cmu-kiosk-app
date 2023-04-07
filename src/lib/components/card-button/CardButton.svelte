@@ -23,6 +23,7 @@
     this={href ? "a" : "button"}
     class={"card"}
     href={disabled ? "javascript:void(0)" : href}
+    on:click|preventDefault
     {disabled}>
     <div class="header">
         <div>
@@ -66,7 +67,7 @@
         }
     }
     .footer {
-        padding-top: 4rem;
+        // padding-top: 4rem;
         display: flex;
         align-items: center;
         margin-top: auto;
@@ -78,6 +79,7 @@
         .status-icon {
             margin-left: auto;
             border-radius: 999px;
+            align-self: flex-end;
             display: flex;
             align-items: center;
             justify-content: center;

@@ -1,9 +1,10 @@
 <script lang="ts">
-    import type { PageData } from "./$types";
+import type { PageData } from "./$types";
     import { superForm } from "sveltekit-superforms/client";
     import {
         MultiStep,
         StepTabList,
+        StepPanelList,
         StepTab,
         StepPanel,
         StepNavigation,
@@ -36,33 +37,17 @@
         <p>Lorem ipsum dolor sit amet consectetur</p>
     </div>
 
-    <!-- <MultiStep>
-        <StepTabList>
-            <div><StepTab>Introduction</StepTab></div>
-            <div><StepTab>Form</StepTab></div>
-        </StepTabList>
-        <div>
-            <StepPanel class="introduction">
-                Introduction content
-            </StepPanel>
-            <StepPanel class="form-content">
-                Form content
-            </StepPanel>
-        </div>
-        <StepNavigation />
-    </MultiStep> -->
-
     <MultiStep>
         <div class="flex">
             <div class="page-steps">
                 <h4>Steps</h4>
-                <StepTabList>
+                 <StepTabList>
                     <div><StepTab>Introduction</StepTab></div>
                     <div><StepTab>Fill-out Form</StepTab></div>
                     <div><StepTab>Signature Signing</StepTab></div>
                     <div><StepTab>Choose Payment Method</StepTab></div>
                     <div><StepTab>Summary</StepTab></div>
-                </StepTabList>
+                 </StepTabList>
             </div>
             <div class="page-content">
                 <div class="page-container">
@@ -218,7 +203,6 @@
         </div>
     </MultiStep>
 </section>
-
 <style lang="scss">
     .heading {
         p {

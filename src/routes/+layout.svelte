@@ -78,8 +78,8 @@
             </div>
             <div class="weather">
                 <Clock
-                    temperature={data.weather.condition.text}
-                    weatherCondition={data.weather.heatindex_c} />
+                    temperature={data?.weather?.condition.text}
+                    weatherCondition={data?.weather?.heatindex_c} />
             </div>
         </Header>
         <main>
