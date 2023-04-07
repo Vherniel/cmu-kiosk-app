@@ -25,7 +25,6 @@
 
 <style lang="scss">
     h1,
-    h2,
     p {
         margin-bottom: 1rem;
     }
