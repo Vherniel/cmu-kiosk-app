@@ -33,7 +33,7 @@
     
     <section>
         <div class="heading">
-            <h1>Acknowledgement Receipt</h1>
+            <h1>Dropping of Subjects</h1>
             <p>Lorem ipsum dolor sit amet consectetur</p>
         </div>
     
@@ -142,29 +142,124 @@
                             <StepPanel>
                                 <h2>Fill-out Form</h2>
                                 <InputText
-                                    label="First name"
-                                    name="First name"
-                                    id="first-name"
-                                    required
-                                    {superform} />
-                                <InputText
-                                    label="Middle name"
-                                    name="Middle name"
-                                    id="middle-name"
-                                    required
-                                    {superform} />
-                                <InputText
-                                    label="Last name"
-                                    name="Last name"
-                                    id="last-name"
-                                    required
-                                    {superform} />
-                                <InputText
-                                    label="Student ID"
-                                    name="Student ID"
-                                    id="student-id"
-                                    required
-                                    {superform} />
+                                label="College of"
+                                name="College of"
+                                id="college-of"
+                                required
+                                {superform} />
+                            <InputText
+                                label="Course"
+                                name="Course"
+                                id="course"
+                                required
+                                {superform} />
+                            <InputText
+                                label="Year"
+                                name="Year"
+                                id="year"
+                                required
+                                {superform} />
+                            <InputText
+                                label="Sem / Sum."
+                                name="Sem / Sum"
+                                id="sem-sum"
+                                required
+                                {superform} />
+                            <InputText
+                                label="AY"
+                                name="AY"
+                                id="AY"
+                                required
+                                {superform} />
+                            <InputText
+                                label="First name"
+                                name="First name"
+                                id="first-name"
+                                required
+                                {superform} />
+                            <InputText
+                                label="Middle name"
+                                name="Middle name"
+                                id="middle-name"
+                                required
+                                {superform} />
+                            <InputText
+                                label="Last name"
+                                name="Last name"
+                                id="last-name"
+                                required
+                                {superform} />
+                            <InputText
+                                label="Student ID"
+                                name="Student ID"
+                                id="student-id"
+                                required
+                                {superform} />
+                            <InputText
+                                label="Subject/s Dropped"
+                                name="Subject/s Dropped"
+                                id="subjects-dropped"
+                                required
+                                {superform} />
+                            <InputText
+                                label="Time"
+                                name="Time"
+                                id="time"
+                                required
+                                {superform} />
+                            <InputText
+                                label="Day"
+                                name="Day"
+                                id="day"
+                                required
+                                {superform} />
+                            <InputText
+                                label="Prof"
+                                name="Prof"
+                                id="prof"
+                                required
+                                {superform} />
+                            <InputText
+                                label="Unit"
+                                name="Unit"
+                                id="unit"
+                                required
+                                {superform} />
+                            <InputText
+                                label="Subject/s Added/Changes"
+                                name="Subject/s Added/Changes"
+                                id="subjects-added-changes"
+                                required
+                                {superform} />
+                            <InputText
+                                label="Time"
+                                name="Time"
+                                id="time"
+                                required
+                                {superform} />
+                            <InputText
+                                label="Day"
+                                name="Day"
+                                id="day"
+                                required
+                                {superform} />
+                            <InputText
+                                label="Prof"
+                                name="Prof"
+                                id="prof"
+                                required
+                                {superform} />
+                            <InputText
+                                label="Unit"
+                                name="Unit"
+                                id="unit"
+                                required
+                                {superform} />
+                            <!-- TODO: TABLE THIS FROM Subjects/s Dropped to Last Unit -->
+                            <h5>REASON:___________</h5>
+                            <h5>From ___ units to ___ units</h5>
+                            <h5>Received by</h5>
+                            <h5>Dean</h5>
                                 <input type="submit" value="Submit" />
                             </StepPanel>
                         </form>

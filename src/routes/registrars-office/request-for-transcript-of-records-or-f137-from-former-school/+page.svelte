@@ -33,7 +33,7 @@
     
     <section>
         <div class="heading">
-            <h1>Application to Shift Course</h1>
+            <h1>Request for Transcript of Record or F137 from Former School</h1>
             <p>Lorem ipsum dolor sit amet consectetur</p>
         </div>
     
@@ -165,6 +165,18 @@
                                     id="student-id"
                                     required
                                     {superform} />
+                                <InputText
+                                    label="Date"
+                                    name="Date"
+                                    id="date"
+                                    required
+                                    {superform} />
+                                <p>The Principal / School Registrar<br>___________________________________<br>___________________________________</p>
+                                <p>Sir / Madam:<br><br>Please furnish us with the original copy of Transcript of Records (TOR) / Form – 137 of the following student/s who are enrolled in this school.</p>
+                                <h3>Name of Student/s<br>______________<br>______________<br>______________</h3>
+                                <h3>Attend in your school AY/School Year<br>______________<br>______________<br>______________</h3>
+                                <p>Your early attention to this request will be highly appreciated.</p>
+                                <p>_____ 1st request<br>_____ 2nd request<br>_____ 3rd request</p>
                                 <input type="submit" value="Submit" />
                             </StepPanel>
                         </form>

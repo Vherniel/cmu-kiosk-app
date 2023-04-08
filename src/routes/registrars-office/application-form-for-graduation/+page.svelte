@@ -33,7 +33,7 @@
     
     <section>
         <div class="heading">
-            <h1>Application to Shift Course</h1>
+            <h1>Application Form for Graduation</h1>
             <p>Lorem ipsum dolor sit amet consectetur</p>
         </div>
     

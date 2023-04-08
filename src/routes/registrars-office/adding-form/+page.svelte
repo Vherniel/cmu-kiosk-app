@@ -33,7 +33,7 @@
     
     <section>
         <div class="heading">
-            <h1>Application to Shift Course</h1>
+            <h1>Adding of Subjects</h1>
             <p>Lorem ipsum dolor sit amet consectetur</p>
         </div>
     
@@ -141,6 +141,36 @@
                         <form method="POST" use:enhance>
                             <StepPanel>
                                 <h2>Fill-out Form</h2>
+                            <InputText
+                                    label="College of"
+                                    name="College of"
+                                    id="college-of"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Course"
+                                    name="Course"
+                                    id="course"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Year"
+                                    name="Year"
+                                    id="year"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Sem / Sum."
+                                    name="Sem / Sum"
+                                    id="sem-sum"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="AY"
+                                    name="AY"
+                                    id="AY"
+                                    required
+                                    {superform} />
                                 <InputText
                                     label="First name"
                                     name="First name"
@@ -165,6 +195,71 @@
                                     id="student-id"
                                     required
                                     {superform} />
+                                <InputText
+                                    label="Subject/s Changed"
+                                    name="Subject/s Changed"
+                                    id="subjects-changed"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Time"
+                                    name="Time"
+                                    id="time"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Day"
+                                    name="Day"
+                                    id="day"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Prof"
+                                    name="Prof"
+                                    id="prof"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Unit"
+                                    name="Unit"
+                                    id="unit"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Subject/s Replaced"
+                                    name="Subject/s Replaced"
+                                    id="subjects-replaced"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Time"
+                                    name="Time"
+                                    id="time"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Day"
+                                    name="Day"
+                                    id="day"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Prof"
+                                    name="Prof"
+                                    id="prof"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Unit"
+                                    name="Unit"
+                                    id="unit"
+                                    required
+                                    {superform} />
+                                <!-- TODO: TABLE THIS FROM Subjects/s Changed to Last Unit -->
+                                <h5>REASON:___________</h5>
+                                <h5>From ___ units to ___ units</h5>
+                                <h5>Received by</h5>
+                                <h5>Dean</h5>
                                 <input type="submit" value="Submit" />
                             </StepPanel>
                         </form>

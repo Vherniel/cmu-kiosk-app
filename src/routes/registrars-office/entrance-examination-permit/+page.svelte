@@ -33,7 +33,7 @@
     
     <section>
         <div class="heading">
-            <h1>Application to Shift Course</h1>
+            <h1>Entrance Examination Permit</h1>
             <p>Lorem ipsum dolor sit amet consectetur</p>
         </div>
     
@@ -160,9 +160,143 @@
                                     required
                                     {superform} />
                                 <InputText
-                                    label="Student ID"
-                                    name="Student ID"
-                                    id="student-id"
+                                    label="Date of Birth"
+                                    name="Date of Birth"
+                                    id="date-of-birth"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Gender"
+                                    name="Gender"
+                                    id="gender"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Civil Status"
+                                    name="Civil Status"
+                                    id="civil-status"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Age"
+                                    name="Age"
+                                    id="age"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Zip Code"
+                                    name="Zip Code"
+                                    id="zip-code"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Contact No#"
+                                    name="Contact No#"
+                                    id="contact-no"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Email"
+                                    name="Email"
+                                    id="email"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Address"
+                                    name="Address"
+                                    id="address"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Name of School Last Attended"
+                                    name="Name of School Last Attended"
+                                    id="name-of-school-last-attended"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="School Year"
+                                    name="School Year"
+                                    id="school-year"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Average Grade"
+                                    name="Average Grade"
+                                    id="average-grade"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Preferred Course to Enroll"
+                                    name="Preferred Course to Enroll"
+                                    id="preferred-course-to-enroll"
+                                    required
+                                    {superform} />
+                                    <!-- TODO: 2 COURSES NEED TO INPUT BY USER -->
+                                <h3>DO NOT FILL UP THE PORTION BELOW FOR STUDENT AFFAIRS ONLY</h3>
+                                <InputText
+                                    label="Date of Exam"
+                                    name="Date of Exam"
+                                    id="date-of-exam"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Time"
+                                    name="Time"
+                                    id="time"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Room"
+                                    name="Room"
+                                    id="room"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Schedule by"
+                                    name="Schedule by"
+                                    id="schedule-by"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Signature"
+                                    name="Signature"
+                                    id="signature"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Entrance Exam.Result Score"
+                                    name="Entrance Exam.Result Score"
+                                    id="entrance-exam-result-score"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Grade"
+                                    name="Grade"
+                                    id="grade"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Remarks"
+                                    name="Remarks"
+                                    id="remarks"
+                                    required
+                                    {superform} />
+                                 <InputText
+                                    label="Released by"
+                                    name="Released by"
+                                    id="released-by"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Signature"
+                                    name="Signature"
+                                    id="signature"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Date"
+                                    name="Date"
+                                    id="date"
                                     required
                                     {superform} />
                                 <input type="submit" value="Submit" />
