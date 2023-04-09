@@ -142,6 +142,12 @@
                             <StepPanel>
                                 <h2>Fill-out Form</h2>
                                 <InputText
+                                    label="I have the honor to apply for graduation for S.Y. "
+                                    name="I have the honor to apply for graduation for S.Y. "
+                                    id="i-have-the-honor-to-apply-for-graduation-for-sy"
+                                    required
+                                    {superform} />
+                                <InputText
                                     label="First name"
                                     name="First name"
                                     id="first-name"
@@ -160,11 +166,103 @@
                                     required
                                     {superform} />
                                 <InputText
-                                    label="Student ID"
-                                    name="Student ID"
-                                    id="student-id"
+                                    label="Course"
+                                    name="Course"
+                                    id="course"
                                     required
                                     {superform} />
+                                <InputText
+                                    label="Section"
+                                    name="Section"
+                                    id="section"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Major"
+                                    name="Major"
+                                    id="major"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="First Enrollment in this college"
+                                    name="First Enrollment in this college"
+                                    id="first-enrollment-in-this-college"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Last Enrollment"
+                                    name="Last Enrollment"
+                                    id="last-enrollment"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Year Graduated"
+                                    name="Year Graduated"
+                                    id="year-graduated"
+                                    required
+                                    {superform} />
+                                <h3>DOCUMENTS/REQUIREMENTS ON FILE (do not fill this portion for evaluation only)</h3>
+                                <h3>LACK THE FOLLOWING DOCUMENTS/REQUIREMENTS (do not fill this portion for evaluation only)</h3>
+                                <!-- Position this left and right -->
+                                <p>____ High school Card (F-138)<br>____ F-137<br>____ Transcripts of Records (for Transferee only)<br>____ Good Moral/ Permit to Transfer<br>____ Medical Certificate (Drug Test Result)<br>____ Marriage Contract (for Married women only)<br>____ PSA Birth Certificate</p>
+                                <!-- TABLE THIS -->
+                                <h3>EVALUATION RESULT</h3>
+                                <InputText
+                                    label="First name"
+                                    name="First name"
+                                    id="first-name"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Middle name"
+                                    name="Middle name"
+                                    id="middle-name"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Last name"
+                                    name="Last name"
+                                    id="last-name"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Student No."
+                                    name="Student No."
+                                    id="student-no"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Course"
+                                    name="Course"
+                                    id="course"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Section"
+                                    name="Section"
+                                    id="section"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Major"
+                                    name="Major"
+                                    id="major"
+                                    required
+                                    {superform} />
+                                <p>This is to inform you the results of your evaluation during____SEM A.Y. 20__20__</p>
+                                <p>_____Completed all the Academic Requirements<br>_____Lack the following, Academic Requirements<br>_____Lack of non-Academic Requirements</p>
+                                <h3>Currently Enrolled____SEM A.Y. 20__20__<br>(do not fill this portion for evaluation only)</h3>
+                                <!-- Table under this -->
+                                <h3>SUBJECT DEFICIENCIES<br>(do not fill this portion for evaluation only)</h3>
+                                <!-- Table under this -->'
+                                <h3>Evaluated by:</h3>
+                                <h4>Registrar's Staff</h4>
+                                <!-- This is for signature -->
+                                <h4>Students signature over printed name</h4>
+                                <!-- This is for signature -->
+                                <h3>REMARK:</h3>
+                                <p>5.00-Failed<br>NE-NOT ENROLLED<br>NRG-No Records of Grade<br>UW-Unautorized Withdrawal<br>INC-Incomplete<br>AW-Authorize Withdrawal</p>
+                                <!-- TODO:TABLE THIS -->
                                 <input type="submit" value="Submit" />
                             </StepPanel>
                         </form>

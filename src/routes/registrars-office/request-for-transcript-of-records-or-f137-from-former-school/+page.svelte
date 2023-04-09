@@ -74,6 +74,12 @@
                                 period allotted for each student (5 years for a 4-year course and 6
                                 years for a 5-year course).
                             </p>
+                            <p>For Student<br>First Copy Free per Semester<br>2nd copy php.150.00</p>
+                            <p>For Graduating<br>First Copy Free per Semester<br>2nd copy php.150.00</p>
+                            <p>For Alumni<br>php.150.00</p>
+                            <!-- This is for TOR -->
+                            <p>Transfer Credentials<br>For Students:php500.00<br>For Alumni:php500.00</p>
+                            <!-- This is for transfer credentials -->
                             <h4>Shifting Procedures</h4>
                             <ul>
                                 <li>
