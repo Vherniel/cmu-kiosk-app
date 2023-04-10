@@ -4,10 +4,10 @@
         next?: boolean;
     }
 
-    import { getContext, onMount } from "svelte";
+    import { getContext } from "svelte";
     import { key } from "./MultiStep.svelte";
-    import type { HTMLAttributes } from "svelte/elements";
 
+    // @ts-ignore
     const { steps, selectedStep, nextStep, previousStep } = getContext(key);
 
     export let previous: boolean = true;
