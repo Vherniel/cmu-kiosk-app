@@ -19,7 +19,9 @@ export async function load({ fetch, data, depends }) {
 
     return {
         weather: data.weather,
+        news: data.news,
         supabase,
         session,
+        formRecords: data.formRecords,
     };
 }

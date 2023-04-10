@@ -8,26 +8,71 @@
         StepPanel,
         StepNavigation,
     } from "$lib/components/multi-step";
-
-    export let data: PageData;
-
-    const superform = superForm(data.form, {
-        multipleSubmits: "prevent",
-        onSubmit({ data }) {
-            // submit values from $form instead of the default form action
-            Object.entries($form).forEach(([key, value]) => {
-                data.set(key, value.toString());
-            });
-        },
-    });
-
-    const { form, enhance, capture, restore, errors, constraints } = superform;
-
-    export const snapshot = { capture, restore };
-
     import { Info } from "lucide-svelte";
     import Callout from "$lib/components/callout/Callout.svelte";
     import InputText from "$lib/components/input/InputText.svelte";
+    import { SVGPathPencil } from "$lib/components/svg-path-pencil";
+    import { page } from "$app/stores";
+    import { goto } from "$app/navigation";
+
+    export let data: PageData;
+
+    let formRecordsId: number;
+
+    let submitStatus: "submitting" | "submitted" | false = false;
+
+    let summary;
+
+    if ($page.url.searchParams.get("formRecordsId")) {
+        summary = data.summary[0].form_values;
+    }
+
+    const superform = superForm(data.submitForm, {
+        id: "submitForm",
+        multipleSubmits: "prevent",
+        onSubmit({ data, submitter }) {
+            submitter.disabled = true;
+            submitStatus = "submitting";
+
+            // submit values from $form instead of the default form action
+            Object.entries($form).forEach(([key, value]) => {
+                // prettier-ignore
+                key == "Signature"
+                    ? data.set(key, svg)
+                    : data.set(key, value.toString());
+            });
+        },
+        onResult({ result }) {
+            formRecordsId = result.data.formId;
+        },
+        onUpdate() {
+            $page.url.searchParams.set("step", "payment");
+            submitStatus = "submitted";
+        },
+    });
+
+    const { form, enhance, capture, restore } = superform;
+
+    const paymentSuperform = superForm(data.payment, {
+        id: "payment",
+        multipleSubmits: "prevent",
+        onSubmit({ data, submitter }) {
+            data.set("formRecordsId", formRecordsId.toString());
+
+            if (submitter?.className?.includes("gcash")) {
+                return data.set("Method", "gcash");
+            }
+
+            data.set("Method", "cash");
+        },
+    });
+
+    const { form: paymentForm, enhance: paymentEnhance } = paymentSuperform;
+
+    export const snapshot = { capture, restore };
+
+    let svg: string;
+    let paymentRedirecting = false;
 </script>
 
 <section>
@@ -36,37 +81,22 @@
         <p>Lorem ipsum dolor sit amet consectetur</p>
     </div>
 
-    <!-- <MultiStep>
-        <StepTabList>
-            <div><StepTab>Introduction</StepTab></div>
-            <div><StepTab>Form</StepTab></div>
-        </StepTabList>
-        <div>
-            <StepPanel class="introduction">
-                Introduction content
-            </StepPanel>
-            <StepPanel class="form-content">
-                Form content
-            </StepPanel>
-        </div>
-        <StepNavigation />
-    </MultiStep> -->
-
     <MultiStep>
         <div class="flex">
             <div class="page-steps">
                 <h4>Steps</h4>
                 <StepTabList>
-                    <div><StepTab>Introduction</StepTab></div>
-                    <div><StepTab>Fill-out Form</StepTab></div>
-                    <div><StepTab>Signature Signing</StepTab></div>
-                    <div><StepTab>Choose Payment Method</StepTab></div>
-                    <div><StepTab>Summary</StepTab></div>
+                    <div><StepTab name="intro">Introduction</StepTab></div>
+                    <div><StepTab name="form">Fill-out Form</StepTab></div>
+                    <div><StepTab name="sign">Signature Signing</StepTab></div>
+                    <div><StepTab name="payment">Choose Payment Method</StepTab></div>
+                    <div><StepTab name="summary">Summary</StepTab></div>
                 </StepTabList>
             </div>
             <div class="page-content">
                 <div class="page-container">
                     <StepPanel>
+                        <div id="dropin-container" />
                         <h2>What is Course Shifting?</h2>
                         <Callout>
                             <h3 slot="title">Important Notice</h3>
@@ -153,7 +183,7 @@
                         </ul>
                     </StepPanel>
                     <!-- <SuperDebug data={$form} /> -->
-                    <form method="POST" use:enhance>
+                    <form method="POST" action="?/submitForm" use:enhance>
                         <StepPanel>
                             <h2>Fill-out Form</h2>
                             <InputText
@@ -180,19 +210,72 @@
                                 id="student-id"
                                 required
                                 {superform} />
+                        </StepPanel>
+                        <StepPanel>
+                            <h2>Signature Signing</h2>
+                            <p>Write your signature inside the box</p>
+                            <div class="box">
+                                <!-- TODO: https://www.npmjs.com/package/svgo -->
+                                <SVGPathPencil bind:dataPaths={svg} />
+                            </div>
                             <input type="submit" value="Submit" />
+                            {#if submitStatus == "submitted"}
+                                <p>Form submitted. Click <strong>next to continue.</strong></p>
+                            {/if}
+                            {#if submitStatus == "submitting"}
+                                <p>Submitting</p>
+                            {/if}
+                            <p>
+                                Submitting this form will only make it as a draft. A transaction
+                                must be made to complete this form.
+                            </p>
                         </StepPanel>
                     </form>
                     <StepPanel>
-                        <h2>Signature Signing</h2>
-                    </StepPanel>
-                    <StepPanel>
                         <h2>Choose Payment Method</h2>
+                        <form method="post" action="?/payment" use:paymentEnhance>
+                            <button type="submit" class="cash" name="Pay cash">
+                                Pay cash
+                            </button>
+                            <button
+                                type="submit"
+                                class="gcash"
+                                name="Pay with GCash"
+                                on:click={() => (paymentRedirecting = !paymentRedirecting)}>
+                                Pay with GCash
+                            </button>
+                            <p>
+                                Paying with cash will automatically queue your request and it
+                                will generate a unique QR Code to be presented to the registrar
+                                staff.
+                            </p>
+                            {#if paymentRedirecting}
+                                <h2>Redirecting</h2>
+                            {/if}
+                        </form>
                     </StepPanel>
                     <StepPanel>
                         <h2>Summary</h2>
                         <h4>
-                            {JSON.stringify($form)}
+                            {#if $page.url.searchParams.get("formRecordsId")}
+                                <p>{summary.metadata.done ? "Completed" : "Draft"}</p>
+                                <p>
+                                    {summary.superform.data["Last name"]}, {summary.superform
+                                        .data["First name"]}
+                                    {summary.superform.data["Middle name"]}: {summary.superform
+                                        .data["Student ID"]}
+                                </p>
+                                <svg>
+                                    {#each JSON.parse(summary.superform.data["Signature"]) as p}
+                                        <path
+                                            stroke-width={4}
+                                            d={p.strPath}
+                                            stroke={p.color}
+                                            fill="transparent" />
+                                    {/each}
+                                </svg>
+                            {/if}
+                            <a href="/">Back to main dashboard</a>
                         </h4>
                     </StepPanel>
                 </div>
@@ -273,5 +356,9 @@
             }
         }
         flex-basis: 24rem;
+    }
+    .box {
+        border: dashed 2px black;
+        height: 36rem;
     }
 </style>

@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<input type="number" />
+<div class="infinite-scroll" />
 
 <style lang="scss">
 </style>

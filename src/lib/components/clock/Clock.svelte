@@ -44,25 +44,12 @@
         return response;
     }
 
-    let remount = false;
-
     onMount(() => {
-        console.log("remount");
-
         const interval = setInterval(() => {
             dateNow = new Date();
         }, SECONDS_10);
 
-        // TODO: FOR REMOUNTING
-        // /** @type {null | NodeJS.Timeout} */
-        // let watchClock;
-
-        // if (weatherCondition || temperature) {
-        //     watchClock = setTimeout(() => (remount = !remount), 60000);
-        // }
-
         return () => {
-            // if (watchClock) clearTimeout(watchClock);
             clearInterval(interval);
         };
     });
@@ -71,8 +58,7 @@
 <div
     class="clock"
     on:mouseup={() => {
-        // FOR REMOUNTING
-        // (remount = !remount)
+        // Force reload when the weather API is not showing up
         window.location.reload();
     }}>
     <div class="left">

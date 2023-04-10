@@ -3,6 +3,8 @@
     import { key } from "./MultiStep.svelte";
 
     const panel = {};
+
+    // @ts-ignore
     const { registerPanel, selectedPanel } = getContext(key);
 
     registerPanel(panel);

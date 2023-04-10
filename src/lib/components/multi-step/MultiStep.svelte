@@ -6,7 +6,8 @@
 </script>
 
 <script lang="ts">
-    import { setContext, onDestroy } from "svelte";
+    import { page } from "$app/stores";
+    import { setContext, afterUpdate, onDestroy } from "svelte";
     import { get, writable } from "svelte/store";
 
     const steps: {}[] = [];
@@ -32,6 +33,13 @@
             panels.push(panel);
             selectedPanel.update((current) => current || panel);
 
+            afterUpdate(() => {
+                const currentStep = $page.url.searchParams.get("step");
+                const index = steps.findIndex((step: any) => step.name == currentStep);
+                selectedStep.set(steps[index == -1 ? 0 : index]);
+                selectedPanel.set(panels[index == -1 ? 0 : index]);
+            });
+
             onDestroy(() => {
                 const i = panels.indexOf(panel);
                 panels.splice(i, 1);
@@ -41,10 +49,11 @@
             });
         },
 
-        selectStep: (step: {}) => {
-            const i = steps.indexOf(step);
-            selectedStep.set(step);
-            selectedPanel.set(panels[i]);
+        selectStep: (stepToSelect: any) => {
+            $page.url.searchParams.set("step", stepToSelect.name);
+            const index = steps.findIndex((step: any) => step.name == stepToSelect.name);
+            selectedStep.set(steps[index == -1 ? 0 : index]);
+            selectedPanel.set(panels[index == -1 ? 0 : index]);
         },
 
         nextStep: ({ loop } = { loop: false }) => {
@@ -55,6 +64,7 @@
 
             selectedStep.set(steps[current] || lastStep);
             selectedPanel.set(panels[current] || lastPanel);
+            $page.url.searchParams.set("step", $selectedStep.name);
         },
 
         previousStep: ({ loop } = { loop: false }) => {
@@ -65,6 +75,7 @@
 
             selectedStep.set(steps[current] || lastStep);
             selectedPanel.set(panels[current] || lastPanel);
+            $page.url.searchParams.set("step", $selectedStep.name);
         },
 
         selectedStep,

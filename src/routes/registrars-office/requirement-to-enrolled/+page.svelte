@@ -33,7 +33,7 @@
     
     <section>
         <div class="heading">
-            <h1>Application to Shift Course</h1>
+            <h1>Requirement to Enrolled</h1>
             <p>Lorem ipsum dolor sit amet consectetur</p>
         </div>
     
@@ -165,6 +165,20 @@
                                     id="student-id"
                                     required
                                     {superform} />
+                                <InputText
+                                    label="Course"
+                                    name="Course"
+                                    id="course"
+                                    required
+                                    {superform} />
+                                <h3>For Freshmen/Transfer Student: Docs submitted, pls check</h3>
+                                <p>______ Form 137(org) / Form -138 Report Card (org)<br>______ Transcript of Record (CMU Copy)<br>______PSA Birth Certificate (Org)<br>______ Marriage Contract (If Married)<br>______Certificate of Good Moral (Org)<br>______Drug Test Result (Org)<br>______Expanded Long Brown Envelope 1pc<br>______2x2 Picture w/ Name & White Background 2pcs<br>______Documentary Stamp 2pcs<br>______Long White Letter Envelope 2pcs<br>______ Honorable Dismissal<br>______Voter’s ID or Voter’s Certification (Comelec) of student
+                                    His/her husband/wife or his/her parents or siblings
+                                    For Malabon Resident Only) Original</p>
+                                <h3>Signature of Applicant Registrar's Staff</h3>
+                                <!-- This is for signature -->
+                                <h3>Registrar Staff</h3>
+                                <!-- This is for signature -->
                                 <input type="submit" value="Submit" />
                             </StepPanel>
                         </form>

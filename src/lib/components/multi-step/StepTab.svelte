@@ -2,13 +2,14 @@
     import { getContext } from "svelte";
     import { key } from "./MultiStep.svelte";
 
-    const step = {};
+    export let name: string;
 
+    const step = { name };
+
+    // @ts-ignore
     const { registerStep, selectStep, selectedStep } = getContext(key);
 
     registerStep(step);
-
-    export let disabled: boolean | null = null;
 </script>
 
 <button

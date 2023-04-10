@@ -1,12 +1,6 @@
-<script context="module" lang="ts">
-</script>
-
 <script lang="ts">
-    import { onMount } from "svelte";
-
     import type { HTMLInputAttributes } from "svelte/elements";
     import type { EnhancedForm } from "sveltekit-superforms/client";
-    import type { AnyZodObject } from "zod";
 
     interface $$Props extends HTMLInputAttributes {
         name: string;
@@ -19,9 +13,6 @@
         invalid: {};
     }
 
-    // export let type:  | "text" = "text";
-    // export let name;
-    // export let class;
     export let name: string;
     export let id: string;
     export let label: string | null = null;
@@ -29,22 +20,10 @@
     // Superforms
     export let superform: EnhancedForm<any, any>;
 
-    /**
-     * Type 'EnhancedForm<ZodObject<
-     *      { Name: ZodString; Age: ZodNumber; "E-mail": ZodString; },
-     *      "strip",
-     *      ZodTypeAny,
-     *      { Name: string; Age: number; "E-mail": string; },
-     *      { Name: string; Age: number; "E-mail": string; }>, any
-     * >' is not assignable to type 'EnhancedForm<AnyZodObject, any>'.
-     */
-
     $: ({ form, errors, constraints } = superform);
 </script>
 
-<!-- <InputText label="Full name" /> -->
-
-<p class={"form-control" + $$props.class}>
+<p class={"form-control " + $$props.class}>
     {#if label}
         <span style:display="block">
             <label for={id}>{label}</label>
