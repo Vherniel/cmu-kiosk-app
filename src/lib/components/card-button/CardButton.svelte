@@ -23,7 +23,7 @@
     this={href ? "a" : "button"}
     class={"card"}
     href={disabled ? "javascript:void(0)" : href}
-    on:click|preventDefault
+    on:click
     {disabled}>
     <div class="header">
         <div>
