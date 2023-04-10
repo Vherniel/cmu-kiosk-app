@@ -2,11 +2,11 @@
 </script>
 
 <script lang="ts">
-    import { onMount } from "svelte";
+    // import { onMount } from "svelte";
 
     import type { HTMLInputAttributes } from "svelte/elements";
     import type { EnhancedForm } from "sveltekit-superforms/client";
-    import type { AnyZodObject } from "zod";
+    // import type { AnyZodObject } from "zod";
 
     interface $$Props extends HTMLInputAttributes {
         name: string;
@@ -44,7 +44,7 @@
 
 <!-- <InputText label="Full name" /> -->
 
-<p class={"form-control" + $$props.class}>
+<p class={"form-control " + $$props.class}>
     {#if label}
         <span style:display="block">
             <label for={id}>{label}</label>
