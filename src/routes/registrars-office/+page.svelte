@@ -1,10 +1,14 @@
 <script lang="ts">
     import CardButton from "$lib/components/card-button/CardButton.svelte";
     import { Building2, RefreshCw } from "lucide-svelte";
-    import { prevent_default } from "svelte/internal";
+    import type { PageData } from "./$types";
+    import { PUBLIC_KIOSK_GUEST_EMAIL } from "$env/static/public";
+
+    export let data: PageData;
+
+    $: ({ session, formRecords } = data);
 
     // TODO: icon props
-
     const forms = [
         {
             href: "/registrars-office/admission",
@@ -57,11 +61,30 @@
 <section>
     <h1>Registrar’s Office</h1>
     <p>Select a form to continue</p>
+
     <div class="contents">
         <div class="flex">
-            {#each forms as form}
-                <div class="flex-item">
-                    <CardButton {...form} on:click={() => {}} />
+            <div class="flex-item-1-2">
+                <h3>
+                    Draft forms: {formRecords?.filter(
+                        ({ form_values }) => form_values.metadata.draft
+                    ).length}
+                </h3>
+            </div>
+            <div class="flex-item-1-2">
+                <h3>
+                    Completed forms: {formRecords?.filter(
+                        ({ form_values }) => form_values.metadata.done
+                    ).length}
+                </h3>
+            </div>
+            {#each forms as { href, ...form }}
+                <div class="flex-item-1-4">
+                    <CardButton
+                        href={!session || session?.user?.email == PUBLIC_KIOSK_GUEST_EMAIL
+                            ? "/signin?redirect=" + encodeURIComponent(href)
+                            : href}
+                        {...form} />
                 </div>
             {/each}
         </div>
@@ -74,8 +97,12 @@
             display: flex;
             flex-flow: row wrap;
             margin: -0.5rem;
-            .flex-item {
+            .flex-item-1-4 {
                 flex-basis: calc(100% / 4);
+                padding: 0.5rem;
+            }
+            .flex-item-1-2 {
+                flex-basis: calc(50%);
                 padding: 0.5rem;
             }
         }
