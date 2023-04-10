@@ -1,6 +1,5 @@
 <script lang="ts">
-    import type { ComponentType } from "svelte";
-    import { type Icon, Lightbulb } from "lucide-svelte";
+    import { Lightbulb } from "lucide-svelte";
 
     export let icon = true;
     export let title = true;
@@ -64,10 +63,6 @@
                     margin-bottom: 1rem;
                 }
             }
-            /* .callout-content {
-                .content {
-                }
-            } */
         }
     }
 </style>
