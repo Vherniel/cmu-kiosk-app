@@ -1,5 +1,8 @@
 <script lang="ts">
+    import { goto } from "$app/navigation";
+    import { page } from "$app/stores";
     import { PUBLIC_KIOSK_GUEST_EMAIL, PUBLIC_KIOSK_GUEST_PASS } from "$env/static/public";
+    import { onMount } from "svelte";
 
     export let data;
 
@@ -28,6 +31,8 @@
             email: asGuest ? PUBLIC_KIOSK_GUEST_EMAIL : signInEmail,
             password: asGuest ? PUBLIC_KIOSK_GUEST_PASS : signInPassword,
         });
+
+        goto($page.url.searchParams.get("redirect") || "/");
     }
 
     async function onSignOut(event: SubmitEvent) {
@@ -46,7 +51,7 @@
     <!-- TODO: call-out component -->
     <!-- TODO: update verbiage below -->
     <p>If you already have a CMU Email, use it</p>
-    {#if !session}
+    {#if !session || session?.user?.email == PUBLIC_KIOSK_GUEST_EMAIL}
         <h2>I am not logged in</h2>
         <h4>Login</h4>
         <!-- TODO: sign-in or signin -->
