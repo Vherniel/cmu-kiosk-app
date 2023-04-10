@@ -33,7 +33,7 @@
     
     <section>
         <div class="heading">
-            <h1>Application to Shift Course</h1>
+            <h1>Acknowledgement Receipt</h1>
             <p>Lorem ipsum dolor sit amet consectetur</p>
         </div>
     
@@ -165,6 +165,93 @@
                                     id="student-id"
                                     required
                                     {superform} />
+                                <InputText
+                                    label="Course"
+                                    name="Course"
+                                    id="course"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Certificate of Good Moral"
+                                    name="Certificate of Good Moral"
+                                    id="certificate-of-good-moral"
+                                    required
+                                    {superform} />
+                                    <!-- TODO: CHECKBOX -->
+                                <InputText
+                                    label="Certificate of Transfer / Honorable Dismissal"
+                                    name="Certificate of Transfer / Honorable Dismissal"
+                                    id="certificate-of-transfer-/-honorable-dismissal"
+                                    required
+                                    {superform} />
+                                    <!-- TODO: CHECKBOX -->
+                                <InputText
+                                    label="Certificate of Grades"
+                                    name="Certificate of Grades"
+                                    id="certificate-of-grades"
+                                    required
+                                    {superform} />
+                                    <!-- TODO: CHECKBOX -->
+                                <InputText
+                                    label="Transcript of Records"
+                                    name="Transcript of Records"
+                                    id="transcript-of-records"
+                                    required
+                                    {superform} />
+                                    <!-- TODO: CHECKBOX -->
+                                <InputText
+                                    label="Certificate of Graduation"
+                                    name="Certificate of Graduation"
+                                    id="certificate-of-graduation"
+                                    required
+                                    {superform} />
+                                    <!-- TODO: CHECKBOX -->
+                                <InputText
+                                    label="Certificate of Enrollment"
+                                    name="Certificate of Enrollment"
+                                    id="certificate-of-enrollment"
+                                    required
+                                    {superform} />
+                                    <!-- TODO: CHECKBOX -->
+                                <InputText
+                                    label="Diploma"
+                                    name="Diploma"
+                                    id="diploma"
+                                    required
+                                    {superform} />
+                                    <!-- TODO: CHECKBOX -->
+                                <InputText
+                                    label="Others: (Pls.Specify)"
+                                    name="Others: (Pls.Specify)"
+                                    id="others"
+                                    required
+                                    {superform} />
+                                    <!-- TODO: CHECKBOX AND LINE INPUT TEXT -->
+                                <h3>Bring</h3>
+                                <InputText
+                                    label="Expanded brown envelope"
+                                    name="Expanded brown envelope"
+                                    id="expanded-brown-envelope"
+                                    required
+                                    {superform} />
+                                    <!-- TODO: CHECKBOX -->
+                                <InputText
+                                    label="Latest Picture with White Background"
+                                    name="Latest Picture with White Background"
+                                    id="latest-picture-with-white-background"
+                                    required
+                                    {superform} />
+                                    <!-- TODO: CHECKBOX -->
+                                    <InputText
+                                    label="Documentary Stamp"
+                                    name="Documentary Stamp"
+                                    id="documentary-stamp"
+                                    required
+                                    {superform} />
+                                    <!-- TODO: CHECKBOX -->
+                                <p>Pls. come on ____________ for the release of the said document/s upon submission of your original Form 137/TOR</p>
+                                <h5>Receive by</h5>
+                                <h5>Date Receive</h5>
                                 <input type="submit" value="Submit" />
                             </StepPanel>
                         </form>

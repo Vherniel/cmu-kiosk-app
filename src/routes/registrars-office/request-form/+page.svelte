@@ -33,7 +33,7 @@
     
     <section>
         <div class="heading">
-            <h1>Application to Shift Course</h1>
+            <h1>Request Form</h1>
             <p>Lorem ipsum dolor sit amet consectetur</p>
         </div>
     
@@ -74,6 +74,55 @@
                                 period allotted for each student (5 years for a 4-year course and 6
                                 years for a 5-year course).
                             </p>
+                            <p>Request For</p>
+                            <p>Transfer Credentials</p>
+                            <p>For Student<br>Php500.00</p>
+                            <p>For Graduating<br>N/A</p>
+                            <p>For Alumni<br>Php500.00</p>
+                            <p>DIPLOMA</p>
+                            <p>For Student<br>N/A</p>
+                            <p>For Graduating<br>First Copy Free</p>
+                            <p>For Alumni<br>Php250.00</p>
+                            <p>Certificate of Transfer</p>
+                            <p>For Student<br>Php100.00</p>
+                            <p>For Graduating<br>N/A</p>
+                            <p>For Alumni<br>N/A</p>
+                            <p>Certificate of Enrollment</p>
+                            <p>For Student<br>First Copy Free.<br>2nd and succeding copy Php100.00</p>
+                            <p>For Graduating<br>First Copy Free.</p>
+                            <p>For Alumni<br>N/A</p>
+                            <p>Certificate of Grade</p>
+                            <p>For Student<br>First Copy Free.<br>2nd and succeding copy Php100.00</p>
+                            <p>For Graduating<br>N/A</p>
+                            <p>For Alumni<br>N/A</p>
+                            <p>Certificate of Honorable Dismissal</p>
+                            <p>For Student<br>N/A</p>
+                            <p>For Graduating<br>N/A</p>
+                            <p>For Alumni<br>N/A</p>
+                            <p>Certificate of Study Load</p>
+                            <p>For Student<br>First Copy Free.<br>2nd and succeding copy Php75.00</p>
+                            <p>For Graduating<br>N/A</p>
+                            <p>For Alumni<br>N/A</p>
+                            <p>Certificate of Graduation</p>
+                            <p>For Student<br>N/A</p>
+                            <p>For Graduation<br>First Copy Free.<br>2nd and succeding copy Php100.00</p>
+                            <p>For Alumni<br>Php.100.00</p>
+                            <p>Certificate of GWA</p>
+                            <p>For Student<br>First Copy Free per Semester.<br>2nd and succeding copy Php75.00</p>
+                            <p>For Graduating<br>First Copy Free</p>
+                            <p>For Alumni<br>Php100.00</p>
+                            <p>Certified True Copy of: 1.TOR 2.Diploma 3.Certificate of Good Moral 4.Certificate of Graduation 5.Certicate of General Weighted Mean</p>
+                            <p>For Student<br>N/A</p>
+                            <p>For Graduating<br>N/A</p>
+                            <p>For Alumni<br>Php75.00</p>
+                            <p>Certified-Authentication-Verification (CAV) of TOR</p>
+                            <p>For Student<br>N/A</p>
+                            <p>For Graduating<br>First Copy Free</p>
+                            <p>For Alumni<br>Php290.00</p>
+                            <p>Certification of Good Moral Character</p>
+                            <p>For Student<br>First Copy Free per Semester.<br>2nd and succeding copy Php75.00</p>
+                            <p>For Graduating<br>First Copy Free</p>
+                            <p>For Alumni<br>Php100.00</p>
                             <h4>Shifting Procedures</h4>
                             <ul>
                                 <li>
@@ -165,6 +214,99 @@
                                     id="student-id"
                                     required
                                     {superform} />
+                                <InputText
+                                    label="Year"
+                                    name="Year"
+                                    id="year"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Section"
+                                    name="Section"
+                                    id="section"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="School Year"
+                                    name="School Year"
+                                    id="school-year"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Date of Admission"
+                                    name="Date of Admission"
+                                    id="date-of-admission"
+                                    required
+                                    {superform} />
+                                <h3>Request for:</h3>
+                                <InputText
+                                    label="Transfer Credentials"
+                                    name="Transfer Credentials"
+                                    id="transfer-credentials"
+                                    required
+                                    {superform} />
+                                <!-- TODO: CHECKBOX -->
+                                <InputText
+                                    label="Certificate of Graduation"
+                                    name="Certificate of Graduation"
+                                    id="certificate-of-graduation"
+                                    required
+                                    {superform} />
+                                    <!-- TODO: CHECKBOX -->
+                                <InputText
+                                    label="Certificate of GWA(General Weighted Mean)"
+                                    name="Certificate of GWA(General Weighted Mean)"
+                                    id="certificate-of-gwa"
+                                    required
+                                    {superform} />
+                                    <!-- TODO: CHECKBOX -->
+                                <InputText
+                                    label="Certified True Copy"
+                                    name="Certified True Copy"
+                                    id="certified-true-copy"
+                                    required
+                                    {superform} />
+                                    <!-- TODO: CHECKBOX -->
+                                <InputText
+                                    label="Certified-Authentication-Verification (CAV) of TOR"
+                                    name="Certified-Authentication-Verification (CAV) of TOR"
+                                    id="certified-authentication-verification-of-tor"
+                                    required
+                                    {superform} />
+                                    <!-- TODO: CHECKBOX -->
+                                <InputText
+                                    label="Certification for Good Moral Character"
+                                    name="Certification for Good Moral Character"
+                                    id="certification-for-good-moral-character"
+                                    required
+                                    {superform} />
+                                    <!-- TODO: CHECKBOX -->
+                                <InputText
+                                    label="Other"
+                                    name="Other"
+                                    id="other"
+                                    required
+                                    {superform} />
+                                    <!-- TODO: CHECKBOX -->
+                                <InputText
+                                    label="Mobile No"
+                                    name="Mobile No"
+                                    id="mobile-no"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Email Address"
+                                    name="Email Address"
+                                    id="email-address"
+                                    required
+                                    {superform} />
+                                <InputText
+                                    label="Reason for Request"
+                                    name="Reason for Request"
+                                    id="reason-for-request"
+                                    required
+                                    {superform} />
+                                <p>____Pick up<br>____Mail<br>____Email</p>
                                 <input type="submit" value="Submit" />
                             </StepPanel>
                         </form>

@@ -55,6 +55,21 @@
             label: "Acknowledgement Receipt",
             icon: Building2,
         },
+        {
+            href: "/registrars-office/adding-form",
+            label: "Adding Form",
+            icon: Building2,
+        },
+        {
+            href: "/registrars-office/completion-form",
+            label: "Completion Form",
+            icon: Building2,
+        },
+        {
+            href: "/registrars-office/dropping-form",
+            label: "Dropping Form",
+            icon: Building2,
+        },
     ];
 </script>
 
