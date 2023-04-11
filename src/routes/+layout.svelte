@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     // Framework specific
     import { onMount } from "svelte";
     import { invalidate } from "$app/navigation";
@@ -16,9 +16,9 @@
     // Styles
     import "$lib/styles/styles.scss";
     import Account from "$lib/components/account/Account.svelte";
+    import type { LayoutData } from "./$types";
 
-    /** @type {import('./$types').LayoutData} */
-    export let data;
+    export let data: LayoutData;
     $: ({ supabase, session } = data);
 
     onMount(() => {

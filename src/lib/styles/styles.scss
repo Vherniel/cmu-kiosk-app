@@ -1,5 +1,9 @@
 // CSS Reset
-@import "gardevoir/dist";
+// @import "gardevoir/dist";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 // CSS Fonts
 @import "@fontsource/manrope/500.css";

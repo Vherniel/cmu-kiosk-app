@@ -1,9 +1,9 @@
 // src/routes/+layout.ts
 import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY } from "$env/static/public";
 import { createSupabaseLoadClient } from "@supabase/auth-helpers-sveltekit";
+import type { LayoutLoad } from "./$types";
 
-/** @type {import('./$types').LayoutLoad} */
-export async function load({ fetch, data, depends }) {
+export const load = (async ({ fetch, data, depends }) => {
     depends("supabase:auth");
 
     const supabase = createSupabaseLoadClient({
@@ -24,4 +24,4 @@ export async function load({ fetch, data, depends }) {
         session,
         formRecords: data.formRecords,
     };
-}
+}) satisfies LayoutLoad;

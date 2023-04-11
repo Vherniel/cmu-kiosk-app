@@ -1,13 +1,11 @@
-<script>
+<script lang="ts">
     // Framework specific
     import { onMount } from "svelte";
     // Icons
     import { Cloudy } from "lucide-svelte";
 
-    /** @type {string} */
-    export let weatherCondition;
-    /** @type {string} */
-    export let temperature;
+    export let weatherCondition: string;
+    export let temperature: string;
 
     const SECONDS_10 = 10000;
 

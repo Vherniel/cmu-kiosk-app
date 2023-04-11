@@ -3,8 +3,9 @@ import { createSupabaseServerClient } from "@supabase/auth-helpers-sveltekit";
 import adyen from "@adyen/api-library";
 const { Client, CheckoutAPI } = adyen;
 
-/** @type {import('@sveltejs/kit').Handle} */
-export const handle = async ({ event, resolve }) => {
+import type { Handle } from "@sveltejs/kit";
+
+export const handle = (async ({ event, resolve }) => {
     event.locals.supabase = createSupabaseServerClient({
         supabaseUrl: PUBLIC_SUPABASE_URL,
         supabaseKey: PUBLIC_SUPABASE_ANON_KEY,
@@ -41,4 +42,4 @@ export const handle = async ({ event, resolve }) => {
             return name == "content-range";
         },
     });
-};
+}) satisfies Handle;

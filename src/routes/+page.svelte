@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { PUBLIC_KIOSK_GUEST_EMAIL } from "$env/static/public";
 
     export let data;
