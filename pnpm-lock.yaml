@@ -4,6 +4,9 @@ devDependencies:
   '@adyen/api-library':
     specifier: ^13.1.1
     version: 13.1.1
+  '@floating-ui/dom':
+    specifier: ^1.2.6
+    version: 1.2.6
   '@fontsource/iosevka':
     specifier: ^4.5.4
     version: 4.5.4
@@ -14,23 +17,26 @@ devDependencies:
     specifier: ^1.0.0
     version: 1.0.0
   '@playwright/test':
-    specifier: ^1.32.2
-    version: 1.32.2
+    specifier: ^1.32.3
+    version: 1.32.3
   '@skeletonlabs/skeleton':
     specifier: ^1.1.0
     version: 1.1.0
   '@supabase/auth-helpers-sveltekit':
     specifier: ^0.9.3
-    version: 0.9.3(@supabase/supabase-js@2.17.0)(@sveltejs/kit@1.15.2)
+    version: 0.9.3(@supabase/supabase-js@2.18.0)(@sveltejs/kit@1.15.2)
   '@supabase/supabase-js':
-    specifier: ^2.17.0
-    version: 2.17.0
+    specifier: ^2.18.0
+    version: 2.18.0
   '@sveltejs/adapter-auto':
     specifier: ^2.0.0
     version: 2.0.0(@sveltejs/kit@1.15.2)
   '@sveltejs/kit':
     specifier: ^1.15.2
     version: 1.15.2(svelte@3.58.0)(vite@4.2.1)
+  '@tailwindcss/forms':
+    specifier: ^0.5.3
+    version: 0.5.3(tailwindcss@3.3.1)
   '@types/cookie':
     specifier: ^0.5.1
     version: 0.5.1
@@ -50,8 +56,8 @@ devDependencies:
     specifier: ^1.0.0
     version: 1.0.0
   lucide-svelte:
-    specifier: ^0.138.0
-    version: 0.138.0(svelte@3.58.0)
+    specifier: ^0.139.0
+    version: 0.139.0(svelte@3.58.0)
   postcss:
     specifier: ^8.4.21
     version: 8.4.21
@@ -346,6 +352,16 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
+  /@floating-ui/core@1.2.6:
+    resolution: {integrity: sha512-EvYTiXet5XqweYGClEmpu3BoxmsQ4hkj3QaYA6qEnigCWffTP3vNRwBReTdrwDwo7OoJ3wM8Uoe9Uk4n+d4hfg==}
+    dev: true
+
+  /@floating-ui/dom@1.2.6:
+    resolution: {integrity: sha512-02vxFDuvuVPs22iJICacezYJyf7zwwOCWkPNkWNBr1U0Qt1cKFYzWvxts0AmqcOQGwt/3KJWcWIgtbUU38keyw==}
+    dependencies:
+      '@floating-ui/core': 1.2.6
+    dev: true
+
   /@fontsource/iosevka@4.5.4:
     resolution: {integrity: sha512-S3rNmYP8EvjeyAJ8mwtt+9CZK8p5LdxYXpgv9lSBtHbRkwjcg8MbPs7vzWLRYs0R0MRmpvlLw864xvn3XKXclA==}
     dev: true
@@ -433,13 +449,13 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@playwright/test@1.32.2:
-    resolution: {integrity: sha512-nhaTSDpEdTTttdkDE8Z6K3icuG1DVRxrl98Qq0Lfc63SS9a2sjc9+x8ezysh7MzCKz6Y+nArml3/mmt+gqRmQQ==}
+  /@playwright/test@1.32.3:
+    resolution: {integrity: sha512-BvWNvK0RfBriindxhLVabi8BRe3X0J9EVjKlcmhxjg4giWBD/xleLcg2dz7Tx0agu28rczjNIPQWznwzDwVsZQ==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
       '@types/node': 18.15.11
-      playwright-core: 1.32.2
+      playwright-core: 1.32.3
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
@@ -454,23 +470,23 @@ packages:
       svelte: 3.58.0
     dev: true
 
-  /@supabase/auth-helpers-shared@0.3.3(@supabase/supabase-js@2.17.0):
+  /@supabase/auth-helpers-shared@0.3.3(@supabase/supabase-js@2.18.0):
     resolution: {integrity: sha512-ZwZGffApfyz9MiT3knnZoF1DMWE56H/Q0Mrsn22J9ubhss7/+e7TP3dChxxwlUYqtDmjmLV6OV8W0BANENfUew==}
     peerDependencies:
       '@supabase/supabase-js': ^2.0.4
     dependencies:
-      '@supabase/supabase-js': 2.17.0
+      '@supabase/supabase-js': 2.18.0
       js-base64: 3.7.5
     dev: true
 
-  /@supabase/auth-helpers-sveltekit@0.9.3(@supabase/supabase-js@2.17.0)(@sveltejs/kit@1.15.2):
+  /@supabase/auth-helpers-sveltekit@0.9.3(@supabase/supabase-js@2.18.0)(@sveltejs/kit@1.15.2):
     resolution: {integrity: sha512-F9ePQK6hi/4P9OKLUVfaCZ0ZLaGkyx4AZG2S/tyBmrEHEIDssbOaX3QDcOB6QFqsVx0MsWWbAkl2DOQNVJTK7g==}
     peerDependencies:
       '@supabase/supabase-js': ^2.7.1
       '@sveltejs/kit': ^1.1.0
     dependencies:
-      '@supabase/auth-helpers-shared': 0.3.3(@supabase/supabase-js@2.17.0)
-      '@supabase/supabase-js': 2.17.0
+      '@supabase/auth-helpers-shared': 0.3.3(@supabase/supabase-js@2.18.0)
+      '@supabase/supabase-js': 2.18.0
       '@sveltejs/kit': 1.15.2(svelte@3.58.0)(vite@4.2.1)
     dev: true
 
@@ -482,8 +498,8 @@ packages:
       - encoding
     dev: true
 
-  /@supabase/gotrue-js@2.20.2:
-    resolution: {integrity: sha512-m7sVlPcaI+2TFDVc30JTUvbcdHeMQNeBXQKw5ORk8dRb+OqSZM7g+4thIaIdIfcrkKlVoWoEcPjiWVaVSOnK1w==}
+  /@supabase/gotrue-js@2.21.0:
+    resolution: {integrity: sha512-KM+NECYoOQUQc1k6bNfHAkNUCaJf2GwfNp5x38TZqIvwJviHLX1FLBdTiOOqw1DlLeOpYtxYOgxSouLqictvZQ==}
     dependencies:
       cross-fetch: 3.1.5
     transitivePeerDependencies:
@@ -516,11 +532,11 @@ packages:
       - encoding
     dev: true
 
-  /@supabase/supabase-js@2.17.0:
-    resolution: {integrity: sha512-fImOK79Qht28CTYJznIrgTShbRRb4K4Z+Fp9X+W/5ON//N44HaYlQMiWCYFXbI/liK7am+Mrc9pKJoFQtY3bXg==}
+  /@supabase/supabase-js@2.18.0:
+    resolution: {integrity: sha512-5hDKz6/BwTE+2Zo9oGoiolJGajpqmWwNjgqyjQcne57Pt9WL2aWyltkmYjxLEpes6yVO/9AaLtnULsK6lcWW4A==}
     dependencies:
       '@supabase/functions-js': 2.1.0
-      '@supabase/gotrue-js': 2.20.2
+      '@supabase/gotrue-js': 2.21.0
       '@supabase/postgrest-js': 1.5.0
       '@supabase/realtime-js': 2.7.2
       '@supabase/storage-js': 2.5.0
@@ -584,6 +600,15 @@ packages:
       vitefu: 0.2.4(vite@4.2.1)
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@tailwindcss/forms@0.5.3(tailwindcss@3.3.1):
+    resolution: {integrity: sha512-y5mb86JUoiUgBjY/o6FJSFZSEttfb3Q5gllE4xoKjAAD+vBrnIhE4dViwUuow3va8mpH4s9jyUbUbrRGoRdc2Q==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1'
+    dependencies:
+      mini-svg-data-uri: 1.4.4
+      tailwindcss: 3.3.1(postcss@8.4.21)
     dev: true
 
   /@trysound/sax@0.2.0:
@@ -799,7 +824,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001477
-      electron-to-chromium: 1.4.356
+      electron-to-chromium: 1.4.357
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10(browserslist@4.21.5)
     dev: true
@@ -1091,8 +1116,8 @@ packages:
       domhandler: 5.0.3
     dev: true
 
-  /electron-to-chromium@1.4.356:
-    resolution: {integrity: sha512-nEftV1dRX3omlxAj42FwqRZT0i4xd2dIg39sog/CnCJeCcL1TRd2Uh0i9Oebgv8Ou0vzTPw++xc+Z20jzS2B6A==}
+  /electron-to-chromium@1.4.357:
+    resolution: {integrity: sha512-UTkCbNTAcGXABmEnQrGcW4m3cG6fcyBfD4KDF0iyEAlbrGZiY9dmslyDAGOD1Kr5biN2F743Y30aRCOtau35Vw==}
     dev: true
 
   /entities@4.4.0:
@@ -1641,8 +1666,8 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /lucide-svelte@0.138.0(svelte@3.58.0):
-    resolution: {integrity: sha512-3lJNdmfxq8JWmyJ232918a7ITlRPylIFOhsnaWnaIW+JG4aN0I8YKVvm/S/JhfTnlrkifAlg4i8MGh3N89UX7Q==}
+  /lucide-svelte@0.139.0(svelte@3.58.0):
+    resolution: {integrity: sha512-UnvdxLzRf8ZUsYyIkOFzLGdVdf1OMYH+2g/hPFNMjTkpIx82yd4N96o/cJFE6shXQsR1zW5X6vvqTZ1SKK4rjQ==}
     peerDependencies:
       svelte: ^3.49.0
     dependencies:
@@ -1700,6 +1725,11 @@ packages:
   /min-indent@1.0.1:
     resolution: {integrity: sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==}
     engines: {node: '>=4'}
+    dev: true
+
+  /mini-svg-data-uri@1.4.4:
+    resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
+    hasBin: true
     dev: true
 
   /minimatch@3.1.2:
@@ -1915,8 +1945,8 @@ packages:
       pathe: 1.1.0
     dev: true
 
-  /playwright-core@1.32.2:
-    resolution: {integrity: sha512-zD7aonO+07kOTthsrCR3YCVnDcqSHIJpdFUtZEMOb6//1Rc7/6mZDRdw+nlzcQiQltOOsiqI3rrSyn/SlyjnJQ==}
+  /playwright-core@1.32.3:
+    resolution: {integrity: sha512-SB+cdrnu74ZIn5Ogh/8278ngEh9NEEV0vR4sJFmK04h2iZpybfbqBY0bX6+BLYWVdV12JLLI+JEFtSnYgR+mWg==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
