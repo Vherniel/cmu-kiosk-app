@@ -16,6 +16,8 @@ const config = {
     },
 
     plugins: [
+        // NOTE: Insert above the 'skeleton.cjs' plugin
+        require("@tailwindcss/forms"),
         // Append the Skeleton plugin to the end of this list
         ...require("@skeletonlabs/skeleton/tailwind/skeleton.cjs")(),
     ],
