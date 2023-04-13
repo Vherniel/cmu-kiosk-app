@@ -9,17 +9,23 @@
         <h1>Latest News</h1>
         <h2>From the official website: The CMU Post</h2>
         <div class="flex">
-            {#each data.news as post}
-                <div class="flex-item-1-4">
-                    <div class="card item">
-                        <img src={post.yoast_head_json.og_image[0].url} alt="" />
-                        <div class="p-4">
-                            <h4>{@html post.yoast_head_json.title}</h4>
-                            <p>{@html post.yoast_head_json.og_description}</p>
+            {#if data.news}
+                {#each data.news as post}
+                    <div class="flex-item-1-4">
+                        <div class="card item">
+                            <img src={post.yoast_head_json.og_image[0].url} alt="" />
+                            <div class="p-4">
+                                <h4>{@html post.yoast_head_json.title}</h4>
+                                <p>{@html post.yoast_head_json.og_description}</p>
+                            </div>
                         </div>
                     </div>
+                {/each}
+            {:else}
+                <div class="flex-item-1-4">
+                    <p class="mt-8 text-4xl font-extrabold">No data was found.</p>
                 </div>
-            {/each}
+            {/if}
         </div>
     </div>
 </section>
