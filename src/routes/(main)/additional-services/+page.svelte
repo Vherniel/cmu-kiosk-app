@@ -12,16 +12,18 @@
 </script>
 
 <section>
-    <h1>Additional Services</h1>
-    <p>Select a service to continue</p>
+    <div class="container">
+        <h1>Additional Services</h1>
+        <p>Select a service to continue</p>
 
-    <div class="contents">
-        <div class="flex">
-            {#each services as { ...service }}
-                <div class="flex-item-1-4">
-                    <CardButton {...service} />
-                </div>
-            {/each}
+        <div class="contents">
+            <div class="flex">
+                {#each services as { ...service }}
+                    <div class="flex-item-1-4">
+                        <CardButton {...service} />
+                    </div>
+                {/each}
+            </div>
         </div>
     </div>
 </section>

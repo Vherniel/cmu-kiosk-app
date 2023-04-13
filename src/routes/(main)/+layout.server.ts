@@ -1,7 +1,7 @@
 import { PUBLIC_CMU_WP_REST_ENDPOINT } from "$env/static/public";
+import type { LayoutServerLoad } from "./$types";
 
-/** @type {import('./$types').LayoutServerLoad} */
-export async function load({ fetch, locals: { getSession, supabase } }) {
+export const load = (async ({ fetch, locals: { getSession, supabase } }) => {
     return {
         weather: (await getWeatherData())?.forecast?.forecastday[0]?.hour[0],
         session: getSession(),
@@ -78,4 +78,4 @@ export async function load({ fetch, locals: { getSession, supabase } }) {
             return response?.status;
         }
     }
-}
+}) satisfies LayoutServerLoad;

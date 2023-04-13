@@ -1,0 +1,44 @@
+@import "@fontsource/manrope/500.css";
+@import "@fontsource/manrope/800.css";
+@import "@fontsource/iosevka";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        font-family: var(--theme-font-family-base);
+    }
+}
+
+html,
+body {
+    @apply h-full overflow-hidden;
+    @apply bg-[#fafafa] dark:bg-[#031326];
+    font-weight: 500;
+}
+
+p,
+input {
+    font-weight: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b {
+    font-weight: 800;
+}
+
+.container {
+    @apply px-20 pt-8;
+}
+
+@media (prefers-color-scheme: dark) {
+    /* use dark mode by default */
+}

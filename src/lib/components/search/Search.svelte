@@ -1,35 +1,18 @@
-<script lang="ts" context="module">
-</script>
-
 <script lang="ts">
     import { Search } from "lucide-svelte";
 </script>
 
 <!-- https://github.com/metonym/svelte-typeahead -->
-<label class="search">
-    <Search />
-    <input type="search" placeholder="Search…" aria-placeholder="Search…" />
+<label>
+    <div
+        class="input-group grid-cols-[auto_1fr_auto] bg-transparent border-2 border-surface-50 focus-within:border-primary-500 dark:border-surface-500 dark:bg-surface-800 dark:focus-within:border-primary-500">
+        <div><Search /></div>
+        <input
+            type="search"
+            class="input bg-transparent dark:bg-transparent px-0 h-14"
+            placeholder="Search…" />
+    </div>
 </label>
 
 <style lang="scss">
-    .search {
-        display: flex;
-        align-items: center;
-        border-radius: 0.75rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        background-color: #f5f5f5;
-        width: 32rem;
-    }
-    input {
-        flex: 1;
-        background: none;
-        margin-left: 0.75rem;
-        border: 0;
-        padding: 0;
-        height: 3.5rem;
-        &::placeholder {
-            color: #a3a3a3;
-        }
-    }
 </style>

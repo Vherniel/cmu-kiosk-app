@@ -74,34 +74,36 @@
 </script>
 
 <section>
-    <h1>Registrar’s Office</h1>
-    <p>Select a form to continue</p>
+    <div class="container">
+        <h1>Registrar’s Office</h1>
+        <p>Select a form to continue</p>
 
-    <div class="contents">
-        <div class="flex">
-            <div class="flex-item-1-2">
-                <h3>
-                    Draft forms: {formRecords?.filter(
-                        ({ form_values }) => form_values.metadata.draft
-                    ).length}
-                </h3>
-            </div>
-            <div class="flex-item-1-2">
-                <h3>
-                    Completed forms: {formRecords?.filter(
-                        ({ form_values }) => form_values.metadata.done
-                    ).length}
-                </h3>
-            </div>
-            {#each forms as { href, ...form }}
-                <div class="flex-item-1-4">
-                    <CardButton
-                        href={!session || session?.user?.email == PUBLIC_KIOSK_GUEST_EMAIL
-                            ? "/signin?redirect=" + encodeURIComponent(href)
-                            : href}
-                        {...form} />
+        <div class="contents">
+            <div class="flex">
+                <div class="flex-item-1-2">
+                    <h3>
+                        Draft forms: {formRecords?.filter(
+                            ({ form_values }) => form_values.metadata.draft
+                        ).length}
+                    </h3>
                 </div>
-            {/each}
+                <div class="flex-item-1-2">
+                    <h3>
+                        Completed forms: {formRecords?.filter(
+                            ({ form_values }) => form_values.metadata.done
+                        ).length}
+                    </h3>
+                </div>
+                {#each forms as { href, ...form }}
+                    <div class="flex-item-1-4">
+                        <CardButton
+                            href={!session || session?.user?.email == PUBLIC_KIOSK_GUEST_EMAIL
+                                ? "/signin?redirect=" + encodeURIComponent(href)
+                                : href}
+                            {...form} />
+                    </div>
+                {/each}
+            </div>
         </div>
     </div>
 </section>
