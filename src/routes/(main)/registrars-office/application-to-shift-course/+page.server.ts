@@ -9,6 +9,14 @@ const formSchema = z.object({
     "Middle name": z.string(),
     "Last name": z.string(),
     "Student ID": z.number(),
+    Year: z.number(),
+    Section: z.string(),
+    "School year": z.string(),
+    "Former course": z.string(),
+    "Former course major": z.string(),
+    "New course": z.string(),
+    "New course major": z.string(),
+    "Reason for shifting": z.string(),
     Signature: z.string(),
 });
 
@@ -18,9 +26,11 @@ const paymentSchema = z.object({
 });
 
 export const load = (async (event) => {
-    const submitForm = await superValidate(event, formSchema, { id: "loginForm" });
+    const submitForm = await superValidate(event, formSchema, { id: "submitForm" });
     const payment = await superValidate(event, paymentSchema, { id: "payment" });
 
+    // when the user finished the transaction, fetch the submitted data and redirect to ?step=summary page
+    // while displaying the results
     if (event.url.searchParams.get("step") == "summary") {
         const formRecordsId = event.url.searchParams.get("formRecordsId");
         const { data: summary, error } = await event.locals.supabase
