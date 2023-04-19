@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Students Lounge",
+        "schedules": {
+            "monday": [
+                {
+                    "event": "Meet with Executive Assistant to review schedule and prioritize tasks for the day.",
+                    "start": "9:00 AM",
+                    "end": "10:00 AM"
+                }
+            ],
+            "tuesday": [{}],
+            "wednesday": [{}],
+            "thursday": [{}],
+            "friday": [{}],
+            "saturday": [{}],
+            "sunday": [{}]
+        }
+    }
+]

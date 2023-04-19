@@ -1,0 +1,384 @@
+<svg width="1413" height="584" viewBox="0 0 1413 584" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="Blueprint">
+        <g id="Rooms">
+            <rect id="Students Lounge" x="6" y="191" width="1401" height="227" fill="white"
+                stroke="black" stroke-width="12" />
+            <rect id="Conference Room" x="6" y="6" width="279" height="185" fill="white"
+                stroke="black" stroke-width="12" />
+            <rect id="Conference Room_2" x="285" y="6" width="281" height="185" fill="white"
+                stroke="black" stroke-width="12" />
+            <g id="Admin">
+                <path d="M846 6H986V191H846V6Z" fill="white" />
+                <path
+                    d="M846 6V0H840V6H846ZM846 191H840V197H846V191ZM846 12H986V0H846V12ZM986 185H846V197H986V185ZM852 191V6H840V191H852Z"
+                    fill="black" />
+            </g>
+            <g id="Manager Head">
+                <path d="M986 6H1126V191H986V6Z" fill="white" />
+                <path
+                    d="M1126 6H1132V0H1126V6ZM1126 191V197H1132V191H1126ZM986 12H1126V0H986V12ZM1120 6V191H1132V6H1120ZM1126 185H986V197H1126V185Z"
+                    fill="black" />
+            </g>
+            <g id="VP Academic Affairs">
+                <path d="M1126 6H1266V191H1126V6Z" fill="white" />
+                <path
+                    d="M1126 6V0H1120V6H1126ZM1126 191H1120V197H1126V191ZM1126 12H1266V0H1126V12ZM1266 185H1126V197H1266V185ZM1132 191V6H1120V191H1132Z"
+                    fill="black" />
+            </g>
+            <g id="Deans Table">
+                <path d="M1266 6H1407V191H1266V6Z" fill="white" />
+                <path
+                    d="M1407 6H1413V0H1407V6ZM1407 191V197H1413V191H1407ZM1266 12H1407V0H1266V12ZM1401 6V191H1413V6H1401ZM1407 185H1266V197H1407V185Z"
+                    fill="black" />
+            </g>
+            <rect id="University President&#226;&#128;&#153;s Office" x="566" y="6" width="280"
+                height="185" fill="white" stroke="black" stroke-width="12" />
+            <rect id="Stairs 1" x="6" y="417" width="140" height="92" fill="white" stroke="black"
+                stroke-width="12" />
+            <rect id="Hallway" x="146" y="417" width="1120" height="92" fill="white" stroke="black"
+                stroke-width="12" />
+            <rect id="Stairs 2" x="1266" y="417" width="141" height="92" fill="white" stroke="black"
+                stroke-width="12" />
+            <rect id="Balcony" x="426" y="509" width="560" height="69" fill="white" stroke="black"
+                stroke-width="12" />
+        </g>
+        <g id="Doors">
+            <g id="Door 2">
+                <g id="Rectangle 292">
+                    <mask id="path-17-inside-1_910_370" fill="white">
+                        <path d="M1132 411H1170V423H1132V411Z" />
+                    </mask>
+                    <path d="M1132 411H1170V423H1132V411Z" fill="white" />
+                    <path d="M1132 412H1170V410H1132V412ZM1170 422H1132V424H1170V422Z" fill="black"
+                        mask="url(#path-17-inside-1_910_370)" />
+                </g>
+                <line id="Line 73" x1="1132" y1="417" x2="1170" y2="417" stroke="black" />
+            </g>
+            <g id="Door 1">
+                <g id="Rectangle 292_2">
+                    <mask id="path-20-inside-2_910_370" fill="white">
+                        <path d="M292 411H330V423H292V411Z" />
+                    </mask>
+                    <path d="M292 411H330V423H292V411Z" fill="white" />
+                    <path d="M292 412H330V410H292V412ZM330 422H292V424H330V422Z" fill="black"
+                        mask="url(#path-20-inside-2_910_370)" />
+                </g>
+                <line id="Line 73_2" x1="292" y1="417" x2="330" y2="417" stroke="black" />
+            </g>
+            <g id="Door 3">
+                <g id="Rectangle 292_3">
+                    <mask id="path-23-inside-3_910_370" fill="white">
+                        <path d="M764 185H802V197H764V185Z" />
+                    </mask>
+                    <path d="M764 185H802V197H764V185Z" fill="white" />
+                    <path d="M764 186H802V184H764V186ZM802 196H764V198H802V196Z" fill="black"
+                        mask="url(#path-23-inside-3_910_370)" />
+                </g>
+                <line id="Line 73_3" x1="764" y1="191" x2="802" y2="191" stroke="black" />
+            </g>
+            <g id="Door 5">
+                <g id="Rectangle 292_4">
+                    <mask id="path-26-inside-4_910_370" fill="white">
+                        <path d="M42 185H115V197H42V185Z" />
+                    </mask>
+                    <path d="M42 185H115V197H42V185Z" fill="white" />
+                    <path d="M42 186H115V184H42V186ZM115 196H42V198H115V196Z" fill="black"
+                        mask="url(#path-26-inside-4_910_370)" />
+                </g>
+                <line id="Line 73_4" x1="42" y1="191" x2="115" y2="191" stroke="black" />
+            </g>
+            <g id="Door 4">
+                <g id="Rectangle 292_5">
+                    <mask id="path-29-inside-5_910_370" fill="white">
+                        <path d="M177 185H251V197H177V185Z" />
+                    </mask>
+                    <path d="M177 185H251V197H177V185Z" fill="white" />
+                    <path d="M177 186H251V184H177V186ZM251 196H177V198H251V196Z" fill="black"
+                        mask="url(#path-29-inside-5_910_370)" />
+                </g>
+                <line id="Line 73_5" x1="177" y1="191" x2="251" y2="191" stroke="black" />
+            </g>
+        </g>
+        <g id="Lines">
+            <g id="Line">
+                <rect id="Rectangle 291" x="140" y="12" width="12" height="173" fill="white" />
+                <g id="Rectangle 281">
+                    <mask id="path-33-inside-6_910_370" fill="white">
+                        <path d="M145 12H147V185H145V12Z" />
+                    </mask>
+                    <path
+                        d="M148 185V179.233H146V185H148ZM148 156.167V144.633H146V156.167H148ZM148 121.567V110.033H146V121.567H148ZM148 86.9667V75.4333H146V86.9667H148ZM148 52.3667V40.8333H146V52.3667H148ZM148 17.7667V12H146V17.7667H148ZM149 185V179.233H145V185H149ZM149 156.167V144.633H145V156.167H149ZM149 121.567V110.033H145V121.567H149ZM149 86.9667V75.4333H145V86.9667H149ZM149 52.3667V40.8333H145V52.3667H149ZM149 17.7667V12H145V17.7667H149Z"
+                        fill="black" mask="url(#path-33-inside-6_910_370)" />
+                </g>
+            </g>
+            <g id="Line_2">
+                <rect id="Rectangle 291_2" x="140" y="197" width="12" height="214" fill="white" />
+                <g id="Rectangle 281_2">
+                    <mask id="path-36-inside-7_910_370" fill="white">
+                        <path d="M145 197H147V411H145V197Z" />
+                    </mask>
+                    <path
+                        d="M148 411V405.056H146V411H148ZM148 381.278V369.389H146V381.278H148ZM148 345.611V333.722H146V345.611H148ZM148 309.944V298.056H146V309.944H148ZM148 274.278V262.389H146V274.278H148ZM148 238.611V226.722H146V238.611H148ZM148 202.944V197H146V202.944H148ZM149 411V405.056H145V411H149ZM149 381.278V369.389H145V381.278H149ZM149 345.611V333.722H145V345.611H149ZM149 309.944V298.056H145V309.944H149ZM149 274.278V262.389H145V274.278H149ZM149 238.611V226.722H145V238.611H149ZM149 202.944V197H145V202.944H149Z"
+                        fill="black" mask="url(#path-36-inside-7_910_370)" />
+                </g>
+            </g>
+            <g id="Line_3">
+                <rect id="Rectangle 291_3" x="280" y="197" width="12" height="214" fill="white" />
+                <g id="Rectangle 281_3">
+                    <mask id="path-39-inside-8_910_370" fill="white">
+                        <path d="M285 197H287V411H285V197Z" />
+                    </mask>
+                    <path
+                        d="M288 411V405.056H286V411H288ZM288 381.278V369.389H286V381.278H288ZM288 345.611V333.722H286V345.611H288ZM288 309.944V298.056H286V309.944H288ZM288 274.278V262.389H286V274.278H288ZM288 238.611V226.722H286V238.611H288ZM288 202.944V197H286V202.944H288ZM289 411V405.056H285V411H289ZM289 381.278V369.389H285V381.278H289ZM289 345.611V333.722H285V345.611H289ZM289 309.944V298.056H285V309.944H289ZM289 274.278V262.389H285V274.278H289ZM289 238.611V226.722H285V238.611H289ZM289 202.944V197H285V202.944H289Z"
+                        fill="black" mask="url(#path-39-inside-8_910_370)" />
+                </g>
+            </g>
+            <g id="Line_4">
+                <rect id="Rectangle 291_4" x="420" y="197" width="12" height="214" fill="white" />
+                <g id="Rectangle 281_4">
+                    <mask id="path-42-inside-9_910_370" fill="white">
+                        <path d="M425 197H427V411H425V197Z" />
+                    </mask>
+                    <path
+                        d="M428 411V405.056H426V411H428ZM428 381.278V369.389H426V381.278H428ZM428 345.611V333.722H426V345.611H428ZM428 309.944V298.056H426V309.944H428ZM428 274.278V262.389H426V274.278H428ZM428 238.611V226.722H426V238.611H428ZM428 202.944V197H426V202.944H428ZM429 411V405.056H425V411H429ZM429 381.278V369.389H425V381.278H429ZM429 345.611V333.722H425V345.611H429ZM429 309.944V298.056H425V309.944H429ZM429 274.278V262.389H425V274.278H429ZM429 238.611V226.722H425V238.611H429ZM429 202.944V197H425V202.944H429Z"
+                        fill="black" mask="url(#path-42-inside-9_910_370)" />
+                </g>
+            </g>
+            <g id="Line_5">
+                <rect id="Rectangle 291_5" x="560" y="198" width="12" height="213" fill="white" />
+                <g id="Rectangle 281_5">
+                    <mask id="path-45-inside-10_910_370" fill="white">
+                        <path d="M565 198H567V411H565V198Z" />
+                    </mask>
+                    <path
+                        d="M568 411V405.083H566V411H568ZM568 381.417V369.583H566V381.417H568ZM568 345.917V334.083H566V345.917H568ZM568 310.417V298.583H566V310.417H568ZM568 274.917V263.083H566V274.917H568ZM568 239.417V227.583H566V239.417H568ZM568 203.917V198H566V203.917H568ZM569 411V405.083H565V411H569ZM569 381.417V369.583H565V381.417H569ZM569 345.917V334.083H565V345.917H569ZM569 310.417V298.583H565V310.417H569ZM569 274.917V263.083H565V274.917H569ZM569 239.417V227.583H565V239.417H569ZM569 203.917V198H565V203.917H569Z"
+                        fill="black" mask="url(#path-45-inside-10_910_370)" />
+                </g>
+            </g>
+            <g id="Line_6">
+                <rect id="Rectangle 291_6" x="397" y="197" width="12" height="163"
+                    transform="rotate(-90 397 197)" fill="white" />
+                <g id="Rectangle 281_6">
+                    <mask id="path-48-inside-11_910_370" fill="white">
+                        <path d="M397 192V190L560 190V192L397 192Z" />
+                    </mask>
+                    <path
+                        d="M560 189H554.567V191H560V189ZM532.833 189H521.967V191H532.833V189ZM500.233 189H489.367V191L500.233 191V189ZM467.633 189H456.767V191H467.633V189ZM435.033 189H424.167V191H435.033V189ZM402.433 189H397V191H402.433V189ZM560 188H554.567V192H560V188ZM532.833 188H521.967V192H532.833V188ZM500.233 188H489.367V192L500.233 192V188ZM467.633 188H456.767V192H467.633V188ZM435.033 188H424.167V192H435.033V188ZM402.433 188H397V192H402.433V188Z"
+                        fill="black" mask="url(#path-48-inside-11_910_370)" />
+                </g>
+            </g>
+            <g id="Line_7">
+                <rect id="Rectangle 291_7" x="939" y="197" width="12" height="181"
+                    transform="rotate(-90 939 197)" fill="white" />
+                <g id="Rectangle 281_7">
+                    <mask id="path-51-inside-12_910_370" fill="white">
+                        <path d="M939 192V190L1120 190V192L939 192Z" />
+                    </mask>
+                    <path
+                        d="M1120 189H1113.97V191H1120V189ZM1089.83 189H1077.77V191H1089.83V189ZM1053.63 189L1041.57 189V191L1053.63 191V189ZM1017.43 189H1005.37V191H1017.43V189ZM981.233 189H969.167V191H981.233V189ZM945.033 189H939V191H945.033V189ZM1120 188H1113.97V192H1120V188ZM1089.83 188H1077.77V192H1089.83V188ZM1053.63 188L1041.57 188V192H1053.63V188ZM1017.43 188H1005.37V192H1017.43V188ZM981.233 188H969.167V192H981.233V188ZM945.033 188H939V192H945.033V188Z"
+                        fill="black" mask="url(#path-51-inside-12_910_370)" />
+                </g>
+            </g>
+            <g id="Line_8">
+                <rect id="Rectangle 291_8" x="1260" y="197" width="12" height="141"
+                    transform="rotate(-90 1260 197)" fill="white" />
+                <g id="Rectangle 281_8">
+                    <mask id="path-54-inside-13_910_370" fill="white">
+                        <path d="M1260 192V190L1401 190V192L1260 192Z" />
+                    </mask>
+                    <path
+                        d="M1401 189H1395.12V191H1401V189ZM1371.62 189L1359.88 189V191L1371.62 191V189ZM1336.38 189H1324.62V191H1336.38V189ZM1301.13 189H1289.37V191H1301.13V189ZM1265.88 189H1260V191H1265.88V189ZM1401 188H1395.12V192H1401V188ZM1371.62 188L1359.88 188V192L1371.62 192V188ZM1336.38 188H1324.62V192H1336.38V188ZM1301.13 188H1289.37V192H1301.13V188ZM1265.88 188H1260V192H1265.88V188Z"
+                        fill="black" mask="url(#path-54-inside-13_910_370)" />
+                </g>
+            </g>
+            <g id="Line_9">
+                <rect id="Rectangle 291_9" x="420" y="12" width="12" height="173" fill="white" />
+                <g id="Rectangle 281_9">
+                    <mask id="path-57-inside-14_910_370" fill="white">
+                        <path d="M425 12H427V185H425V12Z" />
+                    </mask>
+                    <path
+                        d="M428 185V179.233H426V185H428ZM428 156.167V144.633H426V156.167H428ZM428 121.567V110.033H426V121.567H428ZM428 86.9667V75.4333H426V86.9667H428ZM428 52.3667V40.8333H426V52.3667H428ZM428 17.7667V12H426V17.7667H428ZM429 185V179.233H425V185H429ZM429 156.167V144.633H425V156.167H429ZM429 121.567V110.033H425V121.567H429ZM429 86.9667V75.4333H425V86.9667H429ZM429 52.3667V40.8333H425V52.3667H429ZM429 17.7667V12H425V17.7667H429Z"
+                        fill="black" mask="url(#path-57-inside-14_910_370)" />
+                </g>
+            </g>
+            <g id="Line_10">
+                <rect id="Rectangle 291_10" x="1260" y="12" width="12" height="399" fill="white" />
+                <g id="Rectangle 281_10">
+                    <mask id="path-60-inside-15_910_370" fill="white">
+                        <path d="M1265 12H1267V411H1265V12Z" />
+                    </mask>
+                    <path
+                        d="M1268 411V404.955H1266V411H1268ZM1268 380.773V368.682H1266V380.773H1268ZM1268 344.5V332.409H1266V344.5H1268ZM1268 308.227V296.136H1266V308.227H1268ZM1268 271.955V259.864H1266V271.955H1268ZM1268 235.682V223.591H1266V235.682H1268ZM1268 199.409V187.318H1266V199.409H1268ZM1268 163.136V151.045H1266V163.136H1268ZM1268 126.864V114.773H1266V126.864H1268ZM1268 90.5909V78.5H1266V90.5909H1268ZM1268 54.3181V42.2272H1266V54.3181H1268ZM1268 18.0454V12H1266V18.0454H1268ZM1269 411V404.955H1265V411H1269ZM1269 380.773V368.682H1265V380.773H1269ZM1269 344.5V332.409H1265V344.5H1269ZM1269 308.227V296.136H1265V308.227H1269ZM1269 271.955V259.864H1265V271.955H1269ZM1269 235.682V223.591H1265V235.682H1269ZM1269 199.409V187.318H1265V199.409H1269ZM1269 163.136V151.045H1265V163.136H1269ZM1269 126.864V114.773H1265V126.864H1269ZM1269 90.5909V78.5H1265V90.5909H1269ZM1269 54.3181V42.2272H1265V54.3181H1269ZM1269 18.0454V12H1265V18.0454H1269Z"
+                        fill="black" mask="url(#path-60-inside-15_910_370)" />
+                </g>
+            </g>
+            <g id="Line_11">
+                <rect id="Rectangle 291_11" x="1120" y="197" width="12" height="214" fill="white" />
+                <g id="Rectangle 281_11">
+                    <mask id="path-63-inside-16_910_370" fill="white">
+                        <path d="M1125 197H1127V411H1125V197Z" />
+                    </mask>
+                    <path
+                        d="M1128 411V405.056H1126V411H1128ZM1128 381.278V369.389H1126V381.278H1128ZM1128 345.611V333.722H1126V345.611H1128ZM1128 309.944V298.056H1126V309.944H1128ZM1128 274.278V262.389H1126V274.278H1128ZM1128 238.611V226.722H1126V238.611H1128ZM1128 202.944V197H1126V202.944H1128ZM1129 411V405.056H1125V411H1129ZM1129 381.278V369.389H1125V381.278H1129ZM1129 345.611V333.722H1125V345.611H1129ZM1129 309.944V298.056H1125V309.944H1129ZM1129 274.278V262.389H1125V274.278H1129ZM1129 238.611V226.722H1125V238.611H1129ZM1129 202.944V197H1125V202.944H1129Z"
+                        fill="black" mask="url(#path-63-inside-16_910_370)" />
+                </g>
+            </g>
+            <g id="Line_12">
+                <rect id="Rectangle 291_12" x="980" y="12" width="12" height="399" fill="white" />
+                <g id="Rectangle 281_12">
+                    <mask id="path-66-inside-17_910_370" fill="white">
+                        <path d="M985 12H987V411H985V12Z" />
+                    </mask>
+                    <path
+                        d="M988 411V404.955H986V411H988ZM988 380.773V368.682H986V380.773H988ZM988 344.5V332.409H986V344.5H988ZM988 308.227V296.136H986V308.227H988ZM988 271.955V259.864H986V271.955H988ZM988 235.682V223.591H986V235.682H988ZM988 199.409V187.318H986V199.409H988ZM988 163.136V151.045H986V163.136H988ZM988 126.864V114.773H986V126.864H988ZM988 90.5909V78.5H986V90.5909H988ZM988 54.3181V42.2272H986V54.3181H988ZM988 18.0454V12H986V18.0454H988ZM989 411V404.955H985V411H989ZM989 380.773V368.682H985V380.773H989ZM989 344.5V332.409H985V344.5H989ZM989 308.227V296.136H985V308.227H989ZM989 271.955V259.864H985V271.955H989ZM989 235.682V223.591H985V235.682H989ZM989 199.409V187.318H985V199.409H989ZM989 163.136V151.045H985V163.136H989ZM989 126.864V114.773H985V126.864H989ZM989 90.5909V78.5H985V90.5909H989ZM989 54.3181V42.2272H985V54.3181H989ZM989 18.0454V12H985V18.0454H989Z"
+                        fill="black" mask="url(#path-66-inside-17_910_370)" />
+                </g>
+            </g>
+            <g id="Line_13">
+                <rect id="Rectangle 291_13" x="840" y="197" width="12" height="214" fill="white" />
+                <g id="Rectangle 281_13">
+                    <mask id="path-69-inside-18_910_370" fill="white">
+                        <path d="M845 197H847V411H845V197Z" />
+                    </mask>
+                    <path
+                        d="M848 411V405.056H846V411H848ZM848 381.278V369.389H846V381.278H848ZM848 345.611V333.722H846V345.611H848ZM848 309.944V298.056H846V309.944H848ZM848 274.278V262.389H846V274.278H848ZM848 238.611V226.722H846V238.611H848ZM848 202.944V197H846V202.944H848ZM849 411V405.056H845V411H849ZM849 381.278V369.389H845V381.278H849ZM849 345.611V333.722H845V345.611H849ZM849 309.944V298.056H845V309.944H849ZM849 274.278V262.389H845V274.278H849ZM849 238.611V226.722H845V238.611H849ZM849 202.944V197H845V202.944H849Z"
+                        fill="black" mask="url(#path-69-inside-18_910_370)" />
+                </g>
+            </g>
+            <g id="Line_14">
+                <rect id="Rectangle 291_14" x="700" y="197" width="12" height="214" fill="white" />
+                <g id="Rectangle 281_14">
+                    <mask id="path-72-inside-19_910_370" fill="white">
+                        <path d="M705 197H707V411H705V197Z" />
+                    </mask>
+                    <path
+                        d="M708 411V405.056H706V411H708ZM708 381.278V369.389H706V381.278H708ZM708 345.611V333.722H706V345.611H708ZM708 309.944V298.056H706V309.944H708ZM708 274.278V262.389H706V274.278H708ZM708 238.611V226.722H706V238.611H708ZM708 202.944V197H706V202.944H708ZM709 411V405.056H705V411H709ZM709 381.278V369.389H705V381.278H709ZM709 345.611V333.722H705V345.611H709ZM709 309.944V298.056H705V309.944H709ZM709 274.278V262.389H705V274.278H709ZM709 238.611V226.722H705V238.611H709ZM709 202.944V197H705V202.944H709Z"
+                        fill="black" mask="url(#path-72-inside-19_910_370)" />
+                </g>
+            </g>
+            <g id="Line_15">
+                <rect id="Rectangle 291_15" x="700" y="12" width="12" height="173" fill="white" />
+                <g id="Rectangle 281_15">
+                    <mask id="path-75-inside-20_910_370" fill="white">
+                        <path d="M705 12H707V185H705V12Z" />
+                    </mask>
+                    <path
+                        d="M708 185V179.233H706V185H708ZM708 156.167V144.633H706V156.167H708ZM708 121.567V110.033H706V121.567H708ZM708 86.9667V75.4333H706V86.9667H708ZM708 52.3667V40.8333H706V52.3667H708ZM708 17.7667V12H706V17.7667H708ZM709 185V179.233H705V185H709ZM709 156.167V144.633H705V156.167H709ZM709 121.567V110.033H705V121.567H709ZM709 86.9667V75.4333H705V86.9667H709ZM709 52.3667V40.8333H705V52.3667H709ZM709 17.7667V12H705V17.7667H709Z"
+                        fill="black" mask="url(#path-75-inside-20_910_370)" />
+                </g>
+            </g>
+            <g id="Line_16">
+                <rect id="Rectangle 291_16" x="840" y="423" width="12" height="149" fill="white" />
+                <g id="Rectangle 281_16">
+                    <mask id="path-78-inside-21_910_370" fill="white">
+                        <path d="M845 423H847V572H845V423Z" />
+                    </mask>
+                    <path
+                        d="M848 572V565.792H846V572H848ZM848 540.958V528.542H846V540.958H848ZM848 503.708V491.292H846V503.708H848ZM848 466.458V454.042H846V466.458H848ZM848 429.208V423H846V429.208H848ZM849 572V565.792H845V572H849ZM849 540.958V528.542H845V540.958H849ZM849 503.708V491.292H845V503.708H849ZM849 466.458V454.042H845V466.458H849ZM849 429.208V423H845V429.208H849Z"
+                        fill="black" mask="url(#path-78-inside-21_910_370)" />
+                </g>
+            </g>
+            <g id="Line_17">
+                <rect id="Rectangle 291_17" x="700" y="423" width="12" height="149" fill="white" />
+                <g id="Rectangle 281_17">
+                    <mask id="path-81-inside-22_910_370" fill="white">
+                        <path d="M705 423H707V572H705V423Z" />
+                    </mask>
+                    <path
+                        d="M708 572V565.792H706V572H708ZM708 540.958V528.542H706V540.958H708ZM708 503.708V491.292H706V503.708H708ZM708 466.458V454.042H706V466.458H708ZM708 429.208V423H706V429.208H708ZM709 572V565.792H705V572H709ZM709 540.958V528.542H705V540.958H709ZM709 503.708V491.292H705V503.708H709ZM709 466.458V454.042H705V466.458H709ZM709 429.208V423H705V429.208H709Z"
+                        fill="black" mask="url(#path-81-inside-22_910_370)" />
+                </g>
+            </g>
+            <g id="Line_18">
+                <rect id="Rectangle 291_18" x="560" y="423" width="12" height="149" fill="white" />
+                <g id="Rectangle 281_18">
+                    <mask id="path-84-inside-23_910_370" fill="white">
+                        <path d="M565 423H567V572H565V423Z" />
+                    </mask>
+                    <path
+                        d="M568 572V565.792H566V572H568ZM568 540.958V528.542H566V540.958H568ZM568 503.708V491.292H566V503.708H568ZM568 466.458V454.042H566V466.458H568ZM568 429.208V423H566V429.208H568ZM569 572V565.792H565V572H569ZM569 540.958V528.542H565V540.958H569ZM569 503.708V491.292H565V503.708H569ZM569 466.458V454.042H565V466.458H569ZM569 429.208V423H565V429.208H569Z"
+                        fill="black" mask="url(#path-84-inside-23_910_370)" />
+                </g>
+            </g>
+            <g id="Line_19">
+                <rect id="Rectangle 291_19" x="140" y="423" width="12" height="80" fill="white" />
+                <g id="Rectangle 281_19">
+                    <mask id="path-87-inside-24_910_370" fill="white">
+                        <path d="M145 423H147V503H145V423Z" />
+                    </mask>
+                    <path
+                        d="M148 503V496.333H146V503H148ZM148 469.667V456.333H146V469.667H148ZM148 429.667V423H146V429.667H148ZM149 503V496.333H145V503H149ZM149 469.667V456.333H145V469.667H149ZM149 429.667V423H145V429.667H149Z"
+                        fill="black" mask="url(#path-87-inside-24_910_370)" />
+                </g>
+            </g>
+            <g id="Line_20">
+                <rect id="Rectangle 291_20" x="280" y="423" width="12" height="80" fill="white" />
+                <g id="Rectangle 281_20">
+                    <mask id="path-90-inside-25_910_370" fill="white">
+                        <path d="M285 423H287V503H285V423Z" />
+                    </mask>
+                    <path
+                        d="M288 503V496.333H286V503H288ZM288 469.667V456.333H286V469.667H288ZM288 429.667V423H286V429.667H288ZM289 503V496.333H285V503H289ZM289 469.667V456.333H285V469.667H289ZM289 429.667V423H285V429.667H289Z"
+                        fill="black" mask="url(#path-90-inside-25_910_370)" />
+                </g>
+            </g>
+            <g id="Line_21">
+                <rect id="Rectangle 291_21" x="420" y="423" width="12" height="80" fill="white" />
+                <g id="Rectangle 281_21">
+                    <mask id="path-93-inside-26_910_370" fill="white">
+                        <path d="M425 423H427V503H425V423Z" />
+                    </mask>
+                    <path
+                        d="M428 503V496.333H426V503H428ZM428 469.667V456.333H426V469.667H428ZM428 429.667V423H426V429.667H428ZM429 503V496.333H425V503H429ZM429 469.667V456.333H425V469.667H429ZM429 429.667V423H425V429.667H429Z"
+                        fill="black" mask="url(#path-93-inside-26_910_370)" />
+                </g>
+            </g>
+            <g id="Line_22">
+                <rect id="Rectangle 291_22" x="980" y="503" width="12" height="548"
+                    transform="rotate(90 980 503)" fill="white" />
+                <g id="Rectangle 281_22">
+                    <mask id="path-96-inside-27_910_370" fill="white">
+                        <path d="M980 508L980 510L432 510L432 508L980 508Z" />
+                    </mask>
+                    <path
+                        d="M432 511L438.089 511L438.089 509L432 509L432 511ZM462.444 511L474.622 511L474.622 509L462.444 509L462.444 511ZM498.978 511L511.156 511L511.156 509L498.978 509L498.978 511ZM535.511 511L547.689 511L547.689 509L535.511 509L535.511 511ZM572.044 511L584.222 511L584.222 509L572.044 509L572.044 511ZM608.578 511L620.756 511L620.756 509L608.578 509L608.578 511ZM645.111 511L657.289 511L657.289 509L645.111 509L645.111 511ZM681.644 511L693.822 511L693.822 509L681.644 509L681.644 511ZM718.178 511L730.356 511L730.356 509L718.178 509L718.178 511ZM754.711 511L766.889 511L766.889 509L754.711 509L754.711 511ZM791.244 511L803.422 511L803.422 509L791.244 509L791.244 511ZM827.778 511L839.956 511L839.956 509L827.778 509L827.778 511ZM864.311 511L876.489 511L876.489 509L864.311 509L864.311 511ZM900.844 511L913.022 511L913.022 509L900.844 509L900.844 511ZM937.378 511L949.556 511L949.556 509L937.378 509L937.378 511ZM973.911 511L980 511L980 509L973.911 509L973.911 511ZM432 512L438.089 512L438.089 508L432 508L432 512ZM462.444 512L474.622 512L474.622 508L462.444 508L462.444 512ZM498.978 512L511.156 512L511.156 508L498.978 508L498.978 512ZM535.511 512L547.689 512L547.689 508L535.511 508L535.511 512ZM572.044 512L584.222 512L584.222 508L572.044 508L572.044 512ZM608.578 512L620.756 512L620.756 508L608.578 508L608.578 512ZM645.111 512L657.289 512L657.289 508L645.111 508L645.111 512ZM681.644 512L693.822 512L693.822 508L681.644 508L681.644 512ZM718.178 512L730.356 512L730.356 508L718.178 508L718.178 512ZM754.711 512L766.889 512L766.889 508L754.711 508L754.711 512ZM791.244 512L803.422 512L803.422 508L791.244 508L791.244 512ZM827.778 512L839.956 512L839.956 508L827.778 508L827.778 512ZM864.311 512L876.489 512L876.489 508L864.311 508L864.311 512ZM900.844 512L913.022 512L913.022 508L900.844 508L900.844 512ZM937.378 512L949.556 512L949.556 508L937.378 508L937.378 512ZM973.911 512L980 512L980 508L973.911 508L973.911 512Z"
+                        fill="black" mask="url(#path-96-inside-27_910_370)" />
+                </g>
+            </g>
+            <g id="Line_23">
+                <rect id="Rectangle 291_23" x="980" y="423" width="12" height="80" fill="white" />
+                <g id="Rectangle 281_23">
+                    <mask id="path-99-inside-28_910_370" fill="white">
+                        <path d="M985 423H987V503H985V423Z" />
+                    </mask>
+                    <path
+                        d="M988 503V496.333H986V503H988ZM988 469.667V456.333H986V469.667H988ZM988 429.667V423H986V429.667H988ZM989 503V496.333H985V503H989ZM989 469.667V456.333H985V469.667H989ZM989 429.667V423H985V429.667H989Z"
+                        fill="black" mask="url(#path-99-inside-28_910_370)" />
+                </g>
+            </g>
+            <g id="Line_24">
+                <rect id="Rectangle 291_24" x="1120" y="423" width="12" height="80" fill="white" />
+                <g id="Rectangle 281_24">
+                    <mask id="path-102-inside-29_910_370" fill="white">
+                        <path d="M1125 423H1127V503H1125V423Z" />
+                    </mask>
+                    <path
+                        d="M1128 503V496.333H1126V503H1128ZM1128 469.667V456.333H1126V469.667H1128ZM1128 429.667V423H1126V429.667H1128ZM1129 503V496.333H1125V503H1129ZM1129 469.667V456.333H1125V469.667H1129ZM1129 429.667V423H1125V429.667H1129Z"
+                        fill="black" mask="url(#path-102-inside-29_910_370)" />
+                </g>
+            </g>
+            <g id="Line_25">
+                <rect id="Rectangle 291_25" x="1260" y="423" width="12" height="80" fill="white" />
+                <g id="Rectangle 281_25">
+                    <mask id="path-105-inside-30_910_370" fill="white">
+                        <path d="M1265 423H1267V503H1265V423Z" />
+                    </mask>
+                    <path
+                        d="M1268 503V496.333H1266V503H1268ZM1268 469.667V456.333H1266V469.667H1268ZM1268 429.667V423H1266V429.667H1268ZM1269 503V496.333H1265V503H1269ZM1269 469.667V456.333H1265V469.667H1269ZM1269 429.667V423H1265V429.667H1269Z"
+                        fill="black" mask="url(#path-105-inside-30_910_370)" />
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
