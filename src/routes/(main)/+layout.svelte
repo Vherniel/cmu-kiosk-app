@@ -63,7 +63,8 @@
     <svelte:fragment slot="sidebarLeft">
         <Sidebar class="px-6" slotTop="text-center py-6" slotBottom="mt-auto px-6 pb-12">
             <svelte:fragment slot="top">
-                <Logo href="/" size={4.5} />
+                <Logo href="/" size={4.5} class="mb-4" />
+                <Account {data} />
             </svelte:fragment>
             <svelte:fragment slot="middle">
                 <SidebarNavigation>
