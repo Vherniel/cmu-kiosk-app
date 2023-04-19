@@ -2,7 +2,9 @@
     import { getContext } from "svelte";
     import { key } from "./MultiStep.svelte";
 
-    const panel = {};
+    export let name;
+
+    const panel = { name };
 
     // @ts-ignore
     const { registerPanel, selectedPanel } = getContext(key);
