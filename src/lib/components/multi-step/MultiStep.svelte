@@ -54,6 +54,7 @@
             const index = steps.findIndex((step: any) => step.name == stepToSelect.name);
             selectedStep.set(steps[index == -1 ? 0 : index]);
             selectedPanel.set(panels[index == -1 ? 0 : index]);
+            document.querySelector("#page")?.scrollTo(0, 0);
         },
 
         nextStep: ({ loop } = { loop: false }) => {
@@ -65,6 +66,7 @@
             selectedStep.set(steps[current] || lastStep);
             selectedPanel.set(panels[current] || lastPanel);
             $page.url.searchParams.set("step", $selectedStep.name);
+            document.querySelector("#page")?.scrollTo(0, 0);
         },
 
         previousStep: ({ loop } = { loop: false }) => {
@@ -76,6 +78,7 @@
             selectedStep.set(steps[current] || lastStep);
             selectedPanel.set(panels[current] || lastPanel);
             $page.url.searchParams.set("step", $selectedStep.name);
+            document.querySelector("#page")?.scrollTo(0, 0);
         },
 
         selectedStep,
