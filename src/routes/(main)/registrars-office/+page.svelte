@@ -9,63 +9,52 @@
     $: ({ session, formRecords } = data);
 
     // TODO: icon props
-    const forms = [
-        {
+    // prettier-ignore
+    const forms = [{
             href: "/registrars-office/admission",
             label: "CMU Admission",
             icon: Building2,
-        },
-        {
+        }, {
             href: "/registrars-office/application-to-shift-course",
             label: "Application to Shift Course",
             icon: RefreshCw,
-        },
-        {
+        }, {
             href: "/registrars-office/leave-of-absence",
             label: "Leave of Absence",
             icon: RefreshCw,
-        },
-        {
+        }, {
             href: "/registrars-office/request-form",
             label: "Request Form",
             icon: RefreshCw,
-        },
-        {
+        }, {
             href: "/registrars-office/application-form-for-graduation",
             label: "Application Form for Graduation",
             icon: RefreshCw,
-        },
-        {
+        }, {
             href: "/registrars-office/request-for-transcript-of-records-or-f137-from-former-school",
             label: "Request for Transcript of Records or F137 from Former School",
             icon: Building2,
-        },
-        {
+        }, {
             href: "/registrars-office/entrance-examination-permit",
             label: "Entrance Examination Permit",
             icon: Building2,
-        },
-        {
+        }, {
             href: "/registrars-office/requirement-to-enrolled",
             label: "Requirement to Enrolled",
             icon: Building2,
-        },
-        {
+        }, {
             href: "/registrars-office/acknowledgement-receipt",
             label: "Acknowledgement Receipt",
             icon: Building2,
-        },
-        {
+        }, {
             href: "/registrars-office/adding-form",
             label: "Adding Form",
             icon: Building2,
-        },
-        {
+        }, {
             href: "/registrars-office/completion-form",
             label: "Completion Form",
             icon: Building2,
-        },
-        {
+        }, {
             href: "/registrars-office/dropping-form",
             label: "Dropping Form",
             icon: Building2,
@@ -77,7 +66,6 @@
     <div class="container">
         <h1>Registrar’s Office</h1>
         <p>Select a form to continue</p>
-
         <div class="contents">
             <div class="flex">
                 <div class="flex-item-1-2">
@@ -97,6 +85,7 @@
                 {#each forms as { href, ...form }}
                     <div class="flex-item-1-4">
                         <CardButton
+                            class=""
                             href={!session || session?.user?.email == PUBLIC_KIOSK_GUEST_EMAIL
                                 ? "/signin?redirect=" + encodeURIComponent(href)
                                 : href}
