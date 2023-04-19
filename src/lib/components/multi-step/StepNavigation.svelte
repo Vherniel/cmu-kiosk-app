@@ -1,9 +1,4 @@
 <script lang="ts">
-    interface $$Props {
-        previous?: boolean;
-        next?: boolean;
-    }
-
     import { getContext } from "svelte";
     import { key } from "./MultiStep.svelte";
     import { ArrowLeft, ArrowRight } from "lucide-svelte";
@@ -11,8 +6,8 @@
     // @ts-ignore
     const { steps, selectedStep, nextStep, previousStep } = getContext(key);
 
-    const previousDisabled = !$selectedStep.previous || $selectedStep == steps[0];
-    const nextDisabled = !$selectedStep.next || $selectedStep == steps[steps.length - 1];
+    $: previousDisabled = !$selectedStep.previous || $selectedStep == steps[0];
+    $: nextDisabled = !$selectedStep.next || $selectedStep == steps[steps.length - 1];
 </script>
 
 <div class="mt-12 border-t-4 border-t-surface-50/30">
