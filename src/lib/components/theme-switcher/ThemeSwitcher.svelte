@@ -1,10 +1,16 @@
-<script lang="ts">
+<script context="module" lang="ts">
     import { LightSwitch } from "@skeletonlabs/skeleton";
-    import { setInitialClassState } from "@skeletonlabs/skeleton";
-    import { modeCurrent } from "@skeletonlabs/skeleton";
-    import { setModeUserPrefers, setModeCurrent } from "@skeletonlabs/skeleton";
+    import {
+        setInitialClassState,
+        setModeCurrent,
+        setModeUserPrefers,
+    } from "@skeletonlabs/skeleton";
 
     setModeUserPrefers(false);
+</script>
+
+<script lang="ts">
+    import { modeCurrent } from "@skeletonlabs/skeleton";
 </script>
 
 <svelte:head>{@html `<script>(${setInitialClassState.toString()})();</script>`}</svelte:head>
