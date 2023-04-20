@@ -62,7 +62,4 @@
 </p>
 
 <style lang="scss">
-    .input-text {
-        @apply input-group bg-transparent flex items-center rounded-lg border-2 border-surface-50 dark:border-surface-500 dark:bg-surface-800 active:border-primary-500 focus:border-primary-500 focus-within:border-primary-500 focus-visible:border-primary-500 dark:focus:border-primary-500 dark:focus-within:border-primary-500 dark:focus-visible:border-primary-500;
-    }
 </style>
