@@ -1,20 +1,47 @@
 [
     {
         "name": "Students Lounge",
-        "schedules": {
-            "monday": [
-                {
-                    "event": "Meet with Executive Assistant to review schedule and prioritize tasks for the day.",
-                    "start": "9:00 AM",
-                    "end": "10:00 AM"
-                }
+        "schedules": [
+            [
+                "Monday",
+                [
+                    {
+                        "event": "Meet with Executive Assistant to review schedule and prioritize tasks for the day.",
+                        "start": "9:00 AM",
+                        "end": "10:00 AM"
+                    },
+                    {
+                        "event": "Attend budget meeting with finance department to discuss funding for academic programs and departmental needs.",
+                        "start": "10:30 AM",
+                        "end": "11:30 AM"
+                    },
+                    {
+                        "event": "Meet with student government representatives to discuss student concerns and ideas for improving campus life.",
+                        "start": "1:00 AM",
+                        "end": "2:00 AM"
+                    }
+                ]
             ],
-            "tuesday": [{}],
-            "wednesday": [{}],
-            "thursday": [{}],
-            "friday": [{}],
-            "saturday": [{}],
-            "sunday": [{}]
-        }
+            [
+                "Tuesday",
+                [
+                    {
+                        "event": "Meet with Executive Assistant to review schedule and prioritize tasks for the day.",
+                        "start": "9:00 AM",
+                        "end": "10:00 AM"
+                    },
+                    {
+                        "event": "Attend budget meeting with finance department to discuss funding for academic programs and departmental needs.",
+                        "start": "10:30 AM",
+                        "end": "11:30 AM"
+                    },
+                    {
+                        "event": "Meet with student government representatives to discuss student concerns and ideas for improving campus life.",
+                        "start": "1:00 AM",
+                        "end": "2:00 AM"
+                    }
+                ]
+            ]
+        ]
     }
 ]
