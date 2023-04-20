@@ -3,6 +3,48 @@ import { fail, redirect } from "@sveltejs/kit";
 import { superValidate } from "sveltekit-superforms/server";
 import type { Actions, PageServerLoad } from "./$types";
 
+import escpos from "escpos";
+// import USB from "escpos-usb";
+import Serial from "escpos-serialport";
+
+// const SERIAL_NUMBER = 15;
+
+// console.log(escpos.SerialPort);
+
+// const device = new escpos.SerialPort(SERIAL_NUMBER, {
+//     autoOpen: false,
+//     baudRate: 9600,
+// });
+
+// escpos.USB = USB;
+escpos.Serial = Serial;
+
+const device = new escpos.Serial(399823232008);
+
+const printer = new escpos.Printer(device);
+
+device.open(function (error) {
+    printer
+        .font("A")
+        .align("CT")
+        .style("BU")
+        .size(1, 1)
+        .text("The quick brown fox jumps over the lazy dog")
+        .text("敏捷的棕色狐狸跳过懒狗")
+        .barcode("1234567", "EAN8")
+        .table(["One", "Two", "Three"])
+        .tableCustom(
+            { text: "Left", align: "LEFT", cols: 1 }
+            //   { encoding: 'cp857', size: [1, 1] } // Optional
+        )
+        .qrimage("https://github.com/song940/node-escpos", function (err) {
+            this.cut();
+            this.close();
+        });
+});
+
+// console.log(device);
+
 // TODO: Validation
 const formSchema = z.object({
     "First name": z.string(),
@@ -37,8 +79,6 @@ export const load = (async (event) => {
             .from("registrar_form_records")
             .select("*")
             .eq("id", formRecordsId);
-
-        console.log(summary);
 
         return {
             submitForm,
