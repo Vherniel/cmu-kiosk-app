@@ -3,47 +3,56 @@ import { fail, redirect } from "@sveltejs/kit";
 import { superValidate } from "sveltekit-superforms/server";
 import type { Actions, PageServerLoad } from "./$types";
 
-import escpos from "escpos";
-// import USB from "escpos-usb";
-import Serial from "escpos-serialport";
+// install escpos-usb adapter module manually
+import { Printer, Image } from "@node-escpos/core";
+// Select the adapter based on your printer type
+import USB from "@node-escpos/usb-adapter";
+import { join } from "path";
 
-// const SERIAL_NUMBER = 15;
+const device = new USB();
 
-// console.log(escpos.SerialPort);
+device.open(async function (err) {
+    if (err) {
+        // handle error
+        return;
+    }
 
-// const device = new escpos.SerialPort(SERIAL_NUMBER, {
-//     autoOpen: false,
-//     baudRate: 9600,
-// });
+    // encoding is optional
+    const options = { encoding: "GB18030" /* default */ };
+    let printer = new Printer(device, options);
 
-// escpos.USB = USB;
-escpos.Serial = Serial;
+    // Path to png image
+    const filePath = join("/PATH/TO/IMAGE");
+    const image = await Image.load(filePath);
 
-const device = new escpos.Serial(399823232008);
-
-const printer = new escpos.Printer(device);
-
-device.open(function (error) {
     printer
-        .font("A")
-        .align("CT")
-        .style("BU")
+        .font("a")
+        .align("ct")
+        .style("bu")
         .size(1, 1)
-        .text("The quick brown fox jumps over the lazy dog")
-        .text("敏捷的棕色狐狸跳过懒狗")
-        .barcode("1234567", "EAN8")
+        .text("May the gold fill your pocket")
+        .text("恭喜发财")
+        .barcode(112233445566, "EAN13", { width: 50, height: 50 })
         .table(["One", "Two", "Three"])
         .tableCustom(
-            { text: "Left", align: "LEFT", cols: 1 }
-            //   { encoding: 'cp857', size: [1, 1] } // Optional
-        )
-        .qrimage("https://github.com/song940/node-escpos", function (err) {
-            this.cut();
-            this.close();
-        });
-});
+            [
+                { text: "Left", align: "LEFT", width: 0.33, style: "B" },
+                { text: "Center", align: "CENTER", width: 0.33 },
+                { text: "Right", align: "RIGHT", width: 0.33 },
+            ],
+            { encoding: "cp857", size: [1, 1] } // Optional
+        );
 
-// console.log(device);
+    // inject qrimage to printer
+    printer = await printer.qrimage("https://github.com/node-escpos/driver");
+    // inject image to printer
+    printer = await printer.image(
+        image,
+        "s8" // changing with image
+    );
+
+    printer.cut().close();
+});
 
 // TODO: Validation
 const formSchema = z.object({
