@@ -3,7 +3,15 @@
     import { AlertTriangle } from "lucide-svelte";
     import { onMount } from "svelte";
 
-    let roomEvents: any;
+    let roomEvents: any[];
+
+    onMount(async () => {
+        roomEvents = await loadRoomEvents();
+        // roomEvents = roomEvents.filter(({ name }) => {
+        //     if (event.target?.id)
+        //         return name == event.target.id;
+        // })[0];
+    });
 
     async function loadRoomEvents() {
         const response = await fetch("/events.json");
@@ -51,15 +59,11 @@
                                 <g id="Rooms">
                                     <rect
                                         on:click={async (event) => {
-                                            // remove highlight of all other rooms
-                                            // highlight the room
-                                            event.currentTarget.style.fill = "#dddddd";
-
-                                            roomEvents = (await loadRoomEvents()).filter(
-                                                ({ name }) => name == event.target.id
-                                            )[0];
-
-                                            console.log(roomEvents);
+                                            if (event.currentTarget || event.target) {
+                                                // remove highlight of all other rooms
+                                                // highlight the room
+                                                event.currentTarget.style.fill = "#dddddd";
+                                            }
                                         }}
                                         on:keyup={(event) => {
                                             event.currentTarget;
