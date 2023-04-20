@@ -3,53 +3,31 @@ import { fail, redirect } from "@sveltejs/kit";
 import { superValidate } from "sveltekit-superforms/server";
 import type { Actions, PageServerLoad } from "./$types";
 
-// install escpos-usb adapter module manually
-import { Printer, Image } from "@node-escpos/core";
-// Select the adapter based on your printer type
+import { Printer } from "@node-escpos/core";
 import USB from "@node-escpos/usb-adapter";
-import { join } from "path";
 
 const device = new USB();
 
 device.open(async function (err) {
-    if (err) {
-        // handle error
-        return;
-    }
+    if (err) throw new Error("Error", { cause: err });
 
-    // encoding is optional
-    const options = { encoding: "GB18030" /* default */ };
-    let printer = new Printer(device, options);
-
-    // Path to png image
-    const filePath = join("/PATH/TO/IMAGE");
-    const image = await Image.load(filePath);
+    let printer = new Printer(device, { encoding: "GB18030" });
 
     printer
         .font("a")
-        .align("ct")
-        .style("bu")
+        .align("lt") // align to left
+        .style("b") // text bold
         .size(1, 1)
-        .text("May the gold fill your pocket")
-        .text("恭喜发财")
-        .barcode(112233445566, "EAN13", { width: 50, height: 50 })
-        .table(["One", "Two", "Three"])
-        .tableCustom(
-            [
-                { text: "Left", align: "LEFT", width: 0.33, style: "B" },
-                { text: "Center", align: "CENTER", width: 0.33 },
-                { text: "Right", align: "RIGHT", width: 0.33 },
-            ],
-            { encoding: "cp857", size: [1, 1] } // Optional
-        );
-
-    // inject qrimage to printer
-    printer = await printer.qrimage("https://github.com/node-escpos/driver");
-    // inject image to printer
-    printer = await printer.image(
-        image,
-        "s8" // changing with image
-    );
+        .text("City of Malabon University");
+    // .table(["One", "Two", "Three"])
+    // .tableCustom(
+    //     [
+    //         { text: "Left", align: "LEFT", width: 0.33, style: "B" },
+    //         { text: "Center", align: "CENTER", width: 0.33 },
+    //         { text: "Right", align: "RIGHT", width: 0.33 },
+    //     ],
+    //     { encoding: "cp857", size: [1, 1] } // Optional
+    // );
 
     printer.cut().close();
 });
@@ -84,16 +62,19 @@ export const load = (async (event) => {
     // while displaying the results
     if (event.url.searchParams.get("step") == "summary") {
         const formRecordsId = event.url.searchParams.get("formRecordsId");
-        const { data: summary, error } = await event.locals.supabase
-            .from("registrar_form_records")
-            .select("*")
-            .eq("id", formRecordsId);
 
-        return {
-            submitForm,
-            payment,
-            summary,
-        };
+        if (formRecordsId) {
+            const { data: summary, error } = await event.locals.supabase
+                .from("registrar_form_records")
+                .select("*")
+                .eq("id", formRecordsId);
+
+            return {
+                submitForm,
+                payment,
+                summary,
+            };
+        }
     }
 
     return {
