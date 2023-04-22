@@ -36,7 +36,9 @@
     <div class="flex h-full">
         <div class="flex-1">
             <div class="container">
-                <h1>Wayfinder</h1>
+                <div class="mb-20">
+                    <h1>Wayfinder</h1>
+                </div>
                 <Callout>
                     <AlertTriangle slot="icon" />
                     <h3 slot="title">Attention: An important notice</h3>

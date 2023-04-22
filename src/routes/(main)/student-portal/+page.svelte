@@ -9,7 +9,9 @@
 
 <section>
     <div class="container">
-        <h1>Student Portal</h1>
+        <div class="mb-20">
+            <h1>Student Portal</h1>
+        </div>
         <!-- TODO: call-out component || blockquote component -->
         <figure>
             <blockquote cite="">

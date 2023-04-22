@@ -6,7 +6,9 @@
 
 <section>
     <div class="container">
-        <h1>Latest News</h1>
+        <div class="mb-20">
+            <h1>Latest News</h1>
+        </div>
         <h2>From the official website: The CMU Post</h2>
         <div class="flex">
             {#if data.news}

@@ -105,9 +105,8 @@
 
 <section>
     <div class="container">
-        <div class="heading">
+        <div class="mb-20">
             <h1>Application to Shift Course</h1>
-            <p>Lorem ipsum dolor sit amet consectetur</p>
         </div>
 
         <MultiStep>
@@ -511,6 +510,13 @@
 <style lang="scss">
     p {
         margin-top: 1rem;
+    }
+    ul {
+        margin-left: 1.5rem;
+        li {
+            list-style-type: disc;
+            margin-bottom: 1rem;
+        }
     }
     .page-steps {
         align-self: flex-start;

@@ -15,7 +15,7 @@
 
 <section>
     <div class="container">
-        <div class="my-8"><h1>Profile page</h1></div>
+        <div class="mb-20"><h1>Profile page</h1></div>
 
         <button
             type="button"

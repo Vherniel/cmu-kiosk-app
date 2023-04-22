@@ -2,7 +2,9 @@
 </script>
 
 <section>
-    <h1>Hemingway Editor</h1>
+    <div class="mb-20">
+        <h1>Hemingway Editor</h1>
+    </div>
     <iframe src="https://hemingwayapp.com" title="Hemingway Editor" frameborder="0" />
 </section>
 
