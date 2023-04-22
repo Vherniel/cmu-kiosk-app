@@ -1,5 +1,6 @@
 <script lang="ts">
     import { enhance } from "$app/forms";
+    import { keyboard } from "$lib/components/keyboard-component";
     import { ProgressRadial } from "@skeletonlabs/skeleton";
     import { Key, User } from "lucide-svelte";
 
@@ -35,6 +36,7 @@
                             class="input-group grid-cols-[auto_1fr_auto] bg-transparent border-2 border-surface-50 focus-within:border-primary-500 dark:border-surface-500 dark:bg-surface-800 dark:focus-within:border-primary-500">
                             <div><User /></div>
                             <input
+                                use:keyboard
                                 type="text"
                                 name="username"
                                 class="input bg-transparent dark:bg-transparent px-0 h-12"
@@ -49,6 +51,7 @@
                             class="input-group grid-cols-[auto_1fr_auto] bg-transparent border-2 border-surface-50 focus-within:border-primary-500 dark:border-surface-500 dark:bg-surface-800 dark:focus-within:border-primary-500">
                             <div><Key /></div>
                             <input
+                                use:keyboard
                                 type={showPassword ? "text" : "password"}
                                 name="password"
                                 class="input bg-transparent dark:bg-transparent px-0 h-12"
