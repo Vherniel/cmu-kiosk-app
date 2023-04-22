@@ -31,7 +31,7 @@
         <!-- svelte-ignore a11y-label-has-associated-control -->
         <label class="label mb-1">
             <span>{label}</span>
-            <span class="input-text">
+            <span class="input-text input-group">
                 {#if $$slots.prefix}
                     <span class="px-4"><slot name="prefix" /></span>
                 {/if}
@@ -61,7 +61,7 @@
             </span>
         </label>
     {:else}
-        <span class="input-text">
+        <span class="input-text input-group">
             {#if $$slots.prefix}
                 <span class="px-4"><slot name="prefix" /></span>
             {/if}
