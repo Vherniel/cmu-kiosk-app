@@ -47,7 +47,9 @@
     });
 </script>
 
-<PageLayout slotSidebarLeft="border-r-[1px] border-surface-50 dark:border-secondary-900 w-80">
+<PageLayout
+    slotSidebarLeft="border-r-[1px] border-surface-50 dark:border-secondary-900 w-80"
+    slotPageContent={$page.url.pathname.includes("wayfinder") ? "overflow-hidden" : ""}>
     <svelte:fragment slot="header">
         <Header class="px-20 py-8 z-10">
             <svelte:fragment slot="left">
