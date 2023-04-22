@@ -3,11 +3,22 @@
     import { key } from "./MultiStep.svelte";
     import { Check } from "lucide-svelte";
 
-    export let name: string;
-    export let previous = true;
-    export let next = true;
+    interface $$Props {
+        name?: string | null;
+        previous?: boolean | null;
+        next?: boolean | null;
+    }
 
-    const step = {
+    export let name: string | null = null;
+
+    export let previous: boolean | null = true;
+    export let next: boolean | null = true;
+
+    const step: {
+        name?: string | null;
+        previous?: boolean | null;
+        next?: boolean | null;
+    } = {
         name,
         previous,
         next,

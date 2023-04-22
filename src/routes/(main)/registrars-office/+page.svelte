@@ -22,42 +22,52 @@
             href: "/registrars-office/leave-of-absence",
             label: "Leave of Absence",
             icon: RefreshCw,
+            disabled: true,
         }, {
             href: "/registrars-office/request-form",
             label: "Request Form",
             icon: RefreshCw,
+            disabled: true,
         }, {
             href: "/registrars-office/application-form-for-graduation",
             label: "Application Form for Graduation",
             icon: RefreshCw,
+            disabled: true,
         }, {
             href: "/registrars-office/request-for-transcript-of-records-or-f137-from-former-school",
             label: "Request for Transcript of Records or F137 from Former School",
             icon: Building2,
+            disabled: true,
         }, {
             href: "/registrars-office/entrance-examination-permit",
             label: "Entrance Examination Permit",
             icon: Building2,
+            disabled: true,
         }, {
             href: "/registrars-office/requirement-to-enrolled",
             label: "Requirement to Enrolled",
             icon: Building2,
+            disabled: true,
         }, {
             href: "/registrars-office/acknowledgement-receipt",
             label: "Acknowledgement Receipt",
             icon: Building2,
+            disabled: true,
         }, {
             href: "/registrars-office/adding-form",
             label: "Adding Form",
             icon: Building2,
+            disabled: true,
         }, {
             href: "/registrars-office/completion-form",
             label: "Completion Form",
             icon: Building2,
+            disabled: true,
         }, {
             href: "/registrars-office/dropping-form",
             label: "Dropping Form",
             icon: Building2,
+            disabled: true,
         },
     ];
 </script>

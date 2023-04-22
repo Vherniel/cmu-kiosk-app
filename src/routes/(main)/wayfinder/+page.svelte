@@ -55,7 +55,7 @@
                     </div>
                 </Callout>
                 <div>
-                        <!-- use:clickOutside
+                    <!-- use:clickOutside
                         on:outclick={() => {
                             document
                                 .querySelectorAll(
@@ -96,6 +96,7 @@
                                                         )
                                                         .forEach((node) => {
                                                             if (
+                                                                // @ts-ignore
                                                                 node.attributes.fill.value ==
                                                                 "white"
                                                             )
@@ -104,6 +105,7 @@
                                                                     "#124DBA"
                                                                 );
                                                             if (
+                                                                // @ts-ignore
                                                                 node.attributes.fill.value ==
                                                                 "black"
                                                             )

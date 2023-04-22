@@ -2,9 +2,13 @@
     import { getContext } from "svelte";
     import { key } from "./MultiStep.svelte";
 
-    export let name;
+    interface $$Props {
+        name?: string | null;
+    }
 
-    const panel = { name };
+    export let name: string | null = null;
+
+    const panel: { name?: string | null } = { name };
 
     // @ts-ignore
     const { registerPanel, selectedPanel } = getContext(key);
@@ -13,7 +17,7 @@
 </script>
 
 {#if $selectedPanel == panel}
-    <div class={"step-panel"}>
+    <div {...$$restProps}>
         <slot />
     </div>
 {/if}

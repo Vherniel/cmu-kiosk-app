@@ -43,103 +43,109 @@ export const load = (async (event) => {
                 .select("*")
                 .eq("id", formRecordsId);
 
-            const { Signature, ...formData } = summary[0].form_values.superform.data;
-            const { paid, draft, released, paidBy } = summary[0].form_values.metadata;
+            if (summary) {
+                const { Signature, ...formData } = summary[0].form_values.superform.data;
+                const { paid, draft, released, paidBy } = summary[0].form_values.metadata;
 
-            function wrap(s: any, w: any) {
-                return s.replace(
-                    new RegExp(`(?![^\\n]{1,${w}}$)([^\\n]{1,${w}})\\s`, "g"),
-                    "$1\n"
-                );
-            }
+                function wrap(s: any, w: any) {
+                    return s.replace(
+                        new RegExp(`(?![^\\n]{1,${w}}$)([^\\n]{1,${w}})\\s`, "g"),
+                        "$1\n"
+                    );
+                }
 
-            const orderedBy = [
-                "First name",
-                "Middle name",
-                "Last name",
-                "Student ID",
-                "Year",
-                "Section",
-                "School year",
-                "Former course",
-                "Former course major",
-                "New course",
-                "New course major",
-                "Reason for shifting",
-            ];
+                const orderedBy = [
+                    "First name",
+                    "Middle name",
+                    "Last name",
+                    "Student ID",
+                    "Year",
+                    "Section",
+                    "School year",
+                    "Former course",
+                    "Former course major",
+                    "New course",
+                    "New course major",
+                    "Reason for shifting",
+                ];
 
-            const parsedText = Object.entries(formData)
-                .sort(([a]: any, [b]: any) => orderedBy.indexOf(a) - orderedBy.indexOf(b))
-                .map(([label, value]) => {
-                    return `${wrap(label.toString(), 32)}: ${wrap(value.toString(), 32)}\n\n`;
-                })
-                .join("");
+                const parsedText = Object.entries(formData)
+                    .sort(([a]: any, [b]: any) => orderedBy.indexOf(a) - orderedBy.indexOf(b))
+                    .map(([label, value]) => {
+                        return `${wrap(label.toString(), 32)}: ${wrap(
+                            // @ts-ignore
+                            value.toString(),
+                            32
+                        )}\n\n`;
+                    })
+                    .join("");
 
-            const device = new USB();
+                const device = new USB();
 
-            setTimeout(() => {
-                device.open(async function (err) {
-                    if (err) throw new Error("Error", { cause: err });
+                setTimeout(() => {
+                    device.open(async function (err) {
+                        if (err) throw new Error("Error", { cause: err });
 
-                    let printer = new Printer(device, { encoding: "GB18030", width: 32 });
+                        let printer = new Printer(device, { encoding: "GB18030", width: 32 });
 
-                    printer
-                        .font("a")
-                        .align("LT") // align to left
-                        .style("b") // text bold
-                        .size(2, 3)
-                        .text("CMU Kiosk")
-                        .size(1, 1)
-                        .text("")
-                        .text("City of Malabon University")
-                        .text("College of Computer Studies")
-                        .text("")
-                        .text("ID: " + formRecordsId)
-                        .text("")
-                        .drawLine()
-                        .text("")
-                        .text(parsedText)
-                        .text("")
-                        .tableCustom([
-                            {
-                                text: paid ? "Paid by" : "Unpaid",
-                                width: 0.5,
-                            },
-                            {
-                                text: `${paidBy}`,
-                                width: 0.5,
-                            },
-                        ])
-                        .tableCustom([
-                            {
-                                text: "Price",
-                                width: 0.5,
-                            },
-                            {
-                                text: "P100.00",
-                                width: 0.5,
-                            },
-                        ])
-                        .text("")
-                        .drawLine()
-                        .text("")
-                        .text(
-                            wrap(
-                                "Please wait to call your ID or name and show this receipt to the registrar staff for further instructions.",
-                                32
+                        printer
+                            .font("a")
+                            .align("LT") // align to left
+                            .style("b") // text bold
+                            .size(2, 3)
+                            .text("CMU Kiosk")
+                            .size(1, 1)
+                            .text("")
+                            .text("City of Malabon University")
+                            .text("College of Computer Studies")
+                            .text("")
+                            .text("ID: " + formRecordsId)
+                            .text("")
+                            .drawLine()
+                            .text("")
+                            .text(parsedText)
+                            .text("")
+                            .tableCustom([
+                                {
+                                    text: paid ? "Paid by" : "Unpaid",
+                                    width: 0.5,
+                                },
+                                {
+                                    text: `${paidBy}`,
+                                    width: 0.5,
+                                },
+                            ])
+                            .tableCustom([
+                                {
+                                    text: "Price",
+                                    width: 0.5,
+                                },
+                                {
+                                    text: "P100.00",
+                                    width: 0.5,
+                                },
+                            ])
+                            .text("")
+                            .drawLine()
+                            .text("")
+                            .text(
+                                wrap(
+                                    "Please wait to call your ID or name and show this receipt to the registrar staff for further instructions.",
+                                    32
+                                )
                             )
-                        )
-                        .text("");
+                            .text("");
 
-                    printer.cut().close();
-                });
-            }, 3000);
+                        printer.cut().close();
+                    });
+                }, 3000);
 
-            return {
-                submitForm,
-                payment,
-                summary,
-            };
+                return {
+                    submitForm,
+                    payment,
+                    summary,
+                };
+            }
         }
     }
 
@@ -177,7 +183,9 @@ export const actions = {
         // TODO: Do something with the validated data
         // TODO: Send data to supabase
 
-        return { formId: data[0].id, form };
+        if (data) {
+            return { formId: data[0].id, form };
+        }
     },
     payment: async (event) => {
         const {
@@ -211,27 +219,29 @@ export const actions = {
                 .select("form_values")
                 .eq("id", payment.data.formRecordsId);
 
-            const metadata = formValues[0].form_values.metadata;
+            if (formValues) {
+                const metadata = formValues[0].form_values.metadata;
 
-            metadata.paidBy = "GCash";
-            metadata.paid = true;
-            metadata.draft = false;
-            metadata.released = false;
+                metadata.paidBy = "GCash";
+                metadata.paid = true;
+                metadata.draft = false;
+                metadata.released = false;
 
-            await supabase
-                .from("registrar_form_records")
-                .update({ form_values: formValues[0].form_values })
-                .eq("id", payment.data.formRecordsId);
+                await supabase
+                    .from("registrar_form_records")
+                    .update({ form_values: formValues[0].form_values })
+                    .eq("id", payment.data.formRecordsId);
 
-            await supabase.from("transactions").insert([
-                {
-                    registrar_form_records_id: payment.data.formRecordsId,
-                    paid: true,
-                    price_by: "GCash",
-                    released: false,
-                    price: 100,
-                },
-            ]);
+                await supabase.from("transactions").insert([
+                    {
+                        registrar_form_records_id: payment.data.formRecordsId,
+                        paid: true,
+                        price_by: "GCash",
+                        released: false,
+                        price: 100,
+                    },
+                ]);
+            }
 
             if (action?.url) throw redirect(303, action.url);
         }

@@ -14,11 +14,13 @@ export function useKeyboard(node: HTMLInputElement | HTMLTextAreaElement, value?
     if (node) {
         node.addEventListener("focus", async (event) => {
             await tick();
+            // @ts-ignore
             keyboardStore.set({ show: true, input: event.target, value: event.target.value });
         });
 
         node.addEventListener("blur", async (event) => {
             await tick();
+            // @ts-ignore
             keyboardStore.set({ show: false, input: event.target, value: event.target.value });
         });
 

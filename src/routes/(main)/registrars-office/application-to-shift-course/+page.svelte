@@ -31,6 +31,7 @@
     }
 
     if ($page.url.searchParams.get("formRecordsId")) {
+        // @ts-ignore
         summary = data.summary[0].form_values;
     }
 
@@ -38,6 +39,7 @@
         id: "submitForm",
         multipleSubmits: "prevent",
         onSubmit({ data, submitter }) {
+            // @ts-ignore
             submitter.disabled = true;
             submitStatus = "submitting";
 
@@ -50,6 +52,7 @@
             });
         },
         onResult({ result }) {
+            // @ts-ignore
             formRecordsId = result.data.formId;
         },
         onUpdate() {
@@ -117,7 +120,7 @@
                         </StepTab>
                         <StepTab previous={true} next={requiredValuesAreFilled} name="form"
                             >Fill-out Form</StepTab>
-                        <StepTab previous={true} next={true} name="sign">
+                        <StepTab previous={true} next={false} name="sign">
                             Signature Signing
                         </StepTab>
                         <StepTab previous={false} next={false} name="payment">
@@ -506,11 +509,8 @@
 </section>
 
 <style lang="scss">
-    .heading {
-        p {
-            margin-top: 1rem;
-        }
-        margin-bottom: 4rem;
+    p {
+        margin-top: 1rem;
     }
     .page-steps {
         align-self: flex-start;
@@ -555,9 +555,5 @@
             }
         }
         flex-basis: 24rem;
-    }
-    .box {
-        border: dashed 2px black;
-        height: 20rem;
     }
 </style>

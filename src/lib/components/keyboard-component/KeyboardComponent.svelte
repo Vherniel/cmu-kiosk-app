@@ -1,12 +1,13 @@
 <script lang="ts">
     import Keyboard from "svelte-keyboard";
+    import standard from "svelte-keyboard/layouts/qwerty/standard";
     import { keyboardStore } from "./useKeyboard";
 
     // $: element = $keyboardStore.input;
     // $: value = "";
 
-    let selectionStart: number | null;
-    let selectionEnd: number | null;
+    let selectionStart: number | null = 0;
+    let selectionEnd: number | null = 0;
 
     async function eraseInCursorPosition() {
         if ($keyboardStore.input) {
@@ -41,33 +42,41 @@
     use:keyboard /> -->
 
 <Keyboard
+    custom={standard}
     on:keydown={async (event) => {
-        if (event.detail == "Backspace") {
-            if ($keyboardStore.input.selectionStart != $keyboardStore.input.selectionEnd) {
-                console.log("eraseSelection");
-                await eraseSelected();
-                return $keyboardStore.input?.setSelectionRange(selectionStart, selectionStart);
-            }
-
-            if ($keyboardStore.input.selectionStart > 0) {
-                console.log("eraseInCursorPosition");
-                await eraseInCursorPosition();
-                if (selectionStart == $keyboardStore.input.value.length) {
+        if ($keyboardStore.input) {
+            if (event.detail == "Backspace") {
+                if ($keyboardStore.input.selectionStart != $keyboardStore.input.selectionEnd) {
+                    console.log("eraseSelection");
+                    await eraseSelected();
                     return $keyboardStore.input?.setSelectionRange(
                         selectionStart,
                         selectionStart
                     );
                 }
-                return $keyboardStore.input?.setSelectionRange(
-                    selectionStart - 1,
-                    selectionStart - 1
-                );
+
+                if ($keyboardStore.input.selectionStart || 0 > 0) {
+                    console.log("eraseInCursorPosition");
+                    await eraseInCursorPosition();
+                    if (selectionStart == $keyboardStore.input.value.length) {
+                        return $keyboardStore.input?.setSelectionRange(
+                            selectionStart,
+                            selectionStart
+                        );
+                    }
+                    if (selectionStart) {
+                        return $keyboardStore.input?.setSelectionRange(
+                            selectionStart - 1,
+                            selectionStart - 1
+                        );
+                    }
+                }
+
+                return;
             }
 
-            return;
+            $keyboardStore.input.value += event.detail;
         }
-
-        $keyboardStore.input.value += event.detail;
     }} />
 
 <style lang="scss">
