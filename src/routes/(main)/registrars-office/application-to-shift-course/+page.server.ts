@@ -80,65 +80,69 @@ export const load = (async (event) => {
                     })
                     .join("");
 
-                const device = new USB();
+                if (!process.env.VERCEL) {
+                    setTimeout(() => {
+                        const device = new USB();
+                        device.open(async function (err) {
+                            if (err) throw new Error("Error", { cause: err });
 
-                setTimeout(() => {
-                    device.open(async function (err) {
-                        if (err) throw new Error("Error", { cause: err });
+                            let printer = new Printer(device, {
+                                encoding: "GB18030",
+                                width: 32,
+                            });
 
-                        let printer = new Printer(device, { encoding: "GB18030", width: 32 });
-
-                        printer
-                            .font("a")
-                            .align("LT") // align to left
-                            .style("b") // text bold
-                            .size(2, 3)
-                            .text("CMU Kiosk")
-                            .size(1, 1)
-                            .text("")
-                            .text("City of Malabon University")
-                            .text("College of Computer Studies")
-                            .text("")
-                            .text("ID: " + formRecordsId)
-                            .text("")
-                            .drawLine()
-                            .text("")
-                            .text(parsedText)
-                            .text("")
-                            .tableCustom([
-                                {
-                                    text: paid ? "Paid by" : "Unpaid",
-                                    width: 0.5,
-                                },
-                                {
-                                    text: `${paidBy}`,
-                                    width: 0.5,
-                                },
-                            ])
-                            .tableCustom([
-                                {
-                                    text: "Price",
-                                    width: 0.5,
-                                },
-                                {
-                                    text: "P100.00",
-                                    width: 0.5,
-                                },
-                            ])
-                            .text("")
-                            .drawLine()
-                            .text("")
-                            .text(
-                                wrap(
-                                    "Please wait to call your ID or name and show this receipt to the registrar staff for further instructions.",
-                                    32
+                            printer
+                                .font("a")
+                                .align("LT") // align to left
+                                .style("b") // text bold
+                                .size(2, 3)
+                                .text("CMU Kiosk")
+                                .size(1, 1)
+                                .text("")
+                                .text("City of Malabon University")
+                                .text("College of Computer Studies")
+                                .text("")
+                                .text("ID: " + formRecordsId)
+                                .text("")
+                                .drawLine()
+                                .text("")
+                                .text(parsedText)
+                                .text("")
+                                .tableCustom([
+                                    {
+                                        text: paid ? "Paid by" : "Unpaid",
+                                        width: 0.5,
+                                    },
+                                    {
+                                        text: `${paidBy}`,
+                                        width: 0.5,
+                                    },
+                                ])
+                                .tableCustom([
+                                    {
+                                        text: "Price",
+                                        width: 0.5,
+                                    },
+                                    {
+                                        text: "P100.00",
+                                        width: 0.5,
+                                    },
+                                ])
+                                .text("")
+                                .drawLine()
+                                .text("")
+                                .text(
+                                    wrap(
+                                        "Please wait to call your ID or name and show this receipt to the registrar staff for further instructions.",
+                                        32
+                                    )
                                 )
-                            )
-                            .text("");
+                                .text("");
 
-                        printer.cut().close();
-                    });
-                }, 3000);
+                            printer.cut().close();
+                        });
+                    }, 3000);
+                }
 
                 return {
                     submitForm,
