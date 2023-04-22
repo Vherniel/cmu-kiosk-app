@@ -6,9 +6,10 @@
     export let content = true;
 </script>
 
-<div class="callout">
+<div
+    class="callout my-4 rounded-xl pt-4 pr-5 pb-6 pl-4 flex bg-warning-300 dark:bg-warning-600 dark:text-surface-900">
     {#if icon}
-        <div class="callout-icon">
+        <div class="callout-icon pr-3">
             <slot name="icon">
                 <div class="icon">
                     <Lightbulb />
@@ -19,7 +20,7 @@
     <div class="callout-body">
         {#if title}
             <div class="callout-title">
-                <div class="title-text">
+                <div class="title-text mb-4">
                     <slot name="title">
                         <h4>Callout title</h4>
                     </slot>
@@ -44,25 +45,4 @@
 </div>
 
 <style lang="scss">
-    .callout {
-        background-color: hsla(64, 80%, 92%, 100%);
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        border-radius: 0.75rem;
-        padding-top: 1rem;
-        padding-bottom: 1.25rem;
-        padding-left: 1rem;
-        padding-right: 1.5rem;
-        display: flex;
-        .callout-icon {
-            padding-right: 0.75rem;
-        }
-        .callout-body {
-            .callout-title {
-                .title-text {
-                    margin-bottom: 1rem;
-                }
-            }
-        }
-    }
 </style>

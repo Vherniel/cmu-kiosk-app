@@ -1,7 +1,9 @@
 <script lang="ts">
+    // TODO: https://www.npmjs.com/package/svgo
     // basically this SO answer in svelte: https://stackoverflow.com/a/40700068/492969
     // TODO: improve path binding for easier passing data to parent
 
+    import { RotateCcw } from "lucide-svelte";
     import { onMount } from "svelte";
 
     type SVGPointerEvent = PointerEvent & {
@@ -100,30 +102,36 @@
 </script>
 
 <svelte:window on:resize={resize} />
-<button
-    class="reset"
-    on:click={() => {
-        // paths = paths.concat(curPath);
-        // collection = collection.concat([paths]);
-        curPath = {};
-        paths = [];
-    }}>Reset</button>
-<svg bind:this={svg} class="svg" on:pointerdown={down} on:pointermove={move} on:pointerup={up}>
-    {#each paths as p}
-        <path stroke-width={strokeWidth} d={p.strPath} stroke={p.color} fill="transparent" />
-    {/each}
-    <path
-        stroke-width={strokeWidth}
-        d={curPath.strPath}
-        stroke={curPath.color}
-        fill="transparent" />
-</svg>
 
-<style>
-    .svg {
-        box-sizing: border-box;
-        height: -webkit-fill-available;
-        width: -webkit-fill-available;
-        touch-action: none;
-    }
+<div
+    class="relative border-2 border-surface-300 dark:border-surface-400 border-dashed w-full h-80 rounded-lg">
+    <button
+        class="btn absolute right-0 mt-1 mr-1 p-2"
+        on:click|preventDefault={() => {
+            curPath = {};
+            paths = [];
+        }}><RotateCcw /></button>
+    <svg
+        bind:this={svg}
+        class="w-full h-full"
+        on:pointerdown={down}
+        on:pointermove={move}
+        on:pointerup={up}
+        on:pointerleave={up}>
+        {#each paths as p}
+            <path
+                stroke-width={strokeWidth}
+                d={p.strPath}
+                stroke={p.color}
+                fill="transparent" />
+        {/each}
+        <path
+            stroke-width={strokeWidth}
+            d={curPath.strPath}
+            stroke={curPath.color}
+            fill="transparent" />
+    </svg>
+</div>
+
+<style lang="scss">
 </style>

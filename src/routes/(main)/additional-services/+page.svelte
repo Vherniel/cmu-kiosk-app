@@ -13,7 +13,9 @@
 
 <section>
     <div class="container">
-        <h1>Additional Services</h1>
+        <div class="mb-20">
+            <h1>Additional Services</h1>
+        </div>
         <p>Select a service to continue</p>
 
         <div class="contents">

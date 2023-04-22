@@ -47,7 +47,9 @@
     });
 </script>
 
-<PageLayout slotSidebarLeft="border-r-[1px] border-surface-50 dark:border-secondary-900 w-80">
+<PageLayout
+    slotSidebarLeft="border-r-[1px] border-surface-50 dark:border-secondary-900 w-80"
+    slotPageContent={$page.url.pathname.includes("wayfinder") ? "overflow-hidden" : ""}>
     <svelte:fragment slot="header">
         <Header class="px-20 py-8 z-10">
             <svelte:fragment slot="left">
@@ -63,7 +65,8 @@
     <svelte:fragment slot="sidebarLeft">
         <Sidebar class="px-6" slotTop="text-center py-6" slotBottom="mt-auto px-6 pb-12">
             <svelte:fragment slot="top">
-                <Logo href="/" size={4.5} />
+                <Logo href="/" size={4.5} class="mb-4" />
+                <Account {data} />
             </svelte:fragment>
             <svelte:fragment slot="middle">
                 <SidebarNavigation>

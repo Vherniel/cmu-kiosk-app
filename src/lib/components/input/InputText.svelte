@@ -1,47 +1,67 @@
 <script lang="ts">
-    import type { HTMLInputAttributes } from "svelte/elements";
-    import type { EnhancedForm } from "sveltekit-superforms/client";
-
-    interface $$Props extends HTMLInputAttributes {
-        name: string;
-        superform: EnhancedForm<any, any>;
-        label?: string;
-        id: string;
-    }
+    import Input from "./Input.svelte";
 
     interface $$Slots {
-        invalid: {};
+        invalid?: {};
+        prefix?: {};
+        postfix?: {};
     }
 
+    type TypeProps = "text" | "email" | "search" | "tel" | "url";
+
     export let name: string;
-    export let id: string;
     export let label: string | null = null;
+    export let type: TypeProps = "text";
 
     // Superforms
-    export let superform: EnhancedForm<any, any>;
+    export let superform: any;
 
-    $: ({ form, errors, constraints } = superform);
+    $: ({ errors } = superform);
 </script>
 
-<p class={"form-control " + $$props.class}>
+<div class="form-control mb-4">
     {#if label}
-        <span style:display="block">
-            <label for={id}>{label}</label>
+        <!-- svelte-ignore a11y-label-has-associated-control -->
+        <label class="label mb-1">
+            <span>{label}</span>
+            <span class="input-text input-group">
+                {#if $$slots.prefix}
+                    <span class="px-4"><slot name="prefix" /></span>
+                {/if}
+                <Input
+                    on:focus
+                    {...$$restProps}
+                    {type}
+                    {name}
+                    {superform}
+                    class={$$slots.prefix || $$slots.postfix ? "" : "px-4"} />
+                {#if $$slots.postfix}
+                    <span class="px-4"><slot name="postfix" /></span>
+                {/if}
+            </span>
+        </label>
+    {:else}
+        <span class="input-text input-group">
+            {#if $$slots.prefix}
+                <span class="px-4"><slot name="prefix" /></span>
+            {/if}
+            <Input
+                on:focus
+                {...$$restProps}
+                {type}
+                {name}
+                {superform}
+                class={$$slots.prefix || $$slots.postfix ? null : "px-4"} />
+            {#if $$slots.postfix}
+                <span class="px-4"><slot name="postfix" /></span>
+            {/if}
         </span>
     {/if}
-    <input
-        type="text"
-        {name}
-        {id}
-        data-invalid={$errors[name]}
-        class="input-text"
-        bind:value={$form[name]}
-        {...$constraints[name]}
-        {...$$restProps} />
+
     {#if $errors[name]}
         <slot name="invalid" />
     {/if}
-</p>
+</div>
 
 <style lang="scss">
 </style>

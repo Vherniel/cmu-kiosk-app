@@ -2,7 +2,9 @@
 </script>
 
 <section>
-    <h1>CMU Admission</h1>
+    <div class="mb-20">
+        <h1>CMU Admission</h1>
+    </div>
     <iframe
         src="https://admission.cityofmalabonuniversity.edu.ph/admission"
         title="City of Malabon University Admission"

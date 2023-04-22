@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { ComponentType } from "svelte";
-    import { type Icon, BoxSelect, Check } from "lucide-svelte";
+    import { type Icon, BoxSelect, Check, X } from "lucide-svelte";
 
     export let href: null | string = null;
     export let icon: ComponentType<Icon> = BoxSelect;
@@ -8,32 +8,23 @@
     export let label: string = "Lorem ipsum dolor sit amet consectetur";
 </script>
 
-<!-- default -->
-<!-- svelte-ignore missing-declaration -->
-<!-- <CardButton
-    href={"/"}
-    icon={IconComponent}
-    disabled={false}
-    label={""}
-/>
-
-<svelte:element></svelte:element> -->
-
 <svelte:element
     this={href ? "a" : "button"}
-    class={"card"}
     href={disabled ? "javascript:void(0)" : href}
+    class="btn text-left whitespace-break-spaces card p-5 flex flex-col h-44 text-surface-900 !ring-2 bg-tertiary-50 ring-surface-50 dark:text-primary-100 dark:ring-surface-500 dark:bg-surface-700 {disabled
+        ? 'cursor-not-allowed dark:!bg-surface-900 dark:!text-primary-50/30'
+        : ''} {$$props.class}"
     on:click
     {disabled}>
-    <div class="header">
-        <div>
+    <div class="flex items-center w-full">
+        <div class="mr-auto">
             <svelte:component this={icon} size="32" />
         </div>
         <div class="status-text">{!disabled ? "Available" : "Unavailable"}</div>
     </div>
 
-    <div class="footer">
-        <div class="label">{label}</div>
+    <div class="flex items-end mt-auto w-full">
+        <div class="mr-auto font-extrabold">{label}</div>
         <!-- 
             Statuses:
                 Acquired             -- Check
@@ -41,55 +32,15 @@
                 Unavailable          -- Cross and greyed
                 Unavailable:Acquired -- Check and greyed
         -->
-        <div class="status-icon"><Check color="#fff" size="18" /></div>
+        <div class="status-icon">
+            {#if disabled}
+                <X size="18" />
+            {:else}
+                <Check size="18" />
+            {/if}
+        </div>
     </div>
 </svelte:element>
 
 <style lang="scss">
-    .card {
-        display: flex;
-        flex-direction: column;
-        background-color: #ffffff;
-        border: solid 1px #d9d9d9;
-        border-radius: 0.5rem;
-        padding: 1.25rem;
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-        height: 12rem;
-        width: 100%;
-    }
-    .header {
-        display: flex;
-        align-items: center;
-        .status-text {
-            margin-left: auto;
-        }
-    }
-    .footer {
-        // padding-top: 4rem;
-        display: flex;
-        align-items: center;
-        margin-top: auto;
-        .label {
-            margin-right: 2rem;
-            font-size: 1.25rem;
-            font-weight: var(--font-bold);
-        }
-        .status-icon {
-            margin-left: auto;
-            border-radius: 999px;
-            align-self: flex-end;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #000;
-            min-width: 1.5rem;
-            min-height: 1.5rem;
-            max-width: 1.5rem;
-            max-height: 1.5rem;
-            width: 1.5rem;
-            height: 1.5rem;
-        }
-    }
 </style>

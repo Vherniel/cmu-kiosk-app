@@ -9,7 +9,7 @@
     <svelte:element
         this={href ? "a" : "div"}
         href={href ? href : null}
-        class={`inline-flex items-center`}>
+        class="inline-flex items-center {$$props.class}">
         <div>
             <img
                 src="/images/cmu.png"
