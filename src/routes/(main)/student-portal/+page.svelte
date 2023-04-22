@@ -1,9 +1,15 @@
 <script lang="ts">
+    import { browser } from "$app/environment";
+    import lazyload from "vanilla-lazyload";
+
+    let lazyloadInstance;
+
+    if (browser) lazyloadInstance = new lazyload();
 </script>
 
 <section>
-    <h1>Student Portal</h1>
     <div class="container">
+        <h1>Student Portal</h1>
         <!-- TODO: call-out component || blockquote component -->
         <figure>
             <blockquote cite="">
@@ -14,8 +20,10 @@
             </figcaption>
         </figure>
         <iframe
-            src="https://portal.cityofmalabonuniversity.edu.ph"
+            class="lazy"
+            src="http://portal-bypass.cityofmalabonuniversity.edu.ph"
             title="City of Malabon University Student Portal"
+            loading="lazy"
             frameborder="0" />
     </div>
 </section>
