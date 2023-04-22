@@ -19,7 +19,7 @@
     $: ({ errors } = superform);
 </script>
 
-<p class="form-control mb-4">
+<div class="form-control mb-4">
     {#if label}
         <!-- svelte-ignore a11y-label-has-associated-control -->
         <label class="label mb-1">
@@ -29,6 +29,7 @@
                     <span class="px-4"><slot name="prefix" /></span>
                 {/if}
                 <Input
+                    on:focus
                     {...$$restProps}
                     {type}
                     {name}
@@ -45,6 +46,7 @@
                 <span class="px-4"><slot name="prefix" /></span>
             {/if}
             <Input
+                on:focus
                 {...$$restProps}
                 {type}
                 {name}
@@ -59,7 +61,7 @@
     {#if $errors[name]}
         <slot name="invalid" />
     {/if}
-</p>
+</div>
 
 <style lang="scss">
 </style>
