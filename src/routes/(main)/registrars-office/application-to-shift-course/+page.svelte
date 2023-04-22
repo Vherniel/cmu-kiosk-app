@@ -15,6 +15,7 @@
     import { page } from "$app/stores";
     import { goto } from "$app/navigation";
     import { afterUpdate } from "svelte";
+    import InputTextArea from "$lib/components/input/InputTextArea.svelte";
 
     export let data: PageData;
 
@@ -23,6 +24,11 @@
     let submitStatus: "submitting" | "submitted" | false = false;
 
     let summary;
+
+    function addInfo(name: string, description: string) {
+        document.getElementsByClassName("info-name")[0].innerHTML = name;
+        document.getElementsByClassName("info-description")[0].innerHTML = description;
+    }
 
     if ($page.url.searchParams.get("formRecordsId")) {
         summary = data.summary[0].form_values;
@@ -61,6 +67,7 @@
             data.set("formRecordsId", formRecordsId.toString());
 
             if (submitter?.className?.includes("gcash")) {
+                paymentRedirecting = true;
                 return data.set("Method", "gcash");
             }
 
@@ -224,6 +231,9 @@
                             <StepPanel name="form">
                                 <h2>Fill-out Form</h2>
                                 <InputText
+                                    on:focus={() => {
+                                        addInfo("First Name", "Your first name or given name.");
+                                    }}
                                     label="First name"
                                     name="First name"
                                     id="first-name"
@@ -232,66 +242,124 @@
                                     <LayoutDashboard slot="prefix" />
                                 </InputText>
                                 <InputText
+                                    on:focus={() => {
+                                        addInfo(
+                                            "Middle name",
+                                            "Your middle name or middle initial."
+                                        );
+                                    }}
                                     label="Middle name"
                                     name="Middle name"
                                     id="middle-name"
                                     required
                                     {superform} />
                                 <InputText
+                                    on:focus={() => {
+                                        addInfo("Last name", "Your last name or surname.");
+                                    }}
                                     label="Last name"
                                     name="Last name"
                                     id="last-name"
                                     required
                                     {superform} />
                                 <InputText
+                                    on:focus={() => {
+                                        addInfo(
+                                            "Student ID",
+                                            "Your Student ID or Student Number."
+                                        );
+                                    }}
                                     label="Student ID"
                                     name="Student ID"
                                     id="student-id"
                                     required
                                     {superform} />
                                 <InputText
+                                    on:focus={() => {
+                                        addInfo("Year level", "Your current year level.");
+                                    }}
                                     label="Year"
                                     name="Year"
                                     id="year"
                                     required
                                     {superform} />
                                 <InputText
+                                    on:focus={() => {
+                                        addInfo("Section", "Your current year level.");
+                                    }}
                                     label="Section"
                                     name="Section"
                                     id="section"
                                     required
                                     {superform} />
                                 <InputText
+                                    on:focus={() => {
+                                        addInfo(
+                                            "School year",
+                                            "Also known as academic year. The current period of year from start to finish."
+                                        );
+                                    }}
                                     label="School year"
                                     name="School year"
                                     id="school-year"
                                     required
                                     {superform} />
                                 <InputText
+                                    on:focus={() => {
+                                        addInfo(
+                                            "Former course",
+                                            "The current course you are currently in."
+                                        );
+                                    }}
                                     label="Former course"
                                     name="Former course"
                                     id="former-course"
                                     required
                                     {superform} />
                                 <InputText
+                                    on:focus={() => {
+                                        addInfo(
+                                            "Former course major",
+                                            "The current course major you are currently in."
+                                        );
+                                    }}
                                     label="Former course major"
                                     name="Former course major"
                                     id="former-course-major"
                                     required
                                     {superform} />
                                 <InputText
+                                    on:focus={() => {
+                                        addInfo(
+                                            "New course",
+                                            "The new course you want to shift."
+                                        );
+                                    }}
                                     label="New course"
                                     name="New course"
                                     id="new-course"
                                     required
                                     {superform} />
                                 <InputText
+                                    on:focus={() => {
+                                        addInfo(
+                                            "New course major",
+                                            "The new course major you want to shift."
+                                        );
+                                    }}
                                     label="New course major"
                                     name="New course major"
                                     id="new-course-major"
                                     required
                                     {superform} />
-                                <InputText
+                                <InputTextArea
+                                    on:focus={() => {
+                                        addInfo(
+                                            "Reason for shifting",
+                                            "The reasons/s for shifting to your desired new course. Should be 1-3 paragraph/s."
+                                        );
+                                    }}
+                                    rows="4"
                                     label="Reason for shifting"
                                     name="Reason for shifting"
                                     id="reason-for-shifting"
@@ -382,7 +450,7 @@
                                         </div>
                                     </div>
                                     {#if paymentRedirecting}
-                                        <h2>Redirecting</h2>
+                                        <h2 class="text-center my-4">Redirecting</h2>
                                     {/if}
                                 </div>
                             </form>
@@ -416,7 +484,8 @@
                 </div>
 
                 <div class="information">
-                    <div class="info">
+                    <div
+                        class="info border-2 bg-secondary-50 border-secondary-300 dark:bg-secondary-900 dark:border-secondary-700">
                         <div class="info-heading">
                             <div class="info-icon">
                                 <Info size={24} />
@@ -471,7 +540,7 @@
         position: sticky;
         top: 5rem;
         .info {
-            background-color: hsla(0, 0%, 96%, 100);
+            /* background-color: hsla(0, 0%, 96%, 100); */
             border-radius: 0.75rem;
             padding: 1.25rem;
             .info-heading {
