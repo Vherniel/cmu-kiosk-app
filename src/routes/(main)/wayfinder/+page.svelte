@@ -8,7 +8,7 @@
 
     const dataMap = [["students-lounge", "Student’s Lounge"]];
 
-    let roomEvents: any[] = data.roomEvents;
+    let roomEvents: any = data.roomEvents;
     let selectedRoom: null | undefined | string;
 
     async function showSchedule() {
@@ -55,8 +55,7 @@
                     </div>
                 </Callout>
                 <div>
-                    <svg
-                        use:clickOutside
+                        <!-- use:clickOutside
                         on:outclick={() => {
                             document
                                 .querySelectorAll(
@@ -69,7 +68,8 @@
                                         node.setAttribute("fill", "white");
                                 });
                             selectedRoom = null;
-                        }}
+                        }} -->
+                    <svg
                         viewBox="0 0 1413 584"
                         width="auto"
                         fill="none"
