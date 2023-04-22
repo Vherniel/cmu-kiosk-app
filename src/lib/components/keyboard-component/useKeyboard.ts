@@ -1,4 +1,6 @@
+import { tick } from "svelte";
 import { writable } from "svelte/store";
+import { get } from "svelte/store";
 
 export let keyboardStore = writable<{
     show: boolean;
@@ -10,17 +12,21 @@ export let keyboardStore = writable<{
 
 export function useKeyboard(node: HTMLInputElement | HTMLTextAreaElement, value?: string) {
     if (node) {
-        node.addEventListener("focus", (event) => {
-            keyboardStore.set({ show: true, input: node, value });
-            const page = document.querySelector("#page");
-            const inputScrollOffset = node.getBoundingClientRect().top || 0;
-            console.log(node.getBoundingClientRect().top - 200);
-
-            page?.scrollTo(0, inputScrollOffset);
+        node.addEventListener("focus", async (event) => {
+            await tick();
+            keyboardStore.set({ show: true, input: event.target, value: event.target.value });
         });
 
-        node.addEventListener("blur", (event) => {
-            keyboardStore.set({ show: false, input: null, value });
+        node.addEventListener("blur", async (event) => {
+            await tick();
+            keyboardStore.set({ show: false, input: event.target, value: event.target.value });
         });
+
+        return {
+            async update(newValue: any) {
+                await tick();
+                value = newValue;
+            },
+        };
     }
 }
