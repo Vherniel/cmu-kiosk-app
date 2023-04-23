@@ -3,8 +3,8 @@ import { fail, redirect } from "@sveltejs/kit";
 import { superValidate } from "sveltekit-superforms/server";
 import type { Actions, PageServerLoad } from "./$types";
 
-import { Printer } from "@node-escpos/core";
-import USB from "@node-escpos/usb-adapter";
+// import { Printer } from "@node-escpos/core";
+// import USB from "@node-escpos/usb-adapter";
 
 // TODO: Validation
 const formSchema = z.object({
@@ -81,7 +81,11 @@ export const load = (async (event) => {
                     .join("");
 
                 if (!process.env.VERCEL) {
-                    setTimeout(() => {
+                    setTimeout(async () => {
+                        // dynamic imports
+                        const USB = (await import("@node-escpos/usb-adapter")).default;
+                        const { Printer } = await import("@node-escpos/core");
+
                         const device = new USB();
                         device.open(async function (err) {
                             if (err) throw new Error("Error", { cause: err });
