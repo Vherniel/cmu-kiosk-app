@@ -3,9 +3,6 @@ import { fail, redirect } from "@sveltejs/kit";
 import { superValidate } from "sveltekit-superforms/server";
 import type { Actions, PageServerLoad } from "./$types";
 
-// import { Printer } from "@node-escpos/core";
-// import USB from "@node-escpos/usb-adapter";
-
 // TODO: Validation
 const formSchema = z.object({
     "First name": z.string(),
