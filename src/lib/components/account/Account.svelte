@@ -54,8 +54,8 @@
                 </div>
             {:else}
                 <img
-                    src={user.img ? user.img : "/images/cmu.png"}
-                    class="block w-full h-full object-contain {user.img ? '' : 'p-2'}"
+                    src={user?.img ? user?.img : "/images/cmu.png"}
+                    class="block w-full h-full object-contain {user?.img ? '' : 'p-2'}"
                     alt="CMU" />
             {/if}
         </div>
