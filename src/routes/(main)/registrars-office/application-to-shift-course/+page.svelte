@@ -14,8 +14,9 @@
     import { SVGPathPencil } from "$lib/components/svg-path-pencil";
     import { page } from "$app/stores";
     import { goto } from "$app/navigation";
-    import { afterUpdate } from "svelte";
+    import { afterUpdate, onMount } from "svelte";
     import InputTextArea from "$lib/components/input/InputTextArea.svelte";
+    import { Table, modeCurrent, tableMapperValues } from "@skeletonlabs/skeleton";
 
     export let data: PageData;
 
@@ -25,15 +26,30 @@
 
     let summary;
 
+    let signature;
+    let result;
+
     function addInfo(name: string, description: string) {
         document.getElementsByClassName("info-name")[0].innerHTML = name;
         document.getElementsByClassName("info-description")[0].innerHTML = description;
     }
 
-    if ($page.url.searchParams.get("formRecordsId")) {
-        // @ts-ignore
-        summary = data.summary[0].form_values;
-    }
+    onMount(() => {
+        if ($page.url.searchParams.get("formRecordsId")) {
+            // @ts-ignore
+            summary = data.summary[0].form_values;
+            ({ Signature: signature, ...result } = summary.superform.data);
+
+            result = Object.entries(result).map(([key, value]) => {
+                return {
+                    label: key,
+                    value: value,
+                };
+            });
+
+            console.log(result);
+        }
+    });
 
     const superform = superForm(data.submitForm, {
         id: "submitForm",
@@ -69,8 +85,9 @@
         onSubmit({ data, submitter }) {
             data.set("formRecordsId", formRecordsId.toString());
 
+            paymentRedirecting = true;
+            
             if (submitter?.className?.includes("gcash")) {
-                paymentRedirecting = true;
                 return data.set("Method", "gcash");
             }
 
@@ -461,19 +478,18 @@
                             <h2>Summary</h2>
                             <h4>
                                 {#if $page.url.searchParams.get("formRecordsId")}
-                                    <p>{summary.metadata.done ? "Completed" : "Draft"}</p>
-                                    <p>
-                                        {summary.superform.data["Last name"]}, {summary
-                                            .superform.data["First name"]}
-                                        {summary.superform.data["Middle name"]}: {summary
-                                            .superform.data["Student ID"]}
-                                    </p>
-                                    <svg>
-                                        {#each JSON.parse(summary.superform.data["Signature"]) as p}
+                                    <Table
+                                        source={{
+                                            head: ["Label", "Value"],
+                                            body: tableMapperValues(result, ["label", "value"]),
+                                        }} />
+                                    <h3 class="mt-12">Signature</h3>
+                                    <svg height="320">
+                                        {#each JSON.parse(signature) as p}
                                             <path
                                                 stroke-width={4}
                                                 d={p.strPath}
-                                                stroke={p.color}
+                                                stroke={$modeCurrent ? "black" : "white"}
                                                 fill="transparent" />
                                         {/each}
                                     </svg>
