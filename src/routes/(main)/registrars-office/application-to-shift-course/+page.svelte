@@ -146,10 +146,11 @@
                         <div
                             class="mt-8 border-t-2 border-surface-200/30 dark:border-surface-400/30">
                             <button
+                                type="button"
                                 class="btn w-full mt-8 py-4 font-bold ring-2 text-secondary-700 dark:text-secondary-200 variant-ringed-secondary active:bg-secondary-500 active:text-white"
-                                on:click={(event) => {
+                                on:click|preventDefault={(event) => {
                                     $page.url.searchParams.set("step", "intro");
-                                    goto($page.url.href);
+                                    window.location.reload();
                                 }}>
                                 <div><RotateCcw /></div>
                                 <div>Start over</div>
@@ -479,7 +480,7 @@
                             <h2>Summary</h2>
                             <p class="py-8">
                                 <strong
-                                    >{summary.superform.metadata.paid
+                                    >{summary?.superform?.metadata?.paid
                                         ? "Paid by GCash"
                                         : "Pay with Cash to the counter"}</strong>
                             </p>
