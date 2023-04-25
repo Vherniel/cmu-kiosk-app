@@ -14,8 +14,9 @@
     import { SVGPathPencil } from "$lib/components/svg-path-pencil";
     import { page } from "$app/stores";
     import { goto } from "$app/navigation";
-    import { afterUpdate } from "svelte";
+    import { afterUpdate, onMount } from "svelte";
     import InputTextArea from "$lib/components/input/InputTextArea.svelte";
+    import { Table, modeCurrent, tableMapperValues } from "@skeletonlabs/skeleton";
 
     export let data: PageData;
 
@@ -25,15 +26,30 @@
 
     let summary;
 
+    let signature;
+    let result;
+
     function addInfo(name: string, description: string) {
         document.getElementsByClassName("info-name")[0].innerHTML = name;
         document.getElementsByClassName("info-description")[0].innerHTML = description;
     }
 
-    if ($page.url.searchParams.get("formRecordsId")) {
-        // @ts-ignore
-        summary = data.summary[0].form_values;
-    }
+    onMount(() => {
+        if ($page.url.searchParams.get("formRecordsId")) {
+            // @ts-ignore
+            summary = data.summary[0].form_values;
+            ({ Signature: signature, ...result } = summary.superform.data);
+
+            result = Object.entries(result).map(([key, value]) => {
+                return {
+                    label: key,
+                    value: value,
+                };
+            });
+
+            console.log(result);
+        }
+    });
 
     const superform = superForm(data.submitForm, {
         id: "submitForm",
@@ -69,8 +85,9 @@
         onSubmit({ data, submitter }) {
             data.set("formRecordsId", formRecordsId.toString());
 
+            paymentRedirecting = true;
+
             if (submitter?.className?.includes("gcash")) {
-                paymentRedirecting = true;
                 return data.set("Method", "gcash");
             }
 
@@ -131,7 +148,8 @@
                             <button
                                 class="btn w-full mt-8 py-4 font-bold ring-2 text-secondary-700 dark:text-secondary-200 variant-ringed-secondary active:bg-secondary-500 active:text-white"
                                 on:click={(event) => {
-                                    goto("?step=intro");
+                                    $page.url.searchParams.set("step", "intro");
+                                    goto($page.url.href);
                                 }}>
                                 <div><RotateCcw /></div>
                                 <div>Start over</div>
@@ -459,26 +477,34 @@
                         </StepPanel>
                         <StepPanel name="summary">
                             <h2>Summary</h2>
+                            <p class="py-8">
+                                <strong
+                                    >{summary.superform.metadata.paid
+                                        ? "Paid by GCash"
+                                        : "Pay with Cash to the counter"}</strong>
+                            </p>
+                            {#if $page.url.searchParams.get("formRecordsId")}
+                                <Table
+                                    source={{
+                                        head: ["Label", "Value"],
+                                        body: tableMapperValues(result, ["label", "value"]),
+                                    }} />
+                                <h3 class="mt-12">Signature</h3>
+                                <svg height="320">
+                                    {#each JSON.parse(signature) as p}
+                                        <path
+                                            stroke-width={4}
+                                            d={p.strPath}
+                                            stroke={$modeCurrent ? "black" : "white"}
+                                            fill="transparent" />
+                                    {/each}
+                                </svg>
+                            {/if}
                             <h4>
-                                {#if $page.url.searchParams.get("formRecordsId")}
-                                    <p>{summary.metadata.done ? "Completed" : "Draft"}</p>
-                                    <p>
-                                        {summary.superform.data["Last name"]}, {summary
-                                            .superform.data["First name"]}
-                                        {summary.superform.data["Middle name"]}: {summary
-                                            .superform.data["Student ID"]}
-                                    </p>
-                                    <svg>
-                                        {#each JSON.parse(summary.superform.data["Signature"]) as p}
-                                            <path
-                                                stroke-width={4}
-                                                d={p.strPath}
-                                                stroke={p.color}
-                                                fill="transparent" />
-                                        {/each}
-                                    </svg>
-                                {/if}
-                                <a href="/">Back to main dashboard</a>
+                                <a
+                                    href="/"
+                                    class="btn w-full mt-4 py-6 variant-filled-primary font-bold"
+                                    >Back to main dashboard</a>
                             </h4>
                         </StepPanel>
                         <StepNavigation />

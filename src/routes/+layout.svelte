@@ -6,10 +6,10 @@
     storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 </script>
 
-<div class="h-full {$keyboardStore.show ? 'pb-60' : ''}">
+<div class="h-full {$keyboardStore.show ? 'pb-80' : ''}">
     <slot />
     {#if $keyboardStore.show}
-        <div>
+        <div class="w-8/12 mx-auto pt-6">
             <KeyboardComponent />
         </div>
     {/if}

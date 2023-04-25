@@ -205,65 +205,64 @@ export const actions = {
             return fail(400, { payment });
         }
 
-        if (payment.data.Method == "gcash") {
+        const { data: formValues } = await supabase
+            .from("registrar_form_records")
+            .select("form_values")
+            .eq("id", payment.data.formRecordsId);
+
+        if (formValues) {
             event.url.searchParams.set("step", "summary");
             event.url.searchParams.set("formRecordsId", payment.data.formRecordsId.toString());
-            const { action } = await checkout.payments({
-                amount: { currency: "PHP", value: 10000 }, // PHP 100.00
-                paymentMethod: {
-                    // @ts-ignore
-                    type: "gcash",
-                },
-                reference: crypto.randomUUID(),
-                merchantAccount: "VhernielLebisECOM",
-                returnUrl: event.url.href,
-            });
 
-            const { data: formValues } = await supabase
-                .from("registrar_form_records")
-                .select("form_values")
-                .eq("id", payment.data.formRecordsId);
+            const isGCash = payment.data.Method == "gcash";
 
-            if (formValues) {
-                const metadata = formValues[0].form_values.metadata;
+            const metadata = formValues[0].form_values.metadata;
 
-                metadata.paidBy = "GCash";
-                metadata.paid = true;
-                metadata.draft = false;
-                metadata.released = false;
+            metadata.paidBy = isGCash ? "GCash" : "Cash";
+            metadata.paid = isGCash ? true : false;
+            metadata.draft = isGCash ? false : true;
+            metadata.released = false;
 
-                await supabase
-                    .from("registrar_form_records")
-                    .update({ form_values: formValues[0].form_values })
-                    .eq("id", payment.data.formRecordsId);
+            let url: string;
 
-                await supabase.from("transactions").insert([
-                    {
-                        registrar_form_records_id: payment.data.formRecordsId,
-                        paid: true,
-                        price_by: "GCash",
-                        released: false,
-                        price: 100,
+            if (isGCash) {
+                const { action } = await checkout.payments({
+                    amount: { currency: "PHP", value: 10000 }, // PHP 100.00
+                    paymentMethod: {
+                        // @ts-ignore
+                        type: "gcash",
                     },
-                ]);
+                    reference: crypto.randomUUID(),
+                    merchantAccount: "VhernielLebisECOM",
+                    returnUrl: event.url.href,
+                });
+
+                if (action?.url) {
+                    url = action.url;
+                }
             }
 
-            if (action?.url) throw redirect(303, action.url);
-        }
+            await supabase
+                .from("registrar_form_records")
+                .update({ form_values: formValues[0].form_values })
+                .eq("id", payment.data.formRecordsId);
 
-        if (payment.data.Method == "cash") {
-            const { data, error } = await supabase.from("transactions").insert([
+            await supabase.from("transactions").insert([
                 {
                     registrar_form_records_id: payment.data.formRecordsId,
-                    paid: false,
-                    paid_by: false,
+                    paid: isGCash ? true : false,
+                    payment_method: isGCash ? "GCash" : "Cash",
+                    released: false,
                     price: 100,
                 },
             ]);
-            // create transaction data to the database and set it to unpaid
-            // generate qr or id number that when accessed,
-            // triggers a database update when scanned/accessed
-            // update form_values in registrar_form_records object metadata of done -> true, draft -> false
+
+            // @ts-ignore
+            if (isGCash && url) {
+                throw redirect(303, url);
+            } else {
+                throw redirect(303, event.url.href);
+            }
         }
 
         return { payment };

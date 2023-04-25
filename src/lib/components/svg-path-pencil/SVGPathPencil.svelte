@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { modeCurrent } from "@skeletonlabs/skeleton";
     // TODO: https://www.npmjs.com/package/svgo
     // basically this SO answer in svelte: https://stackoverflow.com/a/40700068/492969
     // TODO: improve path binding for easier passing data to parent
@@ -104,7 +105,7 @@
 <svelte:window on:resize={resize} />
 
 <div
-    class="relative border-2 border-surface-300 dark:border-surface-400 border-dashed w-full h-80 rounded-lg">
+    class="relative border-2 border-surface-300 dark:border-surface-400 border-dashed w-full h-[320px] rounded-lg">
     <button
         class="btn absolute right-0 mt-1 mr-1 p-2"
         on:click|preventDefault={() => {
@@ -114,6 +115,7 @@
     <svg
         bind:this={svg}
         class="w-full h-full"
+        on:pointerenter={down}
         on:pointerdown={down}
         on:pointermove={move}
         on:pointerup={up}
@@ -122,13 +124,13 @@
             <path
                 stroke-width={strokeWidth}
                 d={p.strPath}
-                stroke={p.color}
+                stroke={$modeCurrent ? "black" : "white"}
                 fill="transparent" />
         {/each}
         <path
             stroke-width={strokeWidth}
             d={curPath.strPath}
-            stroke={curPath.color}
+            stroke={$modeCurrent ? "black" : "white"}
             fill="transparent" />
     </svg>
 </div>
