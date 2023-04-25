@@ -86,7 +86,7 @@
             data.set("formRecordsId", formRecordsId.toString());
 
             paymentRedirecting = true;
-            
+
             if (submitter?.className?.includes("gcash")) {
                 return data.set("Method", "gcash");
             }
@@ -148,7 +148,8 @@
                             <button
                                 class="btn w-full mt-8 py-4 font-bold ring-2 text-secondary-700 dark:text-secondary-200 variant-ringed-secondary active:bg-secondary-500 active:text-white"
                                 on:click={(event) => {
-                                    goto("?step=intro");
+                                    $page.url.searchParams.set("step", "intro");
+                                    goto($page.url.href);
                                 }}>
                                 <div><RotateCcw /></div>
                                 <div>Start over</div>
@@ -476,25 +477,34 @@
                         </StepPanel>
                         <StepPanel name="summary">
                             <h2>Summary</h2>
+                            <p class="py-8">
+                                <strong
+                                    >{summary.superform.metadata.paid
+                                        ? "Paid by GCash"
+                                        : "Pay with Cash to the counter"}</strong>
+                            </p>
+                            {#if $page.url.searchParams.get("formRecordsId")}
+                                <Table
+                                    source={{
+                                        head: ["Label", "Value"],
+                                        body: tableMapperValues(result, ["label", "value"]),
+                                    }} />
+                                <h3 class="mt-12">Signature</h3>
+                                <svg height="320">
+                                    {#each JSON.parse(signature) as p}
+                                        <path
+                                            stroke-width={4}
+                                            d={p.strPath}
+                                            stroke={$modeCurrent ? "black" : "white"}
+                                            fill="transparent" />
+                                    {/each}
+                                </svg>
+                            {/if}
                             <h4>
-                                {#if $page.url.searchParams.get("formRecordsId")}
-                                    <Table
-                                        source={{
-                                            head: ["Label", "Value"],
-                                            body: tableMapperValues(result, ["label", "value"]),
-                                        }} />
-                                    <h3 class="mt-12">Signature</h3>
-                                    <svg height="320">
-                                        {#each JSON.parse(signature) as p}
-                                            <path
-                                                stroke-width={4}
-                                                d={p.strPath}
-                                                stroke={$modeCurrent ? "black" : "white"}
-                                                fill="transparent" />
-                                        {/each}
-                                    </svg>
-                                {/if}
-                                <a href="/">Back to main dashboard</a>
+                                <a
+                                    href="/"
+                                    class="btn w-full mt-4 py-6 variant-filled-primary font-bold"
+                                    >Back to main dashboard</a>
                             </h4>
                         </StepPanel>
                         <StepNavigation />
