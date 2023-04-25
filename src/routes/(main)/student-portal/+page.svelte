@@ -1,5 +1,7 @@
 <script lang="ts">
     import { browser } from "$app/environment";
+    import { enhance } from "$app/forms";
+    import { afterUpdate, onMount } from "svelte";
     import lazyload from "vanilla-lazyload";
 
     let lazyloadInstance;
@@ -9,7 +11,7 @@
 
 <section>
     <div class="container">
-        <div class="mb-20">
+        <div class="mb-8">
             <h1>Student Portal</h1>
         </div>
         <!-- TODO: call-out component || blockquote component -->
@@ -21,9 +23,11 @@
                 —Ezekiel Borja, <cite>City of Malabon University, MIS</cite>
             </figcaption>
         </figure>
+
         <iframe
+            id="iframe"
             class="lazy"
-            src="http://portal-bypass.cityofmalabonuniversity.edu.ph"
+            src="http://portal-bypass.cityofmalabonuniversity.edu.ph/"
             title="City of Malabon University Student Portal"
             loading="lazy"
             frameborder="0" />
@@ -34,12 +38,8 @@
     figure {
         border-left: solid 4px grey;
         padding-left: 1rem;
-        padding-top: 0.25rem;
         padding-bottom: 0.25rem;
-        /* remove */
-        margin-top: 1.5rem;
         margin-bottom: 1.5rem;
-        /* remove */
         p {
             margin-bottom: 0.5rem;
         }
