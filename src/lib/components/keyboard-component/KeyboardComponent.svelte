@@ -42,6 +42,7 @@
     use:keyboard /> -->
 
 <Keyboard
+    --height="4rem"
     custom={standard}
     on:keydown={async (event) => {
         if ($keyboardStore.input) {
@@ -73,6 +74,10 @@
                 }
 
                 return;
+            }
+
+            if (event.detail == "Space") {
+                return ($keyboardStore.input.value += " ");
             }
 
             $keyboardStore.input.value += event.detail;
