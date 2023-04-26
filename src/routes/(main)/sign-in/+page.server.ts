@@ -11,7 +11,10 @@ export const actions = {
 
         const continueAsGuest = formData.get("signin") == "guest";
 
-        const { data, error: signinError } = await supabase.auth.signInWithPassword({
+        const {
+            data: { session },
+            error,
+        } = await supabase.auth.signInWithPassword({
             email: continueAsGuest ? PUBLIC_KIOSK_GUEST_EMAIL : `${formData.get("username")}`,
             password: continueAsGuest ? PUBLIC_KIOSK_GUEST_PASS : `${formData.get("password")}`,
         });
@@ -20,7 +23,9 @@ export const actions = {
 
         if (!redirectURL) throw redirect(302, "/");
 
-        if (signinError) invalidate(url);
+        if (error || !session) {
+            throw invalidate("/signin");
+        }
 
         throw redirect(302, redirectURL);
 
