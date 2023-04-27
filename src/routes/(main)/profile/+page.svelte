@@ -15,7 +15,7 @@
 
 <section>
     <div class="container">
-        <div class="mb-20"><h1>Profile page</h1></div>
+        <div class="mb-16"><h1>Are you sure you want to logout?</h1></div>
 
         <button
             type="button"
