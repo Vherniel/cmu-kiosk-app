@@ -36,7 +36,7 @@
     <div class="flex h-full">
         <div class="flex-1">
             <div class="container">
-                <div class="mb-20">
+                <div class="mb-16">
                     <h1>Wayfinder</h1>
                 </div>
                 <Callout>
