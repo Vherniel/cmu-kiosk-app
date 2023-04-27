@@ -24,7 +24,7 @@ export const actions = {
         if (!redirectURL) throw redirect(302, "/");
 
         if (error || !session) {
-            throw invalidate("/signin");
+            throw invalidate("/sign-in");
         }
 
         throw redirect(302, redirectURL);
