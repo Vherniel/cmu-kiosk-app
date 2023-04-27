@@ -3,36 +3,22 @@
     import { afterUpdate, onMount } from "svelte";
     import { UserIcon } from "lucide-svelte";
     import type { LayoutData } from "../../../routes/(main)/$types";
+    import { beforeUpdate } from "svelte";
 
     export let data: LayoutData;
 
-    $: ({ supabase, session } = data);
+    $: ({ session, user } = data);
 
-    let user: any;
     let fullName: string;
     let studentNumber: number;
 
-    $: user;
     $: fullName;
     $: studentNumber;
 
-    afterUpdate(async () => {
-        console.log("session", session);
+    beforeUpdate(async () => {
         if (user) {
             fullName = `${user.first_name} ${user.middle_name} ${user.last_name}`;
             studentNumber = user.student_number;
-        }
-    });
-
-    onMount(async () => {
-        if (session) {
-            // @ts-ignore
-            ({ data: user } = await supabase
-                .from("users")
-                .select("*")
-                .eq("user_id", session?.user.id));
-
-            [user] = user;
         }
     });
 
@@ -42,7 +28,7 @@
 </script>
 
 <a
-    href={isSignedOut ? "/signin" : "/profile"}
+    href={isSignedOut ? "/sign-in" : "/profile"}
     class="btn w-full h-52 flex flex-col p-4 {isSignedOut
         ? 'ring-2 ring-secondary-200 dark:ring-secondary-700'
         : 'bg-secondary-50 dark:bg-secondary-900'}">
