@@ -1,6 +1,6 @@
 # Diff Summary
 
-Date : 2023-04-22 08:56:05
+Date : 2023-04-27 18:46:59
 
 Directory /home/venice/Projects/capstone/cmu-kiosk-app
 
