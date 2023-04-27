@@ -46,8 +46,6 @@
                     value: value,
                 };
             });
-
-            console.log(result);
         }
     });
 
@@ -102,7 +100,6 @@
     $: requiredValuesAreFilled = false;
 
     afterUpdate(() => {
-        // console.log($form);
         // this compiles the input whether it has values in fill-out form into a boolean
         requiredValuesAreFilled = Object.entries($form)
             .map(([key, value]) => {
@@ -112,8 +109,6 @@
             .reduce((prev, current) => {
                 return prev && current;
             });
-
-        // console.log(requiredValuesAreFilled);
     });
 
     let svg: string;
@@ -122,7 +117,7 @@
 
 <section>
     <div class="container">
-        <div class="mb-20">
+        <div class="mb-16">
             <h1>Application to Shift Course</h1>
         </div>
 
@@ -480,7 +475,7 @@
                             <h2>Summary</h2>
                             <p class="py-8">
                                 <strong
-                                    >{summary?.superform?.metadata?.paid
+                                    >{data.paid
                                         ? "Paid by GCash"
                                         : "Pay with Cash to the counter"}</strong>
                             </p>
@@ -491,7 +486,7 @@
                                         body: tableMapperValues(result, ["label", "value"]),
                                     }} />
                                 <h3 class="mt-12">Signature</h3>
-                                <svg height="320">
+                                <svg height="320" class="w-full">
                                     {#each JSON.parse(signature) as p}
                                         <path
                                             stroke-width={4}

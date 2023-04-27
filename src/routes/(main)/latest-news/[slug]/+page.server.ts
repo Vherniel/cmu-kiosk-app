@@ -1,18 +1,16 @@
 import { PUBLIC_CMU_WP_REST_ENDPOINT } from "$env/static/public";
 import type { PageServerLoad } from "./$types";
 
-export const load: PageServerLoad = async ({ fetch, url }) => {
+export const load: PageServerLoad = async ({ fetch, url, params }) => {
     return {
-        news: await getCMUNewsData({ perPage: 12 }),
+        post: await getCMUNewsPostData(),
     };
 
-    async function getCMUNewsData({ perPage }: { perPage: number }) {
+    async function getCMUNewsPostData() {
         const pageNumber = url.searchParams.get("page") || 1;
         let response; // response to be returned
 
-        const requestUrl = new URL(PUBLIC_CMU_WP_REST_ENDPOINT + "/posts?page=" + pageNumber);
-        const params = requestUrl.searchParams;
-        params.append("per_page", `${perPage}`);
+        const requestUrl = new URL(PUBLIC_CMU_WP_REST_ENDPOINT + "/posts/" + params.slug);
 
         const controller = new AbortController();
         const signal = controller.signal;
@@ -27,10 +25,7 @@ export const load: PageServerLoad = async ({ fetch, url }) => {
         }
 
         if (response?.ok) {
-            return {
-                data: await response?.json(),
-                totalPages: await response?.headers?.get("x-wp-totalpages"),
-            };
+            return response?.json();
         } else {
             return response?.status;
         }

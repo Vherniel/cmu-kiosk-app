@@ -115,11 +115,9 @@
     <svg
         bind:this={svg}
         class="w-full h-full"
-        on:pointerenter={down}
         on:pointerdown={down}
         on:pointermove={move}
-        on:pointerup={up}
-        on:pointerleave={up}>
+        on:pointerup={up}>
         {#each paths as p}
             <path
                 stroke-width={strokeWidth}

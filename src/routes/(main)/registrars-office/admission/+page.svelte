@@ -2,7 +2,7 @@
 </script>
 
 <section>
-    <div class="mb-20">
+    <div class="mb-16">
         <h1>CMU Admission</h1>
     </div>
     <iframe

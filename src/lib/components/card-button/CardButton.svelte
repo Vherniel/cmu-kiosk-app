@@ -12,7 +12,7 @@
     this={href ? "a" : "button"}
     href={disabled ? "javascript:void(0)" : href}
     class="btn text-left whitespace-break-spaces card p-5 flex flex-col h-44 text-surface-900 !ring-2 bg-tertiary-50 ring-surface-50 dark:text-primary-100 dark:ring-surface-500 dark:bg-surface-700 {disabled
-        ? 'cursor-not-allowed dark:!bg-surface-900 dark:!text-primary-50/30'
+        ? 'cursor-not-allowed !ring-surface-50/30 !text-surface-900/20 dark:!bg-surface-900 dark:!ring-surface-800 dark:!text-primary-50/30'
         : ''} {$$props.class}"
     on:click
     {disabled}>

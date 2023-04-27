@@ -20,9 +20,9 @@
         <div class="flex-1 flex items-center">
             <div class="px-20 pb-24 w-full">
                 <header>
-                    <h1>Let’s signin first</h1>
+                    <h1>Let’s sign-in first</h1>
                     <p class="mt-4 mb-12">
-                        Signin to save your progress and to keep track your records.
+                        Sign-in to save your progress and to keep track your records.
                     </p>
                 </header>
                 <form
@@ -76,15 +76,15 @@
                     <div class="flex items-center mt-8 w-full">
                         <button
                             type="submit"
-                            name="signin"
-                            value="signin"
+                            name="sign-in"
+                            value="sign-in"
                             disabled={isFormSubmitted}
                             class="btn font-extrabold variant-filled-primary px-16 py-4 active:bg-primary-500/30">
-                            Signin
+                            Sign-in
                         </button>
                         <button
                             type="submit"
-                            name="signin"
+                            name="sign-in"
                             value="guest"
                             formnovalidate
                             disabled={isFormSubmitted}

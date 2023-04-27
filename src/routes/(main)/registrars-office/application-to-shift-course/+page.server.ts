@@ -149,6 +149,7 @@ export const load = (async (event) => {
                     submitForm,
                     payment,
                     summary,
+                    paid,
                 };
             }
         }

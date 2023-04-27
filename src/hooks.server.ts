@@ -1,9 +1,10 @@
 import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY } from "$env/static/public";
+import { PRIVATE_ADYEN_API_KEY } from "$env/static/private";
 import { createSupabaseServerClient } from "@supabase/auth-helpers-sveltekit";
 import adyen from "@adyen/api-library";
-const { Client, CheckoutAPI } = adyen;
-
 import type { Handle } from "@sveltejs/kit";
+
+const { Client, CheckoutAPI } = adyen;
 
 export const handle = (async ({ event, resolve }) => {
     event.locals.supabase = createSupabaseServerClient({
@@ -12,12 +13,12 @@ export const handle = (async ({ event, resolve }) => {
         event,
     });
 
-    const client = new Client({
-        apiKey: "AQEohmfuXNWTK0Qc+iSGmmEqqe2eRKdID5pZu1tcNt+kSK0vXPbV6uOedxDBXVsNvuR83LVYjEgiTGAH-lK7XM+9HUEU2tMVmPa42H0PZmktYJF1lZoHTC8l+Qoo=->Z%6?;t>IsNT#dVm",
+    const adyenClient = new Client({
+        apiKey: PRIVATE_ADYEN_API_KEY,
         environment: "TEST",
     });
 
-    event.locals.checkout = new CheckoutAPI(client);
+    event.locals.checkout = new CheckoutAPI(adyenClient);
 
     /**
      * a little helper that is written for convenience so that instead

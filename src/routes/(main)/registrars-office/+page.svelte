@@ -1,6 +1,6 @@
 <script lang="ts">
     import CardButton from "$lib/components/card-button/CardButton.svelte";
-    import { Building2, RefreshCw } from "lucide-svelte";
+    import { Building2, DoorOpen, Edit, RefreshCw } from "lucide-svelte";
     import type { PageData } from "./$types";
     import { PUBLIC_KIOSK_GUEST_EMAIL } from "$env/static/public";
 
@@ -21,12 +21,12 @@
         }, {
             href: "/registrars-office/leave-of-absence",
             label: "Leave of Absence",
-            icon: RefreshCw,
+            icon: DoorOpen,
             disabled: true,
         }, {
             href: "/registrars-office/request-form",
             label: "Request Form",
-            icon: RefreshCw,
+            icon: Edit,
             disabled: true,
         }, {
             href: "/registrars-office/application-form-for-graduation",
@@ -72,9 +72,11 @@
     ];
 </script>
 
-<section>
+<section class="pb-48">
     <div class="container">
-        <h1>Registrar’s Office</h1>
+        <div class="mb-16">
+            <h1>Registrar’s Office</h1>
+        </div>
         <p>Select a form to continue</p>
         <div class="contents">
             <div class="flex">
@@ -97,7 +99,7 @@
                         <CardButton
                             class=""
                             href={!session || session?.user?.email == PUBLIC_KIOSK_GUEST_EMAIL
-                                ? "/signin?redirect=" + encodeURIComponent(href)
+                                ? "/sign-in?redirect=" + encodeURIComponent(href)
                                 : href}
                             {...form} />
                     </div>

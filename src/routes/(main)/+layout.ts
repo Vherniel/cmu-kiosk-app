@@ -19,9 +19,9 @@ export const load = (async ({ fetch, data, depends }) => {
 
     return {
         weather: data.weather,
-        news: data.news,
+        user: data.user,
         supabase,
-        session,
+        session: data.session,
         formRecords: data.formRecords,
     };
 }) satisfies LayoutLoad;

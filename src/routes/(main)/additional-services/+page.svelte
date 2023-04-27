@@ -13,10 +13,9 @@
 
 <section>
     <div class="container">
-        <div class="mb-20">
+        <div class="mb-16">
             <h1>Additional Services</h1>
         </div>
-        <p>Select a service to continue</p>
 
         <div class="contents">
             <div class="flex">
